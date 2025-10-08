@@ -513,6 +513,213 @@ main {
 }
 
 /* ==========================================================================
+   CONTACT FORM SECTION
+   ========================================================================== */
+
+/* Contact form section styling */
+.contact-section {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    padding: 60px;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 107, 53, 0.4);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    margin-bottom: 60px;
+}
+
+/* Contact section heading */
+.contact-section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff6b35, #ff8c00, #ffa500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
+}
+
+/* Contact section description */
+.contact-section p {
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Contact form container */
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Contact form styling */
+.contact-form {
+    text-align: left;
+}
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 25px;
+}
+
+/* Form labels */
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ff6b35;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* Form inputs and textarea */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+/* Form input focus states */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: rgba(255, 107, 53, 0.8);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.2);
+}
+
+/* Placeholder styling */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Textarea specific styling */
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Form actions container */
+.form-actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+/* Submit button styling */
+.submit-btn {
+    background: linear-gradient(135deg, #ff6b35 0%, #d84315 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+    min-width: 150px;
+}
+
+/* Submit button hover effects */
+.submit-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(255, 107, 53, 0.5);
+    background: linear-gradient(135deg, #d84315 0%, #bf360c 100%);
+}
+
+/* Submit button disabled state */
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* LinkedIn button styling */
+.linkedin-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #cccccc;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 107, 53, 0.4);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+}
+
+/* LinkedIn button hover effects */
+.linkedin-btn:hover {
+    color: #ff6b35;
+    background: rgba(255, 107, 53, 0.15);
+    border-color: rgba(255, 107, 53, 0.8);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.2);
+}
+
+/* Form message styling */
+.form-message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Success message */
+.form-message.success {
+    background: rgba(76, 175, 80, 0.2);
+    border: 1px solid rgba(76, 175, 80, 0.5);
+    color: #4caf50;
+}
+
+/* Error message */
+.form-message.error {
+    background: rgba(244, 67, 54, 0.2);
+    border: 1px solid rgba(244, 67, 54, 0.5);
+    color: #f44336;
+}
+
+/* Cosmic energy effect for contact section */
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, rgba(255, 140, 0, 0.05) 30%, transparent 70%);
+    animation: cosmicPulse 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* ==========================================================================
    FOOTER SECTION
    ========================================================================== */
 
@@ -710,5 +917,25 @@ section {
     section {
         margin-top: 60px;
         margin-bottom: 60px;
+    }
+    
+    /* Contact form mobile styles */
+    .contact-section {
+        padding: 40px 30px;
+    }
+    
+    .contact-section h2 {
+        font-size: 2.2rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .submit-btn,
+    .linkedin-btn {
+        width: 100%;
+        justify-content: center;
     }
 }
