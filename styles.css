@@ -191,9 +191,9 @@ main {
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    height: 180px;
+    min-height: 280px;
 }
 
 /* Experience card hover effects */
