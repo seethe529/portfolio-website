@@ -1,0 +1,587 @@
+/* ==========================================================================
+   RESET AND BASE STYLES
+   ========================================================================== */
+
+/* Universal box-sizing reset for consistent layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles with gradient background and typography */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #2d1810 100%);
+    min-height: 100vh;
+}
+
+/* Container for consistent max-width and centering */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   HEADER SECTION
+   ========================================================================== */
+
+/* Header with banner image and overlay */
+header {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Banner container with fixed height */
+.banner-container {
+    position: relative;
+    height: 400px;
+}
+
+/* Banner image covering full container */
+.banner-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Overlay content positioned over banner image */
+.header-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Left-aligned text within header */
+.header-content .container {
+    text-align: left;
+}
+
+/* Main heading with shadow effects */
+header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.6), 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Subtitle with lighter weight */
+header p {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* ==========================================================================
+   MAIN CONTENT AREA
+   ========================================================================== */
+
+/* Main content wrapper with padding */
+main {
+    padding: 60px 0;
+    position: relative;
+}
+
+/* ==========================================================================
+   HERO SECTION (About Me)
+   ========================================================================== */
+
+/* Hero section with grid layout and glass morphism effect */
+.hero {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 60px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 50px;
+    border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+/* Hero image container with decorative border */
+.hero-image {
+    position: relative;
+}
+
+/* Animated glowing border effect */
+.hero-image::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    background: linear-gradient(45deg, #ff6b35, #d84315, #bf360c, #ff6b35);
+    border-radius: 20px;
+    z-index: -1;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Glow animation keyframes */
+@keyframes glow {
+    0% { opacity: 0.6; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.02); }
+}
+
+/* Hero image styling */
+.hero-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+/* Hero content heading */
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Hero content paragraph */
+.hero-content p {
+    font-size: 1.2rem;
+    color: #cccccc;
+    line-height: 1.8;
+}
+
+/* ==========================================================================
+   EXPERIENCE SECTION
+   ========================================================================== */
+
+/* Experience section heading with gradient text */
+.experience h2 {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #ffffff;
+    font-weight: 700;
+    background: linear-gradient(45deg, #ff6b35, #ffab91);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Grid layout for experience cards */
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+/* Individual experience card styling */
+.experience-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+}
+
+/* Experience card hover effects */
+.experience-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
+    border-color: rgba(255, 107, 53, 0.6);
+}
+
+/* Experience card headings */
+.experience-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #ff6b35;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Experience card descriptions */
+.experience-card p {
+    color: #cccccc;
+    line-height: 1.6;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Company logo container */
+.company-logo {
+    height: 60px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Company logo image sizing */
+.company-logo img {
+    max-height: 50px;
+    max-width: 120px;
+    object-fit: contain;
+}
+
+/* ==========================================================================
+   RESUME SECTION
+   ========================================================================== */
+
+/* Resume section with glass morphism and animated background */
+.resume-section {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    padding: 60px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated background pulse effect */
+.resume-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+/* Pulse animation keyframes */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* Resume section heading */
+.resume-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #ffffff;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+}
+
+/* Resume section description */
+.resume-section p {
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-bottom: 35px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Resume download button */
+.resume-link {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff6b35 0%, #d84315 100%);
+    color: white;
+    padding: 18px 40px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+}
+
+/* Resume button hover effects */
+.resume-link:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(255, 107, 53, 0.5);
+    background: linear-gradient(135deg, #d84315 0%, #bf360c 100%);
+}
+
+/* ==========================================================================
+   ACCOMPLISHMENTS SECTION
+   ========================================================================== */
+
+/* Accomplishments section with top spacing from resume */
+.accomplishments {
+    margin-top: 150px !important;
+    padding-top: 80px;
+}
+
+/* Accomplishments section heading with gradient text */
+.accomplishments h2 {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #ffffff;
+    font-weight: 700;
+    background: linear-gradient(45deg, #ff6b35, #ffab91);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Grid layout for accomplishment cards */
+.accomplishment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Individual accomplishment card styling */
+.accomplishment-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Sliding light effect on accomplishment cards */
+.accomplishment-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+/* Trigger sliding effect on hover */
+.accomplishment-card:hover::before {
+    left: 100%;
+}
+
+/* Accomplishment card hover effects */
+.accomplishment-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(255, 107, 53, 0.2);
+    border-color: rgba(255, 107, 53, 0.6);
+}
+
+/* Accomplishment card headings */
+.accomplishment-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #ff6b35;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Accomplishment card descriptions */
+.accomplishment-card p {
+    color: #cccccc;
+    line-height: 1.6;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   FOOTER SECTION
+   ========================================================================== */
+
+/* Footer with gradient background */
+footer {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 100%);
+    color: #cccccc;
+    padding: 40px 0;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+/* Footer content wrapper for flexbox layout */
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+/* Contact links container */
+.contact-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Individual contact link styling */
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #cccccc;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 107, 53, 0.3);
+}
+
+/* Contact link hover effects */
+.contact-link:hover {
+    color: #ff6b35;
+    background: rgba(255, 107, 53, 0.1);
+    border-color: rgba(255, 107, 53, 0.6);
+    transform: translateY(-2px);
+}
+
+/* SVG icon transitions */
+.contact-link svg {
+    transition: all 0.3s ease;
+}
+
+/* Footer copyright text */
+footer p {
+    margin: 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   CONSISTENT VERTICAL SPACING
+   ========================================================================== */
+
+/* Global section spacing for consistent vertical rhythm */
+section {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+/* Specific section margin overrides */
+.experience,
+.resume-section {
+    margin: 0 auto 100px auto;
+}
+
+.accomplishments {
+    margin: 120px auto 100px auto;
+}
+
+/* Consistent heading spacing */
+.experience h2,
+.accomplishments h2,
+.resume-section h2 {
+    margin-bottom: 50px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN - MOBILE STYLES
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    /* Reduced banner height for mobile */
+    .banner-container {
+        height: 250px;
+    }
+    
+    /* Smaller heading sizes for mobile */
+    header h1 {
+        font-size: 2.5rem;
+    }
+    
+    header p {
+        font-size: 1.1rem;
+    }
+    
+    /* Single column hero layout for mobile */
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+        padding: 30px;
+    }
+    
+    /* Constrained hero image size */
+    .hero-image {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+    
+    /* Smaller hero heading for mobile */
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    
+    /* Smaller section headings for mobile */
+    .experience h2,
+    .accomplishments h2 {
+        font-size: 2.2rem;
+    }
+    
+    /* Single column experience grid for mobile */
+    .experience-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    /* Adjusted experience card padding */
+    .experience-card {
+        padding: 25px;
+    }
+    
+    /* Single column accomplishment grid for mobile */
+    .accomplishment-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    /* Adjusted accomplishment card padding */
+    .accomplishment-card {
+        padding: 30px;
+    }
+    
+    /* Reduced resume section padding for mobile */
+    .resume-section {
+        padding: 40px 30px;
+    }
+    
+    /* Smaller resume heading for mobile */
+    .resume-section h2 {
+        font-size: 2rem;
+    }
+    
+    /* Vertical contact links for mobile */
+    .contact-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    /* Smaller contact link padding for mobile */
+    .contact-link {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+    
+    /* Reduced section spacing for mobile */
+    section {
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+}

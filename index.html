@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!-- HTML5 document type declaration -->
+<html lang="en">
+<head>
+    <!-- Character encoding for proper text display -->
+    <meta charset="UTF-8">
+    <!-- Responsive design viewport meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title shown in browser tab -->
+    <title>Ryan Lingo - Accomplishments & Portfolio</title>
+    
+    <!-- Google Fonts preconnect for performance optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Inter font family import with multiple weights -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main stylesheet link -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header section with banner image and overlay text -->
+    <header>
+        <!-- Container for banner image with overlay content -->
+        <div class="banner-container">
+            <!-- Background banner image -->
+            <img src="assets/images/professional-banner.jpeg" alt="Professional Banner">
+            <!-- Overlay content positioned over the banner -->
+            <div class="header-content">
+                <div class="container">
+                    <!-- Main heading with name and credentials -->
+                    <h1>Ryan Charles Lingo, M.A.</h1>
+                    <!-- Subtitle describing the page purpose -->
+                    <p>Accomplishments & Professional Portfolio</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content area with container for consistent width -->
+    <main class="container">
+        <!-- About Section: Hero section with image and introduction -->
+        <section id="about" class="hero">
+            <!-- Professional headshot with decorative border effects -->
+            <div class="hero-image">
+                <img src="assets/images/ryan-lingo-headshot.jpg" alt="Ryan Lingo Professional Headshot">
+            </div>
+            <!-- About content with heading and description -->
+            <div class="hero-content">
+                <h2>About Me</h2>
+                <p>I specialize in transforming complex spatial data into actionable insights. With experience spanning GIS development, AWS infrastructure, and automation, I create solutions that merge technology and innovation. My professional focus is on building systems that visualize, analyze, and advance how we understand Earth and space environments.</p>
+            </div>
+        </section>
+
+        <!-- Experience Section: Grid layout of professional roles -->
+        <section id="experience" class="experience">
+            <h2>Professional Experience</h2>
+            <!-- Grid container for experience cards -->
+            <div class="experience-grid">
+                <!-- Individual experience card with logo, title, and description -->
+                <div class="experience-card">
+                    <!-- Company logo with error handling (hides if image fails to load) -->
+                    <div class="company-logo">
+                        <img src="assets/logos/gis-company-logo.png" alt="GIS Company" onerror="this.style.display='none'">
+                    </div>
+                    <h3>GIS Database Engineer</h3>
+                    <p>Specialized in geospatial database management and GIS system development.</p>
+                </div>
+                <div class="experience-card">
+                    <div class="company-logo">
+                        <img src="assets/logos/marketing-company-logo.png" alt="Marketing Company" onerror="this.style.display='none'">
+                    </div>
+                    <h3>Digital Marketing & Systems Specialist</h3>
+                    <p>Integrated digital marketing strategies with advanced system solutions.</p>
+                </div>
+                <div class="experience-card">
+                    <div class="company-logo">
+                        <img src="assets/logos/automation-company-logo.png" alt="Automation Company" onerror="this.style.display='none'">
+                    </div>
+                    <h3>GIS Developer/Automation Support</h3>
+                    <p>Developed automated GIS solutions and provided technical support.</p>
+                </div>
+                <div class="experience-card">
+                    <div class="company-logo">
+                        <img src="assets/logos/geography-org-logo.png" alt="Geography Organization" onerror="this.style.display='none'">
+                    </div>
+                    <h3>Geographer</h3>
+                    <p>Conducted geographical analysis and research for various projects.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Section: Download link for PDF resume -->
+        <section id="resume" class="resume-section">
+            <h2>Resume</h2>
+            <p>Download my complete professional resume for detailed information about my experience and qualifications.</p>
+            <!-- Resume download link that opens in new tab -->
+            <a href="assets/documents/ryan-lingo-resume.pdf" class="resume-link" target="_blank">
+                Download Resume (PDF)
+            </a>
+        </section>
+
+        <!-- Spacer for proper section separation -->
+        <div style="height: 100px;"></div>
+
+        <!-- Accomplishments Section: Grid of key achievements -->
+        <section id="accomplishments" class="accomplishments">
+            <h2>Key Accomplishments</h2>
+            <!-- Grid container for accomplishment cards -->
+            <div class="accomplishment-grid">
+                <!-- Individual accomplishment card with title and description -->
+                <div class="accomplishment-card">
+                    <h3>GIS & Geospatial Expertise</h3>
+                    <p>Advanced proficiency in GIS database engineering and geospatial analysis systems.</p>
+                </div>
+                <div class="accomplishment-card">
+                    <h3>Digital Marketing Integration</h3>
+                    <p>Successfully bridged technical systems with marketing strategies for optimal results.</p>
+                </div>
+                <div class="accomplishment-card">
+                    <h3>Research & Development</h3>
+                    <p>Contributed to paleoclimatology research and geospatial data cataloguing initiatives.</p>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <!-- Footer section with contact links and copyright -->
+    <footer>
+        <div class="container">
+            <!-- Footer content wrapper for flexbox layout -->
+            <div class="footer-content">
+                <!-- Contact links with SVG icons -->
+                <div class="contact-links">
+                    <!-- Email contact link with envelope icon -->
+                    <a href="mailto:rlingo084@gmail.com" class="contact-link">
+                        <!-- SVG email icon -->
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="L22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Email
+                    </a>
+                    <!-- LinkedIn contact link with LinkedIn icon (opens in new tab) -->
+                    <a href="https://www.linkedin.com/in/xzmkc96nhmemwpsp8emrkgtvup" class="contact-link" target="_blank">
+                        <!-- SVG LinkedIn icon -->
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8V8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6 9H2V21H6V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                </div>
+                <!-- Copyright notice -->
+                <p>&copy; 2024 Ryan Lingo. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
