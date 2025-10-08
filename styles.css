@@ -315,10 +315,9 @@ main {
    ACCOMPLISHMENTS SECTION
    ========================================================================== */
 
-/* Accomplishments section with top spacing from resume */
+/* Accomplishments section with normal spacing */
 .accomplishments {
-    margin-top: 150px !important;
-    padding-top: 80px;
+    margin-top: 60px;
 }
 
 /* Accomplishments section heading with gradient text */
