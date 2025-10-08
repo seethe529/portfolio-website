@@ -184,7 +184,7 @@ main {
 .experience-card {
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(15px);
-    padding: 24px;
+    padding: 20px;
     border-radius: 16px;
     border: 1px solid rgba(255, 107, 53, 0.3);
     text-align: center;
@@ -193,7 +193,7 @@ main {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    min-height: 280px;
+    min-height: 240px;
 }
 
 /* Experience card hover effects */
