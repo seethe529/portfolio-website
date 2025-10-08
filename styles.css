@@ -9,13 +9,39 @@
     box-sizing: border-box;
 }
 
-/* Body styles with gradient background and typography */
+/* Body styles with space-themed gradient background */
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
-    color: #1a1a1a;
-    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #2d1810 100%);
+    color: #e8e8e8;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 140, 0, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+        linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
     min-height: 100vh;
+    position: relative;
+}
+
+/* Subtle star field effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.4), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(2px 2px at 160px 30px, rgba(255, 255, 255, 0.3), transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.6;
 }
 
 /* Container for consistent max-width and centering */
@@ -96,18 +122,42 @@ main {
    HERO SECTION (About Me)
    ========================================================================== */
 
-/* Hero section with grid layout and glass morphism effect */
+/* Hero section with space-themed glass morphism effect */
 .hero {
     display: grid;
     grid-template-columns: 350px 1fr;
     gap: 60px;
     align-items: center;
     margin-bottom: 60px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border-radius: 24px;
     padding: 50px;
-    border: 1px solid rgba(255, 107, 53, 0.2);
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle orbital ring effect */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 /* Hero image container with decorative border */
@@ -115,15 +165,29 @@ main {
     position: relative;
 }
 
-/* Animated glowing border effect */
+/* Space-themed glowing border effect */
 .hero-image::before {
     content: '';
     position: absolute;
-    inset: -10px;
-    background: linear-gradient(45deg, #ff6b35, #d84315, #bf360c, #ff6b35);
-    border-radius: 20px;
+    inset: -12px;
+    background: linear-gradient(45deg, #ff6b35, #ff8c00, #ff4500, #ff6b35);
+    border-radius: 24px;
     z-index: -1;
-    animation: glow 2s ease-in-out infinite alternate;
+    animation: cosmicGlow 3s ease-in-out infinite alternate;
+    filter: blur(1px);
+}
+
+@keyframes cosmicGlow {
+    0% { 
+        opacity: 0.6; 
+        transform: scale(1) rotate(0deg); 
+        filter: blur(1px) hue-rotate(0deg);
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1.02) rotate(2deg); 
+        filter: blur(2px) hue-rotate(10deg);
+    }
 }
 
 /* Glow animation keyframes */
@@ -160,17 +224,18 @@ main {
    EXPERIENCE SECTION
    ========================================================================== */
 
-/* Experience section heading with gradient text */
+/* Experience section heading with space gradient text */
 .experience h2 {
     font-size: 2.8rem;
     text-align: center;
     margin-bottom: 50px;
     color: #ffffff;
     font-weight: 700;
-    background: linear-gradient(45deg, #ff6b35, #ffab91);
+    background: linear-gradient(135deg, #ff6b35, #ff8c00, #ffa500);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
 }
 
 /* Grid layout for experience cards */
@@ -180,27 +245,53 @@ main {
     gap: 30px;
 }
 
-/* Individual experience card styling */
+/* Space-themed experience card styling */
 .experience-card {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
     padding: 20px;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 107, 53, 0.3);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 107, 53, 0.4);
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     min-height: 240px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-/* Experience card hover effects */
+/* Subtle nebula effect on cards */
+.experience-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+/* Space-themed experience card hover effects */
 .experience-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
-    border-color: rgba(255, 107, 53, 0.6);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 20px 60px rgba(255, 107, 53, 0.3),
+        0 0 30px rgba(255, 107, 53, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 107, 53, 0.8);
+}
+
+.experience-card:hover::after {
+    opacity: 1;
 }
 
 /* Experience card headings */
@@ -239,19 +330,22 @@ main {
    RESUME SECTION
    ========================================================================== */
 
-/* Resume section with glass morphism and animated background */
+/* Space-themed resume section */
 .resume-section {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
     padding: 60px;
-    border-radius: 25px;
-    border: 1px solid rgba(255, 107, 53, 0.2);
+    border-radius: 28px;
+    border: 1px solid rgba(255, 107, 53, 0.4);
     text-align: center;
     position: relative;
     overflow: hidden;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-/* Animated background pulse effect */
+/* Cosmic energy pulse effect */
 .resume-section::before {
     content: '';
     position: absolute;
@@ -259,8 +353,19 @@ main {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
-    animation: pulse 4s ease-in-out infinite;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, rgba(255, 140, 0, 0.1) 30%, transparent 70%);
+    animation: cosmicPulse 6s ease-in-out infinite;
+}
+
+@keyframes cosmicPulse {
+    0%, 100% { 
+        transform: scale(1) rotate(0deg); 
+        opacity: 0.3; 
+    }
+    50% { 
+        transform: scale(1.1) rotate(180deg); 
+        opacity: 0.6; 
+    }
 }
 
 /* Pulse animation keyframes */
@@ -320,17 +425,18 @@ main {
     margin-top: 60px;
 }
 
-/* Accomplishments section heading with gradient text */
+/* Accomplishments section heading with space gradient */
 .accomplishments h2 {
     font-size: 2.8rem;
     text-align: center;
     margin-bottom: 50px;
     color: #ffffff;
     font-weight: 700;
-    background: linear-gradient(45deg, #ff6b35, #ffab91);
+    background: linear-gradient(135deg, #ff6b35, #ff8c00, #ffa500);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
 }
 
 /* Grid layout for accomplishment cards */
@@ -341,15 +447,15 @@ main {
     margin-bottom: 40px;
 }
 
-/* Individual accomplishment card styling */
+/* Space-themed accomplishment card styling */
 .accomplishment-card {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
     padding: 24px;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 107, 53, 0.3);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 107, 53, 0.4);
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -357,9 +463,12 @@ main {
     height: 180px;
     position: relative;
     overflow: hidden;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-/* Sliding light effect on accomplishment cards */
+/* Cosmic energy sweep effect */
 .accomplishment-card::before {
     content: '';
     position: absolute;
@@ -367,8 +476,9 @@ main {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.1), transparent);
-    transition: left 0.5s ease;
+    background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.2), rgba(255, 140, 0, 0.1), transparent);
+    transition: left 0.6s ease;
+    filter: blur(1px);
 }
 
 /* Trigger sliding effect on hover */
@@ -376,11 +486,14 @@ main {
     left: 100%;
 }
 
-/* Accomplishment card hover effects */
+/* Space-themed accomplishment card hover effects */
 .accomplishment-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 25px 50px rgba(255, 107, 53, 0.2);
-    border-color: rgba(255, 107, 53, 0.6);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 
+        0 25px 60px rgba(255, 107, 53, 0.3),
+        0 0 40px rgba(255, 107, 53, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 107, 53, 0.8);
 }
 
 /* Accomplishment card headings */
@@ -403,13 +516,25 @@ main {
    FOOTER SECTION
    ========================================================================== */
 
-/* Footer with gradient background */
+/* Space-themed footer */
 footer {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 100%);
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
     color: #cccccc;
     padding: 40px 0;
     margin-top: 40px;
-    border-top: 1px solid rgba(255, 107, 53, 0.2);
+    border-top: 1px solid rgba(255, 107, 53, 0.3);
+    position: relative;
+}
+
+/* Subtle constellation effect in footer */
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.5), transparent);
 }
 
 /* Footer content wrapper for flexbox layout */
@@ -428,7 +553,7 @@ footer {
     gap: 40px;
 }
 
-/* Individual contact link styling */
+/* Space-themed contact link styling */
 .contact-link {
     display: inline-flex;
     align-items: center;
@@ -436,19 +561,22 @@ footer {
     color: #cccccc;
     text-decoration: none;
     padding: 12px 20px;
-    border-radius: 8px;
+    border-radius: 12px;
     font-weight: 500;
     font-size: 1rem;
     transition: all 0.3s ease;
-    border: 1px solid rgba(255, 107, 53, 0.3);
+    border: 1px solid rgba(255, 107, 53, 0.4);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
 }
 
-/* Contact link hover effects */
+/* Space-themed contact link hover effects */
 .contact-link:hover {
     color: #ff6b35;
-    background: rgba(255, 107, 53, 0.1);
-    border-color: rgba(255, 107, 53, 0.6);
-    transform: translateY(-2px);
+    background: rgba(255, 107, 53, 0.15);
+    border-color: rgba(255, 107, 53, 0.8);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.2);
 }
 
 /* SVG icon transitions */
