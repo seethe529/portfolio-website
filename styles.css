@@ -513,6 +513,108 @@ main {
 }
 
 /* ==========================================================================
+   TECH STACK SECTION
+   ========================================================================== */
+
+/* Tech stack section styling */
+.tech-stack {
+    margin-bottom: 100px;
+}
+
+/* Tech stack section heading */
+.tech-stack h2 {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff6b35, #ff8c00, #ffa500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
+}
+
+/* Tech stack description */
+.tech-stack p {
+    font-size: 1.2rem;
+    color: #cccccc;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Tech grid layout */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+/* Tech category styling */
+.tech-category {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 107, 53, 0.4);
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Tech category hover effects */
+.tech-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 20px 40px rgba(255, 107, 53, 0.2),
+        0 0 30px rgba(255, 107, 53, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 107, 53, 0.6);
+}
+
+/* Tech category headings */
+.tech-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #ff6b35;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Tech items container */
+.tech-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Individual tech item styling */
+.tech-item {
+    background: rgba(255, 107, 53, 0.2);
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+/* Tech item hover effects */
+.tech-item:hover {
+    background: rgba(255, 107, 53, 0.4);
+    border-color: rgba(255, 107, 53, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+/* ==========================================================================
    CONTACT FORM SECTION
    ========================================================================== */
 
@@ -917,6 +1019,20 @@ section {
     section {
         margin-top: 60px;
         margin-bottom: 60px;
+    }
+    
+    /* Tech stack mobile styles */
+    .tech-stack h2 {
+        font-size: 2.2rem;
+    }
+    
+    .tech-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .tech-category {
+        padding: 25px 20px;
     }
     
     /* Contact form mobile styles */
