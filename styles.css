@@ -1027,12 +1027,26 @@ section {
     }
     
     .tech-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 20px;
     }
     
     .tech-category {
         padding: 25px 20px;
+    }
+    
+    .tech-category h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    .tech-items {
+        gap: 8px;
+    }
+    
+    .tech-item {
+        font-size: 0.85rem;
+        padding: 6px 12px;
     }
     
     /* Contact form mobile styles */
@@ -1053,5 +1067,85 @@ section {
     .linkedin-btn {
         width: 100%;
         justify-content: center;
+    }
+}
+
+/* ==========================================================================
+   EXTRA SMALL SCREENS (PHONES IN PORTRAIT)
+   ========================================================================== */
+
+@media (max-width: 480px) {
+    /* Container padding adjustment for very small screens */
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Further reduced banner height */
+    .banner-container {
+        height: 200px;
+    }
+    
+    /* Even smaller headings */
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    /* Tighter hero section */
+    .hero {
+        padding: 20px;
+        gap: 30px;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    /* Compact tech stack for very small screens */
+    .tech-stack {
+        margin-bottom: 60px;
+    }
+    
+    .tech-stack h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    
+    .tech-stack p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+    
+    .tech-category {
+        padding: 20px 15px;
+    }
+    
+    .tech-category h3 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+    
+    .tech-items {
+        gap: 6px;
+    }
+    
+    .tech-item {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+    
+    /* Compact other sections */
+    .experience-card,
+    .accomplishment-card {
+        padding: 20px;
+    }
+    
+    .resume-section,
+    .contact-section {
+        padding: 30px 20px;
+    }
+    
+    section {
+        margin-top: 40px;
+        margin-bottom: 40px;
     }
 }
