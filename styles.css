@@ -460,7 +460,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 180px;
+    min-height: 220px;
     position: relative;
     overflow: hidden;
     box-shadow: 
