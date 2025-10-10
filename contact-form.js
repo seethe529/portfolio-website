@@ -1,13 +1,34 @@
-// Contact form handler
+// Contact form handler with rate limiting
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactForm');
     const submitBtn = form.querySelector('.submit-btn');
     const btnText = submitBtn.querySelector('.btn-text');
     const btnLoading = submitBtn.querySelector('.btn-loading');
     const formMessage = document.getElementById('form-message');
+    
+    // Rate limiting
+    let lastSubmission = 0;
+    const RATE_LIMIT = 60000; // 1 minute
+    
+    function canSubmit() {
+        const now = Date.now();
+        if (now - lastSubmission < RATE_LIMIT) {
+            return false;
+        }
+        lastSubmission = now;
+        return true;
+    }
 
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
+        
+        // Check rate limit
+        if (!canSubmit()) {
+            formMessage.textContent = 'Please wait 1 minute between submissions.';
+            formMessage.className = 'form-message error';
+            formMessage.style.display = 'block';
+            return;
+        }
 
         // Show loading state
         submitBtn.disabled = true;
@@ -15,12 +36,12 @@ document.addEventListener('DOMContentLoaded', function() {
         btnLoading.style.display = 'inline';
         formMessage.style.display = 'none';
 
-        // Get form data
+        // Get and optimize form data
         const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            subject: document.getElementById('subject').value,
-            message: document.getElementById('message').value
+            name: document.getElementById('name').value.trim().substring(0, 100),
+            email: document.getElementById('email').value.trim().substring(0, 100),
+            subject: document.getElementById('subject').value.trim().substring(0, 200),
+            message: document.getElementById('message').value.trim().substring(0, 1000)
         };
 
         try {
