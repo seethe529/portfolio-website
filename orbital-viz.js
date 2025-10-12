@@ -131,7 +131,7 @@ class OrbitalVisualization {
     
     isValidFilePath(path) {
         // Security: Prevent directory traversal attacks
-        const allowedPaths = /^orbits\/[A-Z_]+\.czml$/;
+        const allowedPaths = /^orbits\/[A-Za-z0-9_-]+\.czml$/;
         return allowedPaths.test(path) && !path.includes('..');
     }
     
