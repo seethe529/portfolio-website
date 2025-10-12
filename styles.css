@@ -628,6 +628,127 @@ main {
 }
 
 /* ==========================================================================
+   ORBITAL VISUALIZATION SECTION
+   ========================================================================== */
+
+/* Orbital visualization section */
+.orbital-section {
+    margin-bottom: 100px;
+}
+
+/* Orbital section heading */
+.orbital-section h2 {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff6b35, #ff8c00, #ffa500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
+}
+
+/* Orbital section description */
+.orbital-section p {
+    font-size: 1.2rem;
+    color: #cccccc;
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* Orbital container */
+.orbital-container {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 107, 53, 0.4);
+    padding: 20px;
+    margin-bottom: 40px;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Orbital iframe */
+.orbital-iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+    border-radius: 12px;
+    background: #0a0a0f;
+}
+
+/* Orbital info grid */
+.orbital-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+}
+
+/* Orbital info sections */
+.orbital-tech,
+.orbital-applications {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 107, 53, 0.4);
+    transition: all 0.4s ease;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.orbital-tech:hover,
+.orbital-applications:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 20px 40px rgba(255, 107, 53, 0.2),
+        0 0 30px rgba(255, 107, 53, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 107, 53, 0.6);
+}
+
+/* Orbital info headings */
+.orbital-tech h3,
+.orbital-applications h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #ff6b35;
+    font-weight: 600;
+}
+
+/* Orbital info lists */
+.orbital-tech ul,
+.orbital-applications ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.orbital-tech li,
+.orbital-applications li {
+    margin-bottom: 12px;
+    color: #cccccc;
+    line-height: 1.5;
+    padding-left: 20px;
+    position: relative;
+}
+
+.orbital-tech li::before,
+.orbital-applications li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: #ff6b35;
+    font-size: 0.8rem;
+}
+
+/* ==========================================================================
    CONTACT FORM SECTION
    ========================================================================== */
 
@@ -1078,6 +1199,25 @@ section {
     .tech-item {
         font-size: 0.85rem;
         padding: 6px 12px;
+    }
+    
+    /* Orbital visualization mobile styles */
+    .orbital-section h2 {
+        font-size: 2.2rem;
+    }
+    
+    .orbital-iframe {
+        height: 400px;
+    }
+    
+    .orbital-info {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .orbital-tech,
+    .orbital-applications {
+        padding: 25px 20px;
     }
     
     /* Contact form mobile styles */
