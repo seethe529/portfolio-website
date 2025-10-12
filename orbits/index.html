@@ -194,85 +194,43 @@
             font-size: 0.9rem;
         }
         
-        /* Technical Implementation Panel */
-        .tech-panel {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 280px;
-            max-height: 300px;
-            background: rgba(10, 10, 15, 0.9);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 107, 53, 0.4);
-            border-radius: 12px;
-            padding: 20px;
+        /* Technical Implementation & Applications Section */
+        .tech-apps-section {
+            background-color: #0a0a0f;
             color: #e8e8e8;
-            font-size: 13px;
-            z-index: 1000;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            overflow-y: auto;
+            padding: 60px;
         }
         
-        .tech-panel h3 {
-            margin: 0 0 15px 0;
-            color: #ff6b35;
-            font-size: 16px;
-            font-weight: 600;
+        .tech-apps-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
         }
         
-        .tech-content {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        
-        .tech-item {
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255, 107, 53, 0.2);
-        }
-        
-        .tech-item:last-child {
-            border-bottom: none;
-        }
-        
-        /* Applications Panel */
-        .applications-panel {
-            position: absolute;
-            bottom: 80px;
-            right: 20px;
-            width: 280px;
-            max-height: 300px;
-            background: rgba(10, 10, 15, 0.9);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 107, 53, 0.4);
+        .tech-card, .apps-card {
+            background: rgba(255, 107, 53, 0.05);
+            border: 1px solid rgba(255, 107, 53, 0.3);
             border-radius: 12px;
-            padding: 20px;
-            color: #e8e8e8;
-            font-size: 13px;
-            z-index: 1000;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            overflow-y: auto;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
         
-        .applications-panel h3 {
-            margin: 0 0 15px 0;
+        .tech-card h3, .apps-card h3 {
             color: #ff6b35;
-            font-size: 16px;
+            font-size: 1.5rem;
             font-weight: 600;
+            margin-bottom: 1.5rem;
         }
         
-        .applications-content {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        
-        .app-item {
-            padding: 8px 0;
+        .tech-item, .app-item {
+            padding: 12px 0;
             border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+            font-size: 1rem;
         }
         
-        .app-item:last-child {
+        .tech-item:last-child, .app-item:last-child {
             border-bottom: none;
         }
 
@@ -294,15 +252,17 @@
                 padding: 1rem;
             }
             
-            .tech-panel, .applications-panel {
-                width: 250px;
-                right: 10px;
-                padding: 15px;
-                font-size: 12px;
+            .tech-apps-section {
+                padding: 40px 20px;
             }
             
-            .applications-panel {
-                bottom: 60px;
+            .tech-apps-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .tech-card, .apps-card {
+                padding: 1.5rem;
             }
         }
 
@@ -459,11 +419,13 @@
         <div class="orbital-caption">
             Conceptual orbital zoning visualization designed by Ryan Charles Lingo.
         </div>
-        
-        <!-- Technical Implementation Panel -->
-        <div class="tech-panel" id="techPanel">
-            <h3>Technical Implementation</h3>
-            <div class="tech-content">
+    </div>
+    
+    <!-- Technical Implementation Section -->
+    <section class="tech-apps-section">
+        <div class="tech-apps-container">
+            <div class="tech-card">
+                <h3>Technical Implementation</h3>
                 <div class="tech-item">
                     <strong>CesiumJS 1.109</strong> - 3D geospatial visualization
                 </div>
@@ -477,12 +439,9 @@
                     <strong>Interactive 3D</strong> - Real-time navigation and exploration
                 </div>
             </div>
-        </div>
-        
-        <!-- Applications Panel -->
-        <div class="applications-panel" id="applicationsPanel">
-            <h3>Applications</h3>
-            <div class="applications-content">
+            
+            <div class="apps-card">
+                <h3>Applications</h3>
                 <div class="app-item">
                     <strong>Satellite Mission Planning</strong> - Orbital zone analysis
                 </div>
@@ -497,7 +456,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     
     <!-- Orbital Shell Overview Section -->
     <section class="orbital-overview-section" id="orbitalOverview">
