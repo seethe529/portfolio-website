@@ -204,9 +204,11 @@
             maximumRenderTimeChange: Infinity
         });
 
-        // Add base imagery layer - use default Cesium imagery
+        // Add base imagery layer - use OpenStreetMap as fallback
         viewer.imageryLayers.addImageryProvider(
-            new Cesium.createWorldImagery()
+            new Cesium.OpenStreetMapImageryProvider({
+                url: 'https://a.tile.openstreetmap.org/'
+            })
         );
         
         // Configure scene for space visualization
