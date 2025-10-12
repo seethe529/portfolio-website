@@ -400,14 +400,14 @@
         // Loading management
         let loadedCount = 0;
         const totalFiles = 3;
-        const loadingIndicator = document.getElementById('loadingIndicator');
 
         function checkLoadingComplete() {
             loadedCount++;
             console.log(`Loading progress: ${loadedCount}/${totalFiles}`);
             if (loadedCount >= totalFiles) {
-                if (loadingIndicator) {
-                    loadingIndicator.style.display = 'none';
+                const indicator = document.getElementById('loadingIndicator');
+                if (indicator) {
+                    indicator.style.display = 'none';
                 }
                 console.log('🎥 All CZML files processed');
                 
@@ -446,8 +446,9 @@
         setTimeout(() => {
             if (loadedCount < totalFiles) {
                 console.warn('⚠️ Loading timeout - hiding loading indicator');
-                if (loadingIndicator) {
-                    loadingIndicator.style.display = 'none';
+                const indicator = document.getElementById('loadingIndicator');
+                if (indicator) {
+                    indicator.style.display = 'none';
                 }
             }
         }, 10000); // 10 second timeout
