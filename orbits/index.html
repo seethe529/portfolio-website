@@ -468,9 +468,10 @@
                 
                 // Log all data sources
                 console.log('Total data sources:', viewer.dataSources.length);
-                viewer.dataSources.forEach((ds, i) => {
+                for (let i = 0; i < viewer.dataSources.length; i++) {
+                    const ds = viewer.dataSources.get(i);
                     console.log(`Data source ${i}:`, ds.name, 'Entities:', ds.entities.values.length);
-                });
+                }
                 
                 // Zoom out to see all data
                 viewer.camera.setView({
