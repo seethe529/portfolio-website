@@ -179,38 +179,70 @@
 
         <!-- Orbital Visualization Section -->
         <section id="orbital-viz" class="orbital-section">
-            <h2>Orbital Visualization</h2>
-            <p>Interactive 3D visualization of conceptual orbital zones (LEO, MEO, GEO) demonstrating spatial design and geospatial modeling capabilities.</p>
-            
-            <div class="orbital-container">
-                <iframe 
-                    src="/orbits/index.html" 
-                    class="orbital-iframe"
-                    title="Orbital Zones Visualization"
-                    loading="lazy">
-                </iframe>
+            <div class="orbital-header">
+                <h2>Orbital Shell Visualization</h2>
+                <p>Interactive 3D visualization demonstrating orbital tract concepts for LEO, MEO, and GEO zones using advanced geospatial modeling.</p>
             </div>
             
-            <div class="orbital-info">
-                <div class="orbital-tech">
-                    <h3>Technical Implementation</h3>
-                    <ul>
-                        <li><strong>CesiumJS 1.109</strong> - 3D geospatial visualization</li>
-                        <li><strong>CZML Data Format</strong> - Time-dynamic geospatial data</li>
-                        <li><strong>Spatial Modeling</strong> - Orbital mechanics visualization</li>
-                        <li><strong>Interactive 3D</strong> - Real-time navigation and exploration</li>
-                    </ul>
+            <div class="orbital-viewer-container">
+                <div id="cesiumContainer" class="cesium-viewer"></div>
+                <div id="orbital-loading" class="orbital-loading">
+                    <div class="loading-spinner"></div>
+                    <span>Loading orbital visualization...</span>
+                </div>
+            </div>
+            
+            <div class="orbital-details">
+                <div class="orbital-overview">
+                    <h3>Orbital Tract Framework</h3>
+                    <p>This visualization demonstrates a conceptual <strong>space geography system</strong> that divides near-Earth space into structured orbital tracts. Each zone represents distinct operational layers for satellite missions, space traffic management, and regulatory planning.</p>
+                    
+                    <div class="orbit-examples">
+                        <div class="orbit-card">
+                            <h4>🛰️ LEO (Low Earth Orbit)</h4>
+                            <p><code>LEO-A550-I53-RAAN0_30</code></p>
+                            <p>Dense constellation zones for global internet coverage and Earth observation missions.</p>
+                        </div>
+                        
+                        <div class="orbit-card">
+                            <h4>🛰️ MEO (Medium Earth Orbit)</h4>
+                            <p><code>MEO-A20200-I56-RAAN180_185</code></p>
+                            <p>Navigation satellite positioning for GPS, GLONASS, and Galileo systems.</p>
+                        </div>
+                        
+                        <div class="orbit-card">
+                            <h4>🛰️ GEO (Geostationary Orbit)</h4>
+                            <p><code>GEO-TOROIDAL-RAAN0_30-T1-P1</code></p>
+                            <p>Fixed-position satellites for telecommunications and weather monitoring.</p>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="orbital-applications">
-                    <h3>Applications</h3>
-                    <ul>
-                        <li><strong>Satellite Mission Planning</strong> - Orbital zone analysis</li>
-                        <li><strong>Space Traffic Management</strong> - Collision avoidance</li>
-                        <li><strong>Regulatory Compliance</strong> - Orbital debris mitigation</li>
-                        <li><strong>Scientific Visualization</strong> - Research and education</li>
-                    </ul>
+                <div class="orbital-tech-info">
+                    <div class="tech-implementation">
+                        <h4>Technical Implementation</h4>
+                        <ul>
+                            <li><strong>CesiumJS 1.109</strong> - WebGL-based 3D geospatial engine</li>
+                            <li><strong>CZML Format</strong> - Time-dynamic spatial data visualization</li>
+                            <li><strong>AWS S3</strong> - Secure, scalable data storage</li>
+                            <li><strong>Content Security Policy</strong> - XSS protection</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="applications">
+                        <h4>Applications</h4>
+                        <ul>
+                            <li><strong>Mission Planning</strong> - Orbital zone analysis and optimization</li>
+                            <li><strong>Traffic Management</strong> - Collision avoidance systems</li>
+                            <li><strong>Regulatory Compliance</strong> - Space debris mitigation</li>
+                            <li><strong>Research & Education</strong> - Spatial visualization tools</li>
+                        </ul>
+                    </div>
                 </div>
+            </div>
+            
+            <div class="orbital-footer">
+                <p>Visualization & Concept © Ryan Charles Lingo. Patent Pending.</p>
             </div>
         </section>
 
@@ -277,6 +309,22 @@
             </div>
         </div>
     </footer>
+    
+    <!-- Cesium Integration -->
+    <script>
+        // Content Security Policy compliant Cesium configuration
+        window.CESIUM_BASE_URL = 'https://cesium.com/downloads/cesiumjs/releases/1.109/Build/CesiumUnminified/';
+    </script>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.109/Build/CesiumUnminified/Cesium.js" 
+            integrity="sha384-PLACEHOLDER" 
+            crossorigin="anonymous"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.109/Build/Cesium/Widgets/widgets.css" 
+          rel="stylesheet" 
+          integrity="sha384-PLACEHOLDER" 
+          crossorigin="anonymous">
+    
+    <!-- Orbital Visualization Script -->
+    <script src="orbital-viz.js" defer></script>
     
     <!-- Contact form JavaScript -->
     <script src="contact-form.js"></script>
