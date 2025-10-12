@@ -9,7 +9,7 @@
       window.CESIUM_BASE_URL = 'https://cesium.com/downloads/cesiumjs/releases/1.109/Build/Cesium/';
       console.log('CESIUM_BASE_URL set to:', window.CESIUM_BASE_URL);
     </script>
-    <script src="https://cesium.com/downloads/cesiumjs/releases/1.109/Build/Cesium/Cesium.js"></script>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.109/Build/CesiumUnminified/Cesium.js"></script>
     <link href="https://cesium.com/downloads/cesiumjs/releases/1.109/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -187,6 +187,9 @@
     </div>
 
     <script>
+        // Configure Cesium base URL for unminified build
+        window.CESIUM_BASE_URL = 'https://cesium.com/downloads/cesiumjs/releases/1.109/Build/CesiumUnminified/';
+        
         // Cesium Ion access token
         Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxNTY2ODk0ZC05NzU1LTRiODMtYmI5Yy0wZjBlODQ0NmYyOTAiLCJpZCI6MjYxMjU1LCJpYXQiOjE3NjAyODU4Mjh9.SJ11nmMVqRH9JGZ6Kt4IzVpg-1Bq1iSdZT1Td4lrpT0";
 
