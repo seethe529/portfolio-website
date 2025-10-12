@@ -204,28 +204,10 @@
             maximumRenderTimeChange: Infinity
         });
 
-        // Add base imagery layer with fallback
-        try {
-            viewer.imageryLayers.addImageryProvider(
-                new Cesium.IonImageryProvider({ assetId: 3812 }) // Cesium World Imagery
-            );
-        } catch (error) {
-            console.warn('Failed to load Ion imagery, using fallback');
-            try {
-                viewer.imageryLayers.addImageryProvider(
-                    new Cesium.TileMapServiceImageryProvider({
-                        url: Cesium.buildModuleUrl('Assets/Textures/NaturalEarthII')
-                    })
-                );
-            } catch (fallbackError) {
-                console.warn('Fallback imagery also failed, using basic provider');
-                viewer.imageryLayers.addImageryProvider(
-                    new Cesium.SingleTileImageryProvider({
-                        url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=='
-                    })
-                );
-            }
-        }
+        // Add base imagery layer - use default Cesium imagery
+        viewer.imageryLayers.addImageryProvider(
+            new Cesium.createWorldImagery()
+        );
         
         // Configure scene for space visualization
         viewer.scene.backgroundColor = Cesium.Color.fromCssColorString('#0a0a0f');
@@ -238,15 +220,19 @@
         viewer.scene.globe.show = true;  // Ensure Earth is visible
         viewer.scene.globe.enableLighting = true;  // Enable lighting
 
-        // Set initial camera position for better orbital shell visibility
+        // Set initial camera position to see Earth
         viewer.camera.setView({
-            destination: Cesium.Cartesian3.fromDegrees(0, 0, 15000000), // 15,000 km altitude for better shell visibility
+            destination: Cesium.Cartesian3.fromDegrees(0, 0, 20000000), // 20,000 km altitude
             orientation: {
                 heading: 0.0,
-                pitch: -Cesium.Math.PI_OVER_TWO * 0.3,
+                pitch: -Cesium.Math.PI_OVER_TWO * 0.5,
                 roll: 0.0
             }
         });
+        
+        // Force render
+        viewer.scene.requestRenderMode = false;
+        viewer.scene.requestRender();
 
         // Loading management
         let loadedCount = 0;
@@ -260,10 +246,10 @@
                 
                 // Cinematic fly-in after loading - position to see orbital shells
                 const flyPromise = viewer.camera.flyTo({
-                    destination: Cesium.Cartesian3.fromDegrees(45, 45, 25000000), // Better angle and distance
+                    destination: Cesium.Cartesian3.fromDegrees(0, 0, 50000000), // 50,000 km to see all shells
                     orientation: {
-                        heading: Cesium.Math.toRadians(45),
-                        pitch: -Cesium.Math.PI_OVER_TWO * 0.4,
+                        heading: 0.0,
+                        pitch: -Cesium.Math.PI_OVER_TWO * 0.3,
                         roll: 0.0
                     },
                     duration: 4.0,
