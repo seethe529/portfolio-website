@@ -299,8 +299,14 @@
         czmlFiles.forEach((file, index) => {
             console.log(`Loading file ${index + 1}/${totalFiles}: ${file.name}`);
             
-            Cesium.CzmlDataSource.load(file.name)
-                .then((dataSource) => {
+            const loadPromise = Cesium.CzmlDataSource.load(file.name);
+            if (!loadPromise) {
+                console.error(`❌ Failed to create load promise for ${file.name}`);
+                checkLoadingComplete();
+                return;
+            }
+            
+            loadPromise.then((dataSource) => {
                     // Enhance visibility of loaded entities
                     const entities = dataSource.entities.values;
                     entities.forEach(entity => {
