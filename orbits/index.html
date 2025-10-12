@@ -79,9 +79,9 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .legend-leo { background-color: #ff4444; }
-        .legend-meo { background-color: #44ff44; }
-        .legend-geo { background-color: #4444ff; }
+        .legend-leo { background-color: rgba(0, 150, 255, 0.7); }
+        .legend-meo { background-color: rgba(0, 150, 255, 0.7); }
+        .legend-geo { background-color: rgba(0, 150, 255, 0.7); }
 
         /* Caption */
         .orbital-caption {
@@ -177,16 +177,18 @@
     
     <!-- Caption -->
     <div class="orbital-caption">
-        Conceptual orbital zoning visualization designed by Ryan Lingo.
+        Conceptual orbital zoning visualization designed by Ryan Charles Lingo.
     </div>
 
     <script>
         // Cesium Ion access token
-        Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI0MjVhN2I4Ni1mYmI5LTQ4MDItYWNkZS05MzdiM2VmOWZkOGQiLCJpZCI6MjYxMjU1LCJpYXQiOjE3MzM3ODc0OTJ9.QAF5Aaw2N6f4fj3QvCUzxKq9ZkkTXTi7bvPlubbWbb4";
+        Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxNTY2ODk0ZC05NzU1LTRiODMtYmI5Yy0wZjBlODQ0NmYyOTAiLCJpZCI6MjYxMjU1LCJpYXQiOjE3NjAyODU4Mjh9.SJ11nmMVqRH9JGZ6Kt4IzVpg-1Bq1iSdZT1Td4lrpT0";
 
+        // Suppress worker script errors by setting up proper worker configuration
+        window.CESIUM_BASE_URL = 'https://cesium.com/downloads/cesiumjs/releases/1.109/Build/Cesium/';
+        
         // Initialize Cesium viewer with minimal UI
         const viewer = new Cesium.Viewer("cesiumContainer", {
-            shouldAnimate: false,
             animation: false,
             timeline: false,
             fullscreenButton: false,
@@ -196,25 +198,52 @@
             baseLayerPicker: false,
             navigationHelpButton: false,
             geocoder: false,
-            terrainProvider: Cesium.createWorldTerrain(),
-            skyBox: false,
-            skyAtmosphere: false
+            terrainProvider: new Cesium.EllipsoidTerrainProvider(),
+            imageryProvider: false, // We'll add it manually with fallback
+            requestRenderMode: true, // Improve performance
+            maximumRenderTimeChange: Infinity
         });
 
+        // Add base imagery layer with fallback
+        try {
+            viewer.imageryLayers.addImageryProvider(
+                new Cesium.IonImageryProvider({ assetId: 3812 }) // Cesium World Imagery
+            );
+        } catch (error) {
+            console.warn('Failed to load Ion imagery, using fallback');
+            try {
+                viewer.imageryLayers.addImageryProvider(
+                    new Cesium.TileMapServiceImageryProvider({
+                        url: Cesium.buildModuleUrl('Assets/Textures/NaturalEarthII')
+                    })
+                );
+            } catch (fallbackError) {
+                console.warn('Fallback imagery also failed, using basic provider');
+                viewer.imageryLayers.addImageryProvider(
+                    new Cesium.SingleTileImageryProvider({
+                        url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=='
+                    })
+                );
+            }
+        }
+        
         // Configure scene for space visualization
         viewer.scene.backgroundColor = Cesium.Color.fromCssColorString('#0a0a0f');
-        viewer.scene.skyBox.show = false;
-        viewer.scene.skyAtmosphere.show = false;
-        viewer.scene.sun.show = false;
-        viewer.scene.moon.show = false;
-        viewer.scene.highDynamicRange = false;
+        
+        // Show space elements and Earth
+        viewer.scene.skyBox.show = true;  // Show stars
+        viewer.scene.skyAtmosphere.show = true;  // Show atmosphere
+        viewer.scene.sun.show = true;  // Show sun
+        viewer.scene.moon.show = true;  // Show moon
+        viewer.scene.globe.show = true;  // Ensure Earth is visible
+        viewer.scene.globe.enableLighting = true;  // Enable lighting
 
-        // Set initial camera position for cinematic view
+        // Set initial camera position for better orbital shell visibility
         viewer.camera.setView({
-            destination: Cesium.Cartesian3.fromDegrees(0, 0, 45000000), // 45,000 km altitude
+            destination: Cesium.Cartesian3.fromDegrees(0, 0, 15000000), // 15,000 km altitude for better shell visibility
             orientation: {
                 heading: 0.0,
-                pitch: -Cesium.Math.PI_OVER_TWO * 0.5,
+                pitch: -Cesium.Math.PI_OVER_TWO * 0.3,
                 roll: 0.0
             }
         });
@@ -229,37 +258,99 @@
             if (loadedCount >= totalFiles) {
                 loadingIndicator.style.display = 'none';
                 
-                // Cinematic fly-in after loading
+                // Cinematic fly-in after loading - position to see orbital shells
                 viewer.camera.flyTo({
-                    destination: Cesium.Cartesian3.fromDegrees(0, 0, 45000000),
+                    destination: Cesium.Cartesian3.fromDegrees(45, 45, 25000000), // Better angle and distance
                     orientation: {
-                        heading: 0.0,
-                        pitch: -Cesium.Math.PI_OVER_TWO * 0.3,
+                        heading: Cesium.Math.toRadians(45),
+                        pitch: -Cesium.Math.PI_OVER_TWO * 0.4,
                         roll: 0.0
                     },
-                    duration: 3.0,
+                    duration: 4.0,
                     easingFunction: Cesium.EasingFunction.CUBIC_IN_OUT
+                }).then(() => {
+                    // Force render after camera movement
+                    viewer.scene.requestRender();
+                    console.log('🎥 Camera positioned to view orbital shells');
                 });
             }
         }
 
-        // Load CZML files
+        // Load CZML files with explicit paths
         const czmlFiles = [
-            { name: 'LEO_shell.czml', description: 'Low Earth Orbit' },
-            { name: 'MEO_shell.czml', description: 'Medium Earth Orbit' },
-            { name: 'GEO_shell.czml', description: 'Geostationary Orbit' }
+            { name: '/orbits/LEO_shell.czml', description: 'Low Earth Orbit' },
+            { name: '/orbits/MEO_shell.czml', description: 'Medium Earth Orbit' },
+            { name: '/orbits/GEO_shell.czml', description: 'Geostationary Orbit' }
         ];
 
-        czmlFiles.forEach(file => {
+        // Debug: Log file loading attempts
+        console.log('Attempting to load CZML files:', czmlFiles.map(f => f.name));
+        console.log('Camera initial position:', viewer.camera.position);
+        console.log('Scene render mode:', viewer.scene.requestRenderMode);
+
+        // Add timeout fallback
+        setTimeout(() => {
+            if (loadedCount < totalFiles) {
+                console.warn('⚠️ Loading timeout - hiding loading indicator');
+                loadingIndicator.style.display = 'none';
+            }
+        }, 10000); // 10 second timeout
+
+        czmlFiles.forEach((file, index) => {
+            console.log(`Loading file ${index + 1}/${totalFiles}: ${file.name}`);
+            
             Cesium.CzmlDataSource.load(file.name)
                 .then((dataSource) => {
+                    // Enhance visibility of loaded entities
+                    const entities = dataSource.entities.values;
+                    entities.forEach(entity => {
+                        if (entity.polygon) {
+                            // Increase opacity for better visibility
+                            if (entity.polygon.material && entity.polygon.material.color) {
+                                const currentColor = entity.polygon.material.color.getValue();
+                                if (currentColor) {
+                                    // Increase alpha to 120 (from 30) for better visibility
+                                    entity.polygon.material.color = new Cesium.Color(
+                                        currentColor.red,
+                                        currentColor.green, 
+                                        currentColor.blue,
+                                        0.47 // ~120/255
+                                    );
+                                }
+                            }
+                            // Ensure outline is visible
+                            if (entity.polygon.outlineColor) {
+                                const currentOutlineColor = entity.polygon.outlineColor.getValue();
+                                if (currentOutlineColor) {
+                                    entity.polygon.outlineColor = new Cesium.Color(
+                                        currentOutlineColor.red,
+                                        currentOutlineColor.green,
+                                        currentOutlineColor.blue,
+                                        0.8 // Increase outline opacity
+                                    );
+                                }
+                            }
+                        }
+                    });
+                    
                     viewer.dataSources.add(dataSource);
-                    console.log(`✅ Loaded ${file.description}`);
+                    console.log(`✅ Loaded ${file.description} (${file.name}) with ${entities.length} entities`);
+                    
+                    // Force a render update
+                    viewer.scene.requestRender();
+                    
                     checkLoadingComplete();
                 })
                 .catch((error) => {
                     console.error(`❌ Failed to load ${file.name}:`, error);
-                    // Still count as "loaded" to prevent infinite loading
+                    console.error('Error details:', error.message);
+                    
+                    // Show error to user
+                    const errorMsg = document.createElement('div');
+                    errorMsg.style.cssText = 'position:absolute;top:20px;right:20px;background:rgba(255,0,0,0.8);color:white;padding:10px;border-radius:5px;z-index:1002;max-width:300px;';
+                    errorMsg.textContent = `Failed to load ${file.description}: ${error.message}`;
+                    document.body.appendChild(errorMsg);
+                    
                     checkLoadingComplete();
                 });
         });
@@ -267,6 +358,19 @@
         // Handle window resize
         window.addEventListener('resize', () => {
             viewer.resize();
+        });
+        
+        // Add debugging for data sources
+        viewer.dataSources.dataSourceAdded.addEventListener((collection, dataSource) => {
+            console.log('Data source added:', dataSource.name, 'Entities:', dataSource.entities.values.length);
+        });
+        
+        // Add click handler for debugging
+        viewer.cesiumWidget.canvas.addEventListener('click', (event) => {
+            const pickedObject = viewer.scene.pick(viewer.camera.getPickRay(event));
+            if (pickedObject && pickedObject.id) {
+                console.log('Clicked entity:', pickedObject.id.name || pickedObject.id.id);
+            }
         });
 
         // Disable right-click context menu
