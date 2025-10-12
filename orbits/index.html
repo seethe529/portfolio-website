@@ -113,6 +113,16 @@
         }
 
         .overview-content {
+            max-height: 600px;
+            overflow-y: auto;
+            padding: 2rem;
+            background: rgba(255, 107, 53, 0.05);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .overview-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
@@ -194,45 +204,7 @@
             font-size: 0.9rem;
         }
         
-        /* Technical Implementation & Applications Section */
-        .tech-apps-section {
-            background-color: #0a0a0f;
-            color: #e8e8e8;
-            padding: 60px;
-        }
-        
-        .tech-apps-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-        
-        .tech-card, .apps-card {
-            background: rgba(255, 107, 53, 0.05);
-            border: 1px solid rgba(255, 107, 53, 0.3);
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .tech-card h3, .apps-card h3 {
-            color: #ff6b35;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-        
-        .tech-item, .app-item {
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255, 107, 53, 0.2);
-            font-size: 1rem;
-        }
-        
-        .tech-item:last-child, .app-item:last-child {
-            border-bottom: none;
-        }
+
 
         @media (max-width: 768px) {
             .orbital-overview-section {
@@ -243,7 +215,7 @@
                 font-size: 2rem;
             }
 
-            .overview-content {
+            .overview-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
@@ -252,18 +224,7 @@
                 padding: 1rem;
             }
             
-            .tech-apps-section {
-                padding: 40px 20px;
-            }
-            
-            .tech-apps-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .tech-card, .apps-card {
-                padding: 1.5rem;
-            }
+
         }
 
         /* Hide unnecessary Cesium UI widgets */
@@ -286,42 +247,7 @@
         <div id="cesiumContainer"></div>
     </div>
     
-    <!-- Technical Implementation Section -->
-    <section class="tech-apps-section">
-        <div class="tech-apps-container">
-            <div class="tech-card">
-                <h3>Technical Implementation</h3>
-                <div class="tech-item">
-                    <strong>CesiumJS 1.109</strong> - 3D geospatial visualization
-                </div>
-                <div class="tech-item">
-                    <strong>CZML Data Format</strong> - Time-dynamic geospatial data
-                </div>
-                <div class="tech-item">
-                    <strong>Spatial Modeling</strong> - Orbital mechanics visualization
-                </div>
-                <div class="tech-item">
-                    <strong>Interactive 3D</strong> - Real-time navigation and exploration
-                </div>
-            </div>
-            
-            <div class="apps-card">
-                <h3>Applications</h3>
-                <div class="app-item">
-                    <strong>Satellite Mission Planning</strong> - Orbital zone analysis
-                </div>
-                <div class="app-item">
-                    <strong>Space Traffic Management</strong> - Collision avoidance
-                </div>
-                <div class="app-item">
-                    <strong>Regulatory Compliance</strong> - Orbital debris mitigation
-                </div>
-                <div class="app-item">
-                    <strong>Scientific Visualization</strong> - Research and education
-                </div>
-            </div>
-        </div>
-    </section>
+
     
     <!-- Orbital Shell Overview Section -->
     <section class="orbital-overview-section" id="orbitalOverview">
@@ -329,41 +255,43 @@
             <h2 class="section-title">Orbital Shell Overview</h2>
             
             <div class="overview-content">
-                <div class="overview-text-column">
-                    <div class="overview-text">
-                        <strong>Overview</strong><br><br>
-                        The <strong>orbital shell visualization</strong> demonstrates how near-Earth space can be divided into structured <strong>orbital tracts</strong> — 3D spatial zones that represent <strong>Low Earth Orbit (LEO)</strong>, <strong>Medium Earth Orbit (MEO)</strong>, and <strong>Geostationary Orbit (GEO)</strong>. Each shell highlights a distinct functional layer of Earth's orbital environment, illustrating how <strong>spatial zoning</strong> and <strong>geospatial modeling</strong> can be extended beyond Earth's surface into orbital space.
+                <div class="overview-grid">
+                    <div class="overview-text-column">
+                        <div class="overview-text">
+                            <strong>Overview</strong><br><br>
+                            The <strong>orbital shell visualization</strong> demonstrates how near-Earth space can be divided into structured <strong>orbital tracts</strong> — 3D spatial zones that represent <strong>Low Earth Orbit (LEO)</strong>, <strong>Medium Earth Orbit (MEO)</strong>, and <strong>Geostationary Orbit (GEO)</strong>. Each shell highlights a distinct functional layer of Earth's orbital environment, illustrating how <strong>spatial zoning</strong> and <strong>geospatial modeling</strong> can be extended beyond Earth's surface into orbital space.
+                        </div>
+                        
+                        <div class="overview-text">
+                            These <strong>orbital tracts</strong> form the foundation of a conceptual <strong>space geography system</strong> — a framework for visualizing, indexing, and managing <strong>orbital traffic</strong> with the same precision used for terrestrial mapping. The design bridges <strong>orbital mechanics</strong> and <strong>GIS</strong>, allowing analysts, engineers, and policymakers to better understand how altitude, inclination, and longitudinal position define operational regions in space.
+                        </div>
+                        
+                        <div class="overview-text">
+                            <strong>Examples of Orbital Tract Use</strong>
+                        </div>
                     </div>
                     
-                    <div class="overview-text">
-                        These <strong>orbital tracts</strong> form the foundation of a conceptual <strong>space geography system</strong> — a framework for visualizing, indexing, and managing <strong>orbital traffic</strong> with the same precision used for terrestrial mapping. The design bridges <strong>orbital mechanics</strong> and <strong>GIS</strong>, allowing analysts, engineers, and policymakers to better understand how altitude, inclination, and longitudinal position define operational regions in space.
-                    </div>
-                    
-                    <div class="overview-text">
-                        <strong>Examples of Orbital Tract Use</strong>
-                    </div>
-                </div>
-                
-                <div class="examples-grid">
-                    <div class="tract-card">
-                        <div class="tract-header">🛰️ LEO (Low Earth Orbit)</div>
-                        <div class="tract-example">LEO-A1000-I0-RAAN0_5</div>
-                        <div class="tract-satellite"><strong>Satellite Example:</strong> <em>Starlink-3015</em> — operating within a ~550 km altitude band, transiting multiple LEO tracts for global internet coverage.</div>
-                        <div class="tract-usecase"><strong>Use Case:</strong> Demonstrates how dense satellite constellations can be spatially indexed across altitude and inclination segments, enabling tract-based monitoring, collision avoidance, and orbital population analytics.</div>
-                    </div>
-                    
-                    <div class="tract-card">
-                        <div class="tract-header">🛰️ MEO (Medium Earth Orbit)</div>
-                        <div class="tract-example">MEO-A20200-I56-RAAN180_185</div>
-                        <div class="tract-satellite"><strong>Satellite Example:</strong> <em>GPS IIF-5</em> — operating at ~20,200 km altitude within a fixed inclination band to maintain global navigation coverage.</div>
-                        <div class="tract-usecase"><strong>Use Case:</strong> Shows how navigation satellites can be grouped within MEO tracts for precise orbital slot management, time synchronization analysis, and constellation geometry modeling.</div>
-                    </div>
-                    
-                    <div class="tract-card">
-                        <div class="tract-header">🛰️ GEO (Geostationary Orbit)</div>
-                        <div class="tract-example">GEO-TOROIDAL-RAAN0_30-T1-P1</div>
-                        <div class="tract-satellite"><strong>Satellite Example:</strong> <em>GOES-16</em> — stationed at ~35,786 km altitude above the equator, providing continuous weather and environmental monitoring for the Western Hemisphere.</div>
-                        <div class="tract-usecase"><strong>Use Case:</strong> Illustrates how geostationary tracts can be used for regulatory coordination, debris mitigation planning, and long-term space situational awareness.</div>
+                    <div class="examples-grid">
+                        <div class="tract-card">
+                            <div class="tract-header">🛰️ LEO (Low Earth Orbit)</div>
+                            <div class="tract-example">LEO-A1000-I0-RAAN0_5</div>
+                            <div class="tract-satellite"><strong>Satellite Example:</strong> <em>Starlink-3015</em> — operating within a ~550 km altitude band, transiting multiple LEO tracts for global internet coverage.</div>
+                            <div class="tract-usecase"><strong>Use Case:</strong> Demonstrates how dense satellite constellations can be spatially indexed across altitude and inclination segments, enabling tract-based monitoring, collision avoidance, and orbital population analytics.</div>
+                        </div>
+                        
+                        <div class="tract-card">
+                            <div class="tract-header">🛰️ MEO (Medium Earth Orbit)</div>
+                            <div class="tract-example">MEO-A20200-I56-RAAN180_185</div>
+                            <div class="tract-satellite"><strong>Satellite Example:</strong> <em>GPS IIF-5</em> — operating at ~20,200 km altitude within a fixed inclination band to maintain global navigation coverage.</div>
+                            <div class="tract-usecase"><strong>Use Case:</strong> Shows how navigation satellites can be grouped within MEO tracts for precise orbital slot management, time synchronization analysis, and constellation geometry modeling.</div>
+                        </div>
+                        
+                        <div class="tract-card">
+                            <div class="tract-header">🛰️ GEO (Geostationary Orbit)</div>
+                            <div class="tract-example">GEO-TOROIDAL-RAAN0_30-T1-P1</div>
+                            <div class="tract-satellite"><strong>Satellite Example:</strong> <em>GOES-16</em> — stationed at ~35,786 km altitude above the equator, providing continuous weather and environmental monitoring for the Western Hemisphere.</div>
+                            <div class="tract-usecase"><strong>Use Case:</strong> Illustrates how geostationary tracts can be used for regulatory coordination, debris mitigation planning, and long-term space situational awareness.</div>
+                        </div>
                     </div>
                 </div>
             </div>
