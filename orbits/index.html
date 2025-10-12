@@ -17,10 +17,9 @@
     <style>
         html, body {
             width: 100%;
-            height: 100vh;
             margin: 0;
             padding: 0;
-            overflow: hidden;
+            overflow-x: hidden;
             background-color: #0a0a0f;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
@@ -31,6 +30,135 @@
             margin: 0;
             padding: 0;
             background-color: #0a0a0f;
+        }
+
+        /* Orbital Overview Section */
+        .orbital-overview-section {
+            background-color: #0a0a0f;
+            color: #e8e8e8;
+            padding: 80px 60px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .orbital-overview-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .overview-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            color: #ff6b35;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .overview-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .overview-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .examples-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .tract-card {
+            background: rgba(255, 107, 53, 0.05);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .tract-card:hover {
+            border-color: rgba(255, 107, 53, 0.6);
+            box-shadow: 0 8px 30px rgba(255, 107, 53, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .tract-header {
+            color: #ff6b35;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .tract-example {
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+            color: #a8d8ff;
+        }
+
+        .tract-satellite {
+            font-style: italic;
+            color: #cccccc;
+            margin: 0.5rem 0;
+        }
+
+        .tract-usecase {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-top: 1rem;
+        }
+
+        .closing-statement {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(255, 107, 53, 0.05);
+            border-radius: 12px;
+            border-left: 4px solid #ff6b35;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .footer-credit {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 107, 53, 0.3);
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .orbital-overview-section {
+                padding: 60px 20px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .overview-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .tract-card {
+                padding: 1rem;
+            }
         }
 
         /* Hide unnecessary Cesium UI widgets */
@@ -157,6 +285,58 @@
 </head>
 <body>
     <div id="cesiumContainer"></div>
+    
+    <!-- Orbital Shell Overview Section -->
+    <section class="orbital-overview-section" id="orbitalOverview">
+        <div class="overview-container">
+            <h2 class="section-title">Orbital Shell Overview</h2>
+            
+            <div class="overview-content">
+                <div class="overview-text-column">
+                    <div class="overview-text">
+                        <strong>Overview</strong><br><br>
+                        The orbital shell visualization demonstrates how near-Earth space can be divided into structured orbital tracts — 3D spatial zones that represent Low Earth Orbit (LEO), Medium Earth Orbit (MEO), and Geostationary Orbit (GEO). Each shell highlights a distinct functional layer of Earth's orbital environment, illustrating how spatial zoning and geospatial modeling can be extended beyond Earth's surface into orbital space.
+                    </div>
+                    
+                    <div class="overview-text">
+                        These orbital tracts form the foundation of a conceptual space geography system — a framework for visualizing, indexing, and managing orbital traffic with the same precision used for terrestrial mapping. The design bridges orbital mechanics and GIS, allowing analysts, engineers, and policymakers to better understand how altitude, inclination, and longitudinal position define operational regions in space.
+                    </div>
+                </div>
+                
+                <div class="examples-grid">
+                    <div class="tract-card">
+                        <div class="tract-header">🛰️ LEO (Low Earth Orbit)</div>
+                        <div class="tract-example">LEO-A1000-I0-RAAN0_5</div>
+                        <div class="tract-satellite">Satellite Example: Starlink-3015 — operating within a ~550 km altitude band, transiting multiple LEO tracts for global internet coverage.</div>
+                        <div class="tract-usecase"><strong>Use Case:</strong> Demonstrates how dense satellite constellations can be spatially indexed across altitude and inclination segments, enabling tract-based monitoring, collision avoidance, and orbital population analytics.</div>
+                    </div>
+                    
+                    <div class="tract-card">
+                        <div class="tract-header">🛰️ MEO (Medium Earth Orbit)</div>
+                        <div class="tract-example">MEO-A20200-I56-RAAN180_185</div>
+                        <div class="tract-satellite">Satellite Example: GPS IIF-5 — operating at ~20,200 km altitude within a fixed inclination band to maintain global navigation coverage.</div>
+                        <div class="tract-usecase"><strong>Use Case:</strong> Shows how navigation satellites can be grouped within MEO tracts for precise orbital slot management, time synchronization analysis, and constellation geometry modeling.</div>
+                    </div>
+                    
+                    <div class="tract-card">
+                        <div class="tract-header">🛰️ GEO (Geostationary Orbit)</div>
+                        <div class="tract-example">GEO-TOROIDAL-RAAN0_30-T1-P1</div>
+                        <div class="tract-satellite">Satellite Example: GOES-16 — stationed at ~35,786 km altitude above the equator, providing continuous weather and environmental monitoring for the Western Hemisphere.</div>
+                        <div class="tract-usecase"><strong>Use Case:</strong> Illustrates how geostationary tracts can be used for regulatory coordination, debris mitigation planning, and long-term space situational awareness.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="closing-statement">
+                <strong>Closing Statement</strong><br><br>
+                These examples show how orbital tracts can be used to spatially classify and analyze satellite operations — transforming orbital mechanics into a mappable, policy-ready geospatial framework. The visualization reflects Ryan Charles Lingo's ongoing research in orbital zoning and space sustainability under his Extra-Orbital Solutions initiative.
+            </div>
+            
+            <div class="footer-credit">
+                Visualization &amp; Concept © Ryan Charles Lingo, Extra-Orbital Solutions.
+            </div>
+        </div>
+    </section>
     
     <!-- Loading indicator -->
     <div class="loading-indicator" id="loadingIndicator">
@@ -320,6 +500,26 @@
         viewer.cesiumWidget.canvas.oncontextmenu = function () {
             return false;
         };
+
+        // Intersection Observer for fade-in effect
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe the orbital overview section
+        const overviewSection = document.getElementById('orbitalOverview');
+        if (overviewSection) {
+            observer.observe(overviewSection);
+        }
     </script>
 </body>
 </html>
