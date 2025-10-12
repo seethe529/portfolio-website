@@ -222,19 +222,10 @@
         viewer.scene.globe.show = true;  // Ensure Earth is visible
         viewer.scene.globe.enableLighting = true;  // Enable lighting
 
-        // Set initial camera position to see Earth
-        viewer.camera.setView({
-            destination: Cesium.Cartesian3.fromDegrees(0, 0, 20000000), // 20,000 km altitude
-            orientation: {
-                heading: 0.0,
-                pitch: -Cesium.Math.PI_OVER_TWO * 0.5,
-                roll: 0.0
-            }
-        });
-        
-        // Force render
-        viewer.scene.requestRenderMode = false;
-        viewer.scene.requestRender();
+        // Set dark scene like the working example
+        viewer.scene.skyBox.show = false;
+        viewer.scene.skyAtmosphere.show = false;
+        viewer.scene.backgroundColor = Cesium.Color.BLACK;
 
         // Loading management
         let loadedCount = 0;
@@ -245,28 +236,7 @@
             loadedCount++;
             if (loadedCount >= totalFiles) {
                 loadingIndicator.style.display = 'none';
-                
-                // Cinematic fly-in after loading - position to see orbital shells
-                const flyPromise = viewer.camera.flyTo({
-                    destination: Cesium.Cartesian3.fromDegrees(0, 0, 50000000), // 50,000 km to see all shells
-                    orientation: {
-                        heading: 0.0,
-                        pitch: -Cesium.Math.PI_OVER_TWO * 0.3,
-                        roll: 0.0
-                    },
-                    duration: 4.0,
-                    easingFunction: Cesium.EasingFunction.CUBIC_IN_OUT
-                });
-                
-                if (flyPromise && typeof flyPromise.then === 'function') {
-                    flyPromise.then(() => {
-                        viewer.scene.requestRender();
-                        console.log('🎥 Camera positioned to view orbital shells');
-                    });
-                } else {
-                    viewer.scene.requestRender();
-                    console.log('🎥 Camera positioned to view orbital shells');
-                }
+                console.log('🎥 All CZML files loaded successfully');
             }
         }
 
@@ -337,8 +307,8 @@
                     viewer.dataSources.add(dataSource);
                     console.log(`✅ Loaded ${file.description} (${file.name}) with ${entities.length} entities`);
                     
-                    // Force a render update
-                    viewer.scene.requestRender();
+                    // Zoom to the data source to make it visible
+                    viewer.zoomTo(dataSource);
                     
                     checkLoadingComplete();
                 })
