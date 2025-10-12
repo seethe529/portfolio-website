@@ -66,9 +66,14 @@
             width: 100%;
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
             background-color: #0a0a0f;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .viewer-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
         }
 
         #cesiumContainer {
@@ -331,7 +336,37 @@
     </style>
 </head>
 <body>
-    <div id="cesiumContainer"></div>
+    <div class="viewer-container">
+        <div id="cesiumContainer"></div>
+        
+        <!-- Loading indicator -->
+        <div class="loading-indicator" id="loadingIndicator">
+            <div class="loading-spinner"></div>
+            <span>Loading orbital visualization...</span>
+        </div>
+        
+        <!-- Legend overlay -->
+        <div class="orbital-legend">
+            <h3>Orbital Zones</h3>
+            <div class="legend-item">
+                <div class="legend-color legend-leo"></div>
+                <span>LEO - Low Earth Orbit</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color legend-meo"></div>
+                <span>MEO - Medium Earth Orbit</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color legend-geo"></div>
+                <span>GEO - Geostationary Orbit</span>
+            </div>
+        </div>
+        
+        <!-- Caption -->
+        <div class="orbital-caption">
+            Conceptual orbital zoning visualization designed by Ryan Charles Lingo.
+        </div>
+    </div>
     
     <!-- Orbital Shell Overview Section -->
     <section class="orbital-overview-section" id="orbitalOverview">
@@ -384,34 +419,6 @@
             </div>
         </div>
     </section>
-    
-    <!-- Loading indicator -->
-    <div class="loading-indicator" id="loadingIndicator">
-        <div class="loading-spinner"></div>
-        <span>Loading orbital visualization...</span>
-    </div>
-    
-    <!-- Legend overlay -->
-    <div class="orbital-legend">
-        <h3>Orbital Zones</h3>
-        <div class="legend-item">
-            <div class="legend-color legend-leo"></div>
-            <span>LEO - Low Earth Orbit</span>
-        </div>
-        <div class="legend-item">
-            <div class="legend-color legend-meo"></div>
-            <span>MEO - Medium Earth Orbit</span>
-        </div>
-        <div class="legend-item">
-            <div class="legend-color legend-geo"></div>
-            <span>GEO - Geostationary Orbit</span>
-        </div>
-    </div>
-    
-    <!-- Caption -->
-    <div class="orbital-caption">
-        Conceptual orbital zoning visualization designed by Ryan Charles Lingo.
-    </div>
 
     <script>
         // Configure Cesium base URL for unminified build
