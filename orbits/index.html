@@ -204,28 +204,13 @@
             maximumRenderTimeChange: Infinity
         });
 
-        // Add base imagery layer - use OpenStreetMap as fallback
-        viewer.imageryLayers.addImageryProvider(
-            new Cesium.OpenStreetMapImageryProvider({
-                url: 'https://a.tile.openstreetmap.org/'
-            })
-        );
-        
         // Configure scene for space visualization
-        viewer.scene.backgroundColor = Cesium.Color.fromCssColorString('#0a0a0f');
-        
-        // Show space elements and Earth
-        viewer.scene.skyBox.show = true;  // Show stars
-        viewer.scene.skyAtmosphere.show = true;  // Show atmosphere
-        viewer.scene.sun.show = true;  // Show sun
-        viewer.scene.moon.show = true;  // Show moon
-        viewer.scene.globe.show = true;  // Ensure Earth is visible
-        viewer.scene.globe.enableLighting = true;  // Enable lighting
-
-        // Set dark scene like the working example
-        viewer.scene.skyBox.show = false;
+        viewer.scene.skyBox.show = true;
         viewer.scene.skyAtmosphere.show = false;
         viewer.scene.backgroundColor = Cesium.Color.BLACK;
+        viewer.scene.globe.show = false;
+        viewer.scene.sun.show = false;
+        viewer.scene.moon.show = false;
 
         // Loading management
         let loadedCount = 0;
