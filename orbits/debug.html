@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CZML Debug Test</title>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.109/Build/CesiumUnminified/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.109/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+</head>
+<body>
+    <div id="cesiumContainer" style="width: 100%; height: 500px;"></div>
+    <div id="debug" style="padding: 20px; font-family: monospace;"></div>
+    
+    <script>
+        window.CESIUM_BASE_URL = 'https://cesium.com/downloads/cesiumjs/releases/1.109/Build/CesiumUnminified/';
+        Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxNTY2ODk0ZC05NzU1LTRiODMtYmI5Yy0wZjBlODQ0NmYyOTAiLCJpZCI6MjYxMjU1LCJpYXQiOjE3NjAyODU4Mjh9.SJ11nmMVqRH9JGZ6Kt4IzVpg-1Bq1iSdZT1Td4lrpT0";
+        
+        const viewer = new Cesium.Viewer("cesiumContainer");
+        const debug = document.getElementById('debug');
+        
+        function log(msg) {
+            console.log(msg);
+            debug.innerHTML += msg + '<br>';
+        }
+        
+        log('Testing CZML loading...');
+        
+        Cesium.CzmlDataSource.load('./LEO_shell.czml')
+            .then(dataSource => {
+                viewer.dataSources.add(dataSource);
+                log(`SUCCESS: Loaded ${dataSource.entities.values.length} entities`);
+                viewer.zoomTo(dataSource);
+            })
+            .catch(error => {
+                log(`ERROR: ${error.message}`);
+            });
+    </script>
+</body>
+</html>
