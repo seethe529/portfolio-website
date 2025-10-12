@@ -201,6 +201,36 @@
             font-size: 0.9rem;
         }
         
+        .orbital-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .orbital-tech h3, .orbital-applications h3 {
+            color: #ff6b35;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .orbital-tech ul, .orbital-applications ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .orbital-tech li, .orbital-applications li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+            font-size: 1rem;
+        }
+        
+        .orbital-tech li:last-child, .orbital-applications li:last-child {
+            border-bottom: none;
+        }
+        
 
 
         @media (max-width: 768px) {
@@ -219,6 +249,11 @@
 
             .tract-card {
                 padding: 1rem;
+            }
+            
+            .orbital-info {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
             
 
@@ -242,6 +277,10 @@
 <body>
     <div class="viewer-container">
         <div id="cesiumContainer"></div>
+        <div class="loading-indicator" id="loadingIndicator" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #ff6b35; z-index: 1001; display: flex; align-items: center; gap: 10px;">
+            <div style="width: 20px; height: 20px; border: 2px solid rgba(255, 107, 53, 0.3); border-top: 2px solid #ff6b35; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+            <span>Loading orbital visualization...</span>
+        </div>
     </div>
     
     <!-- Orbital Shell Overview Section -->
@@ -296,6 +335,28 @@
                 These examples show how <strong>orbital tracts</strong> can be used to spatially classify and analyze <strong>satellite operations</strong> — transforming <strong>orbital mechanics</strong> into a mappable, policy-ready <strong>geospatial framework</strong>. The visualization reflects <strong>Ryan Charles Lingo's</strong> ongoing research in <strong>orbital zoning</strong> and <strong>space sustainability</strong>.
             </div>
             
+            <div class="orbital-info">
+                <div class="orbital-tech">
+                    <h3>Technical Implementation</h3>
+                    <ul>
+                        <li><strong>CesiumJS 1.109</strong> - 3D geospatial visualization</li>
+                        <li><strong>CZML Data Format</strong> - Time-dynamic geospatial data</li>
+                        <li><strong>Spatial Modeling</strong> - Orbital mechanics visualization</li>
+                        <li><strong>Interactive 3D</strong> - Real-time navigation and exploration</li>
+                    </ul>
+                </div>
+                
+                <div class="orbital-applications">
+                    <h3>Applications</h3>
+                    <ul>
+                        <li><strong>Satellite Mission Planning</strong> - Orbital zone analysis</li>
+                        <li><strong>Space Traffic Management</strong> - Collision avoidance</li>
+                        <li><strong>Regulatory Compliance</strong> - Orbital debris mitigation</li>
+                        <li><strong>Scientific Visualization</strong> - Research and education</li>
+                    </ul>
+                </div>
+            </div>
+            
             <div class="footer-credit">
                 Visualization &amp; Concept © Ryan Charles Lingo. Patent Pending.
             </div>
@@ -345,7 +406,9 @@
             loadedCount++;
             console.log(`Loading progress: ${loadedCount}/${totalFiles}`);
             if (loadedCount >= totalFiles) {
-                loadingIndicator.style.display = 'none';
+                if (loadingIndicator) {
+                    loadingIndicator.style.display = 'none';
+                }
                 console.log('🎥 All CZML files processed');
                 
                 // Log all data sources
@@ -383,7 +446,9 @@
         setTimeout(() => {
             if (loadedCount < totalFiles) {
                 console.warn('⚠️ Loading timeout - hiding loading indicator');
-                loadingIndicator.style.display = 'none';
+                if (loadingIndicator) {
+                    loadingIndicator.style.display = 'none';
+                }
             }
         }, 10000); // 10 second timeout
 
