@@ -2,7 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Orbital Visualization - Ryan Lingo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbital Shell Visualization | LEO MEO GEO Satellite Tracking | Ryan Lingo</title>
+    <meta name="description" content="Interactive 3D orbital shell visualization showing LEO, MEO, and GEO satellite zones. Explore orbital tracts, space geography, and satellite constellation mapping by Ryan Charles Lingo.">
+    <meta name="keywords" content="orbital visualization, satellite tracking, LEO MEO GEO orbits, space geography, orbital tracts, satellite constellation, space situational awareness, orbital mechanics, CesiumJS, 3D space visualization, Ryan Lingo, geospatial analysis">
+    <meta name="author" content="Ryan Charles Lingo">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ryan-lingo.com/orbits/">
+    <meta property="og:title" content="Orbital Shell Visualization | LEO MEO GEO Satellite Tracking">
+    <meta property="og:description" content="Interactive 3D visualization of orbital shells and satellite zones. Explore space geography and orbital tract concepts.">
+    <meta property="og:image" content="https://ryan-lingo.com/orbits/orbital-preview.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ryan-lingo.com/orbits/">
+    <meta property="twitter:title" content="Orbital Shell Visualization | LEO MEO GEO Satellite Tracking">
+    <meta property="twitter:description" content="Interactive 3D visualization of orbital shells and satellite zones. Explore space geography and orbital tract concepts.">
+    <meta property="twitter:image" content="https://ryan-lingo.com/orbits/orbital-preview.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ryan-lingo.com/orbits/">
     <script>
       // Ensure workers are resolved before Cesium initializes
       // If you later copy Workers locally, change this to '/Cesium/'
@@ -14,6 +36,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Orbital Shell Visualization",
+        "description": "Interactive 3D orbital shell visualization showing LEO, MEO, and GEO satellite zones with orbital tract mapping",
+        "url": "https://ryan-lingo.com/orbits/",
+        "author": {
+            "@type": "Person",
+            "name": "Ryan Charles Lingo",
+            "jobTitle": "Geospatial Analyst",
+            "affiliation": "Extra-Orbital Solutions"
+        },
+        "applicationCategory": "Educational",
+        "operatingSystem": "Web Browser",
+        "keywords": "orbital visualization, satellite tracking, LEO, MEO, GEO, space geography, orbital mechanics",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
     <style>
         html, body {
             width: 100%;
@@ -295,11 +342,11 @@
                 <div class="overview-text-column">
                     <div class="overview-text">
                         <strong>Overview</strong><br><br>
-                        The orbital shell visualization demonstrates how near-Earth space can be divided into structured orbital tracts — 3D spatial zones that represent Low Earth Orbit (LEO), Medium Earth Orbit (MEO), and Geostationary Orbit (GEO). Each shell highlights a distinct functional layer of Earth's orbital environment, illustrating how spatial zoning and geospatial modeling can be extended beyond Earth's surface into orbital space.
+                        The <strong>orbital shell visualization</strong> demonstrates how near-Earth space can be divided into structured <strong>orbital tracts</strong> — 3D spatial zones that represent <strong>Low Earth Orbit (LEO)</strong>, <strong>Medium Earth Orbit (MEO)</strong>, and <strong>Geostationary Orbit (GEO)</strong>. Each shell highlights a distinct functional layer of Earth's orbital environment, illustrating how <strong>spatial zoning</strong> and <strong>geospatial modeling</strong> can be extended beyond Earth's surface into orbital space.
                     </div>
                     
                     <div class="overview-text">
-                        These orbital tracts form the foundation of a conceptual space geography system — a framework for visualizing, indexing, and managing orbital traffic with the same precision used for terrestrial mapping. The design bridges orbital mechanics and GIS, allowing analysts, engineers, and policymakers to better understand how altitude, inclination, and longitudinal position define operational regions in space.
+                        These <strong>orbital tracts</strong> form the foundation of a conceptual <strong>space geography system</strong> — a framework for visualizing, indexing, and managing <strong>orbital traffic</strong> with the same precision used for terrestrial mapping. The design bridges <strong>orbital mechanics</strong> and <strong>GIS</strong>, allowing analysts, engineers, and policymakers to better understand how altitude, inclination, and longitudinal position define operational regions in space.
                     </div>
                 </div>
                 
@@ -307,21 +354,21 @@
                     <div class="tract-card">
                         <div class="tract-header">🛰️ LEO (Low Earth Orbit)</div>
                         <div class="tract-example">LEO-A1000-I0-RAAN0_5</div>
-                        <div class="tract-satellite">Satellite Example: Starlink-3015 — operating within a ~550 km altitude band, transiting multiple LEO tracts for global internet coverage.</div>
+                        <div class="tract-satellite"><strong>Satellite Example:</strong> <em>Starlink-3015</em> — operating within a ~550 km altitude band, transiting multiple LEO tracts for global internet coverage.</div>
                         <div class="tract-usecase"><strong>Use Case:</strong> Demonstrates how dense satellite constellations can be spatially indexed across altitude and inclination segments, enabling tract-based monitoring, collision avoidance, and orbital population analytics.</div>
                     </div>
                     
                     <div class="tract-card">
                         <div class="tract-header">🛰️ MEO (Medium Earth Orbit)</div>
                         <div class="tract-example">MEO-A20200-I56-RAAN180_185</div>
-                        <div class="tract-satellite">Satellite Example: GPS IIF-5 — operating at ~20,200 km altitude within a fixed inclination band to maintain global navigation coverage.</div>
+                        <div class="tract-satellite"><strong>Satellite Example:</strong> <em>GPS IIF-5</em> — operating at ~20,200 km altitude within a fixed inclination band to maintain global navigation coverage.</div>
                         <div class="tract-usecase"><strong>Use Case:</strong> Shows how navigation satellites can be grouped within MEO tracts for precise orbital slot management, time synchronization analysis, and constellation geometry modeling.</div>
                     </div>
                     
                     <div class="tract-card">
                         <div class="tract-header">🛰️ GEO (Geostationary Orbit)</div>
                         <div class="tract-example">GEO-TOROIDAL-RAAN0_30-T1-P1</div>
-                        <div class="tract-satellite">Satellite Example: GOES-16 — stationed at ~35,786 km altitude above the equator, providing continuous weather and environmental monitoring for the Western Hemisphere.</div>
+                        <div class="tract-satellite"><strong>Satellite Example:</strong> <em>GOES-16</em> — stationed at ~35,786 km altitude above the equator, providing continuous weather and environmental monitoring for the Western Hemisphere.</div>
                         <div class="tract-usecase"><strong>Use Case:</strong> Illustrates how geostationary tracts can be used for regulatory coordination, debris mitigation planning, and long-term space situational awareness.</div>
                     </div>
                 </div>
@@ -329,7 +376,7 @@
             
             <div class="closing-statement">
                 <strong>Closing Statement</strong><br><br>
-                These examples show how orbital tracts can be used to spatially classify and analyze satellite operations — transforming orbital mechanics into a mappable, policy-ready geospatial framework. The visualization reflects Ryan Charles Lingo's ongoing research in orbital zoning and space sustainability under his Extra-Orbital Solutions initiative.
+                These examples show how <strong>orbital tracts</strong> can be used to spatially classify and analyze <strong>satellite operations</strong> — transforming <strong>orbital mechanics</strong> into a mappable, policy-ready <strong>geospatial framework</strong>. The visualization reflects <strong>Ryan Charles Lingo's</strong> ongoing research in <strong>orbital zoning</strong> and <strong>space sustainability</strong> under his <strong>Extra-Orbital Solutions</strong> initiative.
             </div>
             
             <div class="footer-credit">
