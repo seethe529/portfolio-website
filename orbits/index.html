@@ -3,6 +3,12 @@
 <head>
     <meta charset="utf-8">
     <title>Orbital Visualization - Ryan Lingo</title>
+    <script>
+      // Ensure workers are resolved before Cesium initializes
+      // If you later copy Workers locally, change this to '/Cesium/'
+      window.CESIUM_BASE_URL = 'https://cesium.com/downloads/cesiumjs/releases/1.109/Build/Cesium/';
+      console.log('CESIUM_BASE_URL set to:', window.CESIUM_BASE_URL);
+    </script>
     <script src="https://cesium.com/downloads/cesiumjs/releases/1.109/Build/Cesium/Cesium.js"></script>
     <link href="https://cesium.com/downloads/cesiumjs/releases/1.109/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -184,9 +190,6 @@
         // Cesium Ion access token
         Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxNTY2ODk0ZC05NzU1LTRiODMtYmI5Yy0wZjBlODQ0NmYyOTAiLCJpZCI6MjYxMjU1LCJpYXQiOjE3NjAyODU4Mjh9.SJ11nmMVqRH9JGZ6Kt4IzVpg-1Bq1iSdZT1Td4lrpT0";
 
-        // Configure Cesium workers
-        window.CESIUM_BASE_URL = 'https://cesium.com/downloads/cesiumjs/releases/1.109/Build/Cesium/';
-        
         // Initialize Cesium viewer with minimal UI
         const viewer = new Cesium.Viewer("cesiumContainer", {
             animation: false,
@@ -199,16 +202,18 @@
             navigationHelpButton: false,
             geocoder: false,
             terrainProvider: new Cesium.EllipsoidTerrainProvider(),
-            imageryProvider: false, // We'll add it manually with fallback
+            imageryProvider: new Cesium.IonImageryProvider({ assetId: 2 }), // Added default imagery provider
             requestRenderMode: true, // Improve performance
             maximumRenderTimeChange: Infinity
         });
 
+        console.log('Viewer created. requestRenderMode:', viewer.scene.requestRenderMode);
+
         // Configure scene for space visualization
         viewer.scene.skyBox.show = true;
-        viewer.scene.skyAtmosphere.show = false;
+        viewer.scene.skyAtmosphere.show = true;
         viewer.scene.backgroundColor = Cesium.Color.BLACK;
-        viewer.scene.globe.show = false;
+        viewer.scene.globe.show = true;
         viewer.scene.sun.show = false;
         viewer.scene.moon.show = false;
 
@@ -222,6 +227,9 @@
             if (loadedCount >= totalFiles) {
                 loadingIndicator.style.display = 'none';
                 console.log('🎥 All CZML files loaded successfully');
+                viewer.camera.flyTo({
+                  destination: Cesium.Cartesian3.fromDegrees(-75, 10, 45000000)
+                });
             }
         }
 
@@ -257,37 +265,8 @@
                 }
                 
                 loadPromise.then((dataSource) => {
-                    // Enhance visibility of loaded entities
+                    // Do not modify polygon colors or opacity to avoid visibility issues
                     const entities = dataSource.entities.values;
-                    entities.forEach(entity => {
-                        if (entity.polygon) {
-                            // Increase opacity for better visibility
-                            if (entity.polygon.material && entity.polygon.material.color) {
-                                const currentColor = entity.polygon.material.color.getValue();
-                                if (currentColor) {
-                                    // Increase alpha to 120 (from 30) for better visibility
-                                    entity.polygon.material.color = new Cesium.Color(
-                                        currentColor.red,
-                                        currentColor.green, 
-                                        currentColor.blue,
-                                        0.47 // ~120/255
-                                    );
-                                }
-                            }
-                            // Ensure outline is visible
-                            if (entity.polygon.outlineColor) {
-                                const currentOutlineColor = entity.polygon.outlineColor.getValue();
-                                if (currentOutlineColor) {
-                                    entity.polygon.outlineColor = new Cesium.Color(
-                                        currentOutlineColor.red,
-                                        currentOutlineColor.green,
-                                        currentOutlineColor.blue,
-                                        0.8 // Increase outline opacity
-                                    );
-                                }
-                            }
-                        }
-                    });
                     
                     viewer.dataSources.add(dataSource);
                     console.log(`✅ Loaded ${file.description} (${file.name}) with ${entities.length} entities`);
@@ -325,13 +304,14 @@
             console.log('Data source added:', dataSource.name, 'Entities:', dataSource.entities.values.length);
         });
         
-        // Add click handler for debugging
-        viewer.cesiumWidget.canvas.addEventListener('click', (event) => {
-            const pickedObject = viewer.scene.pick(viewer.camera.getPickRay(event));
-            if (pickedObject && pickedObject.id) {
-                console.log('Clicked entity:', pickedObject.id.name || pickedObject.id.id);
-            }
-        });
+        // Simple entity pick logger
+        const handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+        handler.setInputAction((movement) => {
+          const picked = viewer.scene.pick(movement.position);
+          if (Cesium.defined(picked) && picked.id) {
+            console.log('Clicked entity:', picked.id.name || picked.id.id);
+          }
+        }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
 
         // Disable right-click context menu
         viewer.cesiumWidget.canvas.oncontextmenu = function () {
