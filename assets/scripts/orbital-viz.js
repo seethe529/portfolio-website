@@ -78,7 +78,7 @@ class OrbitalVisualization {
         const loadingElement = document.getElementById('orbital-loading');
         
         try {
-            // Performance: Load files concurrently with timeout
+            // Load files concurrently
             const loadPromises = this.czmlFiles.map(file => 
                 this.loadCZMLFile(file).catch(error => {
                     console.warn(`Failed to load ${file.name}:`, error);
@@ -86,15 +86,8 @@ class OrbitalVisualization {
                 })
             );
             
-            // Security: Set reasonable timeout to prevent hanging
-            const timeoutPromise = new Promise((_, reject) => 
-                setTimeout(() => reject(new Error('Loading timeout')), 15000)
-            );
-            
-            await Promise.race([
-                Promise.allSettled(loadPromises),
-                timeoutPromise
-            ]);
+            // Wait for all files to complete (success or failure)
+            await Promise.allSettled(loadPromises);
             
             this.onLoadingComplete();
             
