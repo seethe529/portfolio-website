@@ -10,34 +10,9 @@
 
 'use strict';
 
-// Mobile Debug Console
-if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-    const debugConsole = document.createElement('div');
-    debugConsole.id = 'mobile-debug';
-    debugConsole.style.cssText = `
-        position: fixed; top: 0; right: 0; width: 300px; height: 200px;
-        background: rgba(0,0,0,0.9); color: #0f0; font-size: 10px;
-        padding: 10px; overflow-y: scroll; z-index: 10000;
-        font-family: monospace; border: 1px solid #0f0;
-    `;
-    document.body.appendChild(debugConsole);
-    
-    const originalLog = console.log;
-    const originalError = console.error;
-    const originalWarn = console.warn;
-    
-    function addToDebug(type, ...args) {
-        const msg = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ');
-        debugConsole.innerHTML += `<div style="color: ${type === 'error' ? '#f00' : type === 'warn' ? '#ff0' : '#0f0'}">[${type.toUpperCase()}] ${msg}</div>`;
-        debugConsole.scrollTop = debugConsole.scrollHeight;
-    }
-    
-    console.log = (...args) => { originalLog(...args); addToDebug('log', ...args); };
-    console.error = (...args) => { originalError(...args); addToDebug('error', ...args); };
-    console.warn = (...args) => { originalWarn(...args); addToDebug('warn', ...args); };
-}
+// Mobile crash prevention
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-// AWS Security: Content Security Policy compliance
 if (typeof window !== 'undefined' && !window.CESIUM_BASE_URL) {
     window.CESIUM_BASE_URL = './cesium/';
 }
@@ -78,9 +53,8 @@ class OrbitalVisualization {
     createViewer() {
         const container = document.getElementById('cesiumContainer');
         
-        // AWS Performance: Optimized Cesium configuration for cloud deployment
-        this.viewer = new Cesium.Viewer(container, {
-            // AWS Best Practice: Disable unnecessary features for performance
+        // Mobile-optimized Cesium configuration
+        const config = {
             animation: false,
             timeline: false,
             fullscreenButton: false,
@@ -90,15 +64,18 @@ class OrbitalVisualization {
             baseLayerPicker: false,
             navigationHelpButton: false,
             geocoder: false,
-            
-            // AWS Optimization: Lightweight terrain and imagery
             terrainProvider: new Cesium.EllipsoidTerrainProvider(),
-            imageryProvider: false,
-            
-            // AWS Performance: Optimized rendering
-            requestRenderMode: true,
-            maximumRenderTimeChange: Infinity
-        });
+            imageryProvider: false
+        };
+        
+        // Mobile crash prevention
+        if (isMobile) {
+            config.requestRenderMode = true;
+            config.maximumRenderTimeChange = 1000;
+            config.targetFrameRate = 30;
+        }
+        
+        this.viewer = new Cesium.Viewer(container, config);
         
         // AWS Security: Disable context menu
         this.viewer.cesiumWidget.canvas.oncontextmenu = () => false;
@@ -110,18 +87,21 @@ class OrbitalVisualization {
     }
     
     async loadCZMLData() {
-        // AWS Security: Validated file paths
-        const czmlFiles = [
-            { path: './assets/data/LEO_shell.czml', name: 'LEO Shell' },
-            { path: './assets/data/MEO_shell.czml', name: 'MEO Shell' },
-            { path: './assets/data/GEO_shell.czml', name: 'GEO Shell' }
-        ];
+        // Mobile: Load only LEO to prevent memory crashes
+        const czmlFiles = isMobile ? 
+            [{ path: './assets/data/LEO_shell.czml', name: 'LEO Shell' }] :
+            [
+                { path: './assets/data/LEO_shell.czml', name: 'LEO Shell' },
+                { path: './assets/data/MEO_shell.czml', name: 'MEO Shell' },
+                { path: './assets/data/GEO_shell.czml', name: 'GEO Shell' }
+            ];
         
-        // AWS Performance: Concurrent loading with error isolation
-        const loadPromises = czmlFiles.map(file => this.loadSingleCZML(file));
-        await Promise.allSettled(loadPromises);
+        // Sequential loading to prevent memory spikes
+        for (const file of czmlFiles) {
+            await this.loadSingleCZML(file);
+            if (isMobile) await new Promise(resolve => setTimeout(resolve, 500));
+        }
         
-        // AWS Best Practice: Optimal camera positioning
         this.setCameraView();
         this.hideLoadingIndicator();
     }
@@ -250,14 +230,29 @@ class OrbitalVisualizationManager {
     }
 }
 
-// Simple initialization without scroll interference
+// Mobile-aware initialization
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('cesiumContainer');
-    if (container) {
-        setTimeout(() => {
-            OrbitalVisualizationManager.initialize();
-        }, 1000);
+    if (!container) return;
+    
+    // Mobile: Show message instead of crashing
+    if (isMobile) {
+        container.innerHTML = `
+            <div style="display: flex; align-items: center; justify-content: center; height: 100%; 
+                       background: #1a1a1a; color: #00d4ff; font-family: Inter, sans-serif;">
+                <div style="text-align: center; padding: 2rem;">
+                    <h3>🛰️ Orbital Visualization</h3>
+                    <p>Mobile version coming soon</p>
+                    <p style="font-size: 0.9rem; opacity: 0.7;">View on desktop for full experience</p>
+                </div>
+            </div>
+        `;
+        return;
     }
+    
+    setTimeout(() => {
+        OrbitalVisualizationManager.initialize();
+    }, 1000);
 });
 
 // AWS Best Practice: Cleanup on page unload
