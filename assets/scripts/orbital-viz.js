@@ -279,15 +279,77 @@ class OrbitalVisualization {
             }, 250);
         });
         
+        // Interactive controls
+        this.setupInteractiveControls();
+        
         // Security: Sanitize entity selection logging
         const handler = new Cesium.ScreenSpaceEventHandler(this.viewer.scene.canvas);
         handler.setInputAction((movement) => {
             const picked = this.viewer.scene.pick(movement.position);
             if (Cesium.defined(picked) && picked.id) {
                 const entityName = picked.id.name || picked.id.id || 'Unknown';
-                console.log('Selected entity:', this.sanitizeString(entityName));
+                this.showZoneInfo(entityName);
             }
         }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+    }
+    
+    setupInteractiveControls() {
+        // Zone toggles
+        document.getElementById('toggle-leo')?.addEventListener('change', (e) => {
+            this.toggleZone('LEO', e.target.checked);
+        });
+        
+        document.getElementById('toggle-meo')?.addEventListener('change', (e) => {
+            this.toggleZone('MEO', e.target.checked);
+        });
+        
+        document.getElementById('toggle-geo')?.addEventListener('change', (e) => {
+            this.toggleZone('GEO', e.target.checked);
+        });
+        
+        // View controls
+        document.getElementById('view-earth')?.addEventListener('click', () => {
+            this.viewer.camera.setView({
+                destination: Cesium.Cartesian3.fromDegrees(0, 0, 15000000)
+            });
+        });
+        
+        document.getElementById('view-space')?.addEventListener('click', () => {
+            this.viewer.camera.setView({
+                destination: Cesium.Cartesian3.fromDegrees(0, 0, 50000000)
+            });
+        });
+        
+        document.getElementById('view-all')?.addEventListener('click', () => {
+            if (this.viewer.dataSources.length > 0) {
+                this.viewer.zoomTo(this.viewer.dataSources);
+            }
+        });
+    }
+    
+    toggleZone(zoneName, visible) {
+        this.viewer.dataSources.values.forEach(dataSource => {
+            if (dataSource.name && dataSource.name.includes(zoneName)) {
+                dataSource.show = visible;
+            }
+        });
+    }
+    
+    showZoneInfo(entityName) {
+        const infoElement = document.getElementById('zone-info');
+        if (infoElement) {
+            let info = 'Click orbital zones to learn more';
+            
+            if (entityName.includes('LEO')) {
+                info = '🛰️ LEO Zone: 160-2000km altitude. Used for Earth observation, communications, and space stations.';
+            } else if (entityName.includes('MEO')) {
+                info = '🛰️ MEO Zone: 2000-35,786km altitude. Home to GPS, GLONASS, and Galileo navigation satellites.';
+            } else if (entityName.includes('GEO')) {
+                info = '🛰️ GEO Zone: 35,786km altitude. Satellites appear stationary for telecommunications and weather monitoring.';
+            }
+            
+            infoElement.textContent = info;
+        }
     }
     
     sanitizeString(str) {

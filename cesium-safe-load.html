@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Safe CZML Loader</title>
+    <script src="./cesium/Cesium.js"></script>
+    <link href="./cesium/Widgets/widgets.css" rel="stylesheet">
+    <style>
+        html, body, #cesiumContainer {
+            width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="cesiumContainer"></div>
+    <script>
+        window.CESIUM_BASE_URL = './cesium/';
+        
+        const viewer = new Cesium.Viewer('cesiumContainer');
+        
+        async function loadCZMLSafely(url) {
+            try {
+                const response = await fetch(url);
+                const czmlData = await response.json();
+                
+                // Filter out problematic entities
+                const cleanData = czmlData.filter((packet, index) => {
+                    if (index === 0) return true; // Keep document packet
+                    
+                    // Skip entities with invalid polygon coordinates
+                    if (packet.polygon && packet.polygon.positions) {
+                        const positions = packet.polygon.positions.cartographicDegrees || packet.polygon.positions;
+                        if (Array.isArray(positions)) {
+                            for (let i = 0; i < positions.length; i += 3) {
+                                const lon = positions[i];
+                                const lat = positions[i + 1];
+                                const alt = positions[i + 2];
+                                
+                                if (!isFinite(lon) || !isFinite(lat) || !isFinite(alt) ||
+                                    Math.abs(lon) > 180 || Math.abs(lat) > 90) {
+                                    console.warn(`Skipping entity ${packet.id} - invalid coordinates`);
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                    return true;
+                });
+                
+                console.log(`Loaded ${cleanData.length - 1} valid entities from ${czmlData.length - 1} total`);
+                
+                const dataSource = await Cesium.CzmlDataSource.load(cleanData);
+                viewer.dataSources.add(dataSource);
+                return dataSource;
+                
+            } catch (error) {
+                console.error(`Failed to load ${url}:`, error);
+                return null;
+            }
+        }
+        
+        async function loadAllCZML() {
+            const files = [
+                './assets/data/LEO_shell.czml',
+                './assets/data/MEO_shell.czml',
+                './assets/data/GEO_shell.czml'
+            ];
+            
+            for (const file of files) {
+                await loadCZMLSafely(file);
+            }
+            
+            viewer.camera.setView({
+                destination: Cesium.Cartesian3.fromDegrees(0, 0, 50000000)
+            });
+        }
+        
+        loadAllCZML();
+    </script>
+</body>
+</html>
