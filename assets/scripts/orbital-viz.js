@@ -82,19 +82,46 @@ class OrbitalVisualization {
         // Security: Disable right-click context menu
         this.viewer.cesiumWidget.canvas.oncontextmenu = () => false;
         
-        // Set initial camera position to see Earth
+        // Add highly visible test entities
+        this.viewer.entities.add({
+            name: 'BRIGHT RED BOX',
+            position: Cesium.Cartesian3.fromDegrees(0, 0, 1000000),
+            box: {
+                dimensions: new Cesium.Cartesian3(2000000, 2000000, 2000000),
+                material: Cesium.Color.RED,
+                outline: true,
+                outlineColor: Cesium.Color.YELLOW
+            }
+        });
+        
+        // Add a simple polygon at ground level
+        this.viewer.entities.add({
+            name: 'GROUND POLYGON',
+            polygon: {
+                hierarchy: Cesium.Cartesian3.fromDegreesArray([
+                    -10, -10,
+                    10, -10,
+                    10, 10,
+                    -10, 10
+                ]),
+                material: Cesium.Color.BLUE.withAlpha(0.5),
+                outline: true,
+                outlineColor: Cesium.Color.BLUE,
+                height: 0
+            }
+        });
+        
+        // Set camera to see these test entities
         this.viewer.camera.setView({
-            destination: Cesium.Cartesian3.fromDegrees(0, 0, 15000000),
+            destination: Cesium.Cartesian3.fromDegrees(0, 0, 5000000),
             orientation: {
                 heading: 0,
-                pitch: -Cesium.Math.PI_OVER_SIX,
+                pitch: -Cesium.Math.PI_OVER_FOUR,
                 roll: 0
             }
         });
         
-        console.log('Initial camera position set');
-        console.log('Camera position:', this.viewer.camera.position);
-        console.log('Camera direction:', this.viewer.camera.direction);
+        console.log('Test entities and camera set');
     }
     
     async loadCZMLData() {
@@ -133,14 +160,16 @@ class OrbitalVisualization {
         try {
             const dataSource = await Cesium.CzmlDataSource.load(file.name);
             
-            // Fix: Ensure all polygon entities are visible
+            // Make entities EXTREMELY visible
             dataSource.entities.values.forEach(entity => {
                 if (entity.polygon) {
                     entity.polygon.show = true;
                     entity.polygon.fill = true;
                     entity.polygon.outline = true;
-                    entity.polygon.material = Cesium.Color.CYAN.withAlpha(0.3);
-                    entity.polygon.outlineColor = Cesium.Color.CYAN;
+                    entity.polygon.material = Cesium.Color.RED.withAlpha(0.8);
+                    entity.polygon.outlineColor = Cesium.Color.YELLOW;
+                    entity.polygon.outlineWidth = 5;
+                    entity.polygon.extrudedHeight = 1000000; // Extrude to make visible
                 }
                 entity.show = true;
             });
