@@ -223,24 +223,14 @@ class OrbitalVisualizationManager {
     }
 }
 
-// AWS Performance: Intersection Observer for lazy loading
+// Simple initialization without scroll interference
 document.addEventListener('DOMContentLoaded', () => {
-    const orbitalSection = document.getElementById('orbital-viz');
-    if (!orbitalSection) return;
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // AWS Best Practice: Delayed initialization for performance
-                setTimeout(() => {
-                    OrbitalVisualizationManager.initialize();
-                }, 500);
-                observer.disconnect();
-            }
-        });
-    }, { threshold: 0.1 });
-    
-    observer.observe(orbitalSection);
+    const container = document.getElementById('cesiumContainer');
+    if (container) {
+        setTimeout(() => {
+            OrbitalVisualizationManager.initialize();
+        }, 1000);
+    }
 });
 
 // AWS Best Practice: Cleanup on page unload
