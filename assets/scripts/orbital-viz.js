@@ -158,18 +158,45 @@ class OrbitalVisualization {
         }
         
         try {
-            const dataSource = await Cesium.CzmlDataSource.load(file.name);
+            // Load and validate CZML data
+            const response = await fetch(file.name);
+            const czmlData = await response.json();
             
-            // Make entities EXTREMELY visible
+            // Filter out problematic entities
+            const cleanData = czmlData.filter((packet, index) => {
+                if (index === 0) return true; // Keep document packet
+                
+                // Skip entities with invalid polygon coordinates
+                if (packet.polygon && packet.polygon.positions) {
+                    const positions = packet.polygon.positions.cartographicDegrees || packet.polygon.positions;
+                    if (Array.isArray(positions)) {
+                        for (let i = 0; i < positions.length; i += 3) {
+                            const lon = positions[i];
+                            const lat = positions[i + 1];
+                            const alt = positions[i + 2];
+                            
+                            if (!isFinite(lon) || !isFinite(lat) || !isFinite(alt) ||
+                                Math.abs(lon) > 180 || Math.abs(lat) > 90 || alt < -10000000) {
+                                return false;
+                            }
+                        }
+                    }
+                }
+                return true;
+            });
+            
+            console.log(`${file.description}: ${cleanData.length - 1} valid entities from ${czmlData.length - 1} total`);
+            
+            const dataSource = await Cesium.CzmlDataSource.load(cleanData);
+            
+            // Make entities visible
             dataSource.entities.values.forEach(entity => {
                 if (entity.polygon) {
                     entity.polygon.show = true;
                     entity.polygon.fill = true;
                     entity.polygon.outline = true;
-                    entity.polygon.material = Cesium.Color.RED.withAlpha(0.8);
-                    entity.polygon.outlineColor = Cesium.Color.YELLOW;
-                    entity.polygon.outlineWidth = 5;
-                    entity.polygon.extrudedHeight = 1000000; // Extrude to make visible
+                    entity.polygon.material = Cesium.Color.CYAN.withAlpha(0.6);
+                    entity.polygon.outlineColor = Cesium.Color.WHITE;
                 }
                 entity.show = true;
             });
