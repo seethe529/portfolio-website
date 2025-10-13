@@ -122,10 +122,9 @@ class OrbitalVisualization {
             this.viewer.dataSources.add(dataSource);
             this.loadedDataSources.add(dataSource);
             
-            console.log(`AWS-Orbital-Viz: Loaded ${file.name}`);
             return dataSource;
         } catch (error) {
-            console.warn(`AWS-Orbital-Viz: Failed to load ${file.name}:`, error.message);
+            // Silent fail for production
             return null;
         }
     }
@@ -209,10 +208,8 @@ class OrbitalVisualization {
             
             this.loadedDataSources.clear();
             this.isDestroyed = true;
-            
-            console.log('AWS-Orbital-Viz: Resources cleaned up');
         } catch (error) {
-            console.error('AWS-Orbital-Viz: Cleanup error:', error);
+            // Silent cleanup for production
         }
     }
 }
@@ -228,7 +225,6 @@ class OrbitalVisualizationManager {
         
         const container = document.getElementById('cesiumContainer');
         if (!container) {
-            console.warn('AWS-Orbital-Viz: Container not found, skipping initialization');
             return null;
         }
         
@@ -236,7 +232,6 @@ class OrbitalVisualizationManager {
             OrbitalVisualizationManager.instance = new OrbitalVisualization();
             return OrbitalVisualizationManager.instance;
         } catch (error) {
-            console.error('AWS-Orbital-Viz: Initialization failed:', error);
             return null;
         }
     }
