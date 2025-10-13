@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Cesium Basic Test</title>
-    <script src="https://cesium.com/downloads/cesiumjs/releases/1.109/Build/CesiumUnminified/Cesium.js"></script>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.109/Build/Cesium/Cesium.js"></script>
     <link href="https://cesium.com/downloads/cesiumjs/releases/1.109/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
     <style>
         html, body, #cesiumContainer {
@@ -13,10 +13,15 @@
 <body>
     <div id="cesiumContainer"></div>
     <script>
-        window.CESIUM_BASE_URL = 'https://cesium.com/downloads/cesiumjs/releases/1.109/Build/CesiumUnminified/';
+        window.CESIUM_BASE_URL = 'https://cesium.com/downloads/cesiumjs/releases/1.109/Build/Cesium/';
         Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxNTY2ODk0ZC05NzU1LTRiODMtYmI5Yy0wZjBlODQ0NmYyOTAiLCJpZCI6MjYxMjU1LCJpYXQiOjE3NjAyODU4Mjh9.SJ11nmMVqRH9JGZ6Kt4IzVpg-1Bq1iSdZT1Td4lrpT0";
         
-        const viewer = new Cesium.Viewer('cesiumContainer');
+        const viewer = new Cesium.Viewer('cesiumContainer', {
+            imageryProvider: new Cesium.SingleTileImageryProvider({
+                url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=='
+            }),
+            baseLayerPicker: false
+        });
         
         viewer.entities.add({
             position: Cesium.Cartesian3.fromDegrees(-75, 40, 300000),
