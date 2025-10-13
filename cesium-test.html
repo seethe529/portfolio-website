@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cesium Basic Test</title>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.109/Build/CesiumUnminified/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.109/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <style>
+        html, body, #cesiumContainer {
+            width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="cesiumContainer"></div>
+    <script>
+        window.CESIUM_BASE_URL = 'https://cesium.com/downloads/cesiumjs/releases/1.109/Build/CesiumUnminified/';
+        Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxNTY2ODk0ZC05NzU1LTRiODMtYmI5Yy0wZjBlODQ0NmYyOTAiLCJpZCI6MjYxMjU1LCJpYXQiOjE3NjAyODU4Mjh9.SJ11nmMVqRH9JGZ6Kt4IzVpg-1Bq1iSdZT1Td4lrpT0";
+        
+        const viewer = new Cesium.Viewer('cesiumContainer');
+        
+        viewer.entities.add({
+            position: Cesium.Cartesian3.fromDegrees(-75, 40, 300000),
+            point: {
+                pixelSize: 10,
+                color: Cesium.Color.YELLOW
+            }
+        });
+        
+        console.log('Basic Cesium test loaded');
+    </script>
+</body>
+</html>
