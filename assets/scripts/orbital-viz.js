@@ -328,11 +328,12 @@ class OrbitalVisualization {
     }
     
     toggleZone(zoneName, visible) {
-        this.viewer.dataSources.values.forEach(dataSource => {
+        for (let i = 0; i < this.viewer.dataSources.length; i++) {
+            const dataSource = this.viewer.dataSources.get(i);
             if (dataSource.name && dataSource.name.includes(zoneName)) {
                 dataSource.show = visible;
             }
-        });
+        }
     }
     
     showZoneInfo(entityName) {
