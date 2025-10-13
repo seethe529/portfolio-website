@@ -139,7 +139,7 @@ class OrbitalVisualization {
         // Position camera to show Earth with sun in background
         // Optimal distance to see all orbital shells with sun context
         this.viewer.camera.setView({
-            destination: Cesium.Cartesian3.fromDegrees(-45, 30, 800000),
+            destination: Cesium.Cartesian3.fromDegrees(-10, 30, 800000000),
             orientation: {
                 heading: Cesium.Math.toRadians(45), // Angle toward sun position
                 pitch: -Cesium.Math.PI_OVER_SIX, // Slight downward angle
