@@ -312,14 +312,11 @@
     
     <!-- Cesium Integration -->
     <script>
-        // Content Security Policy compliant Cesium configuration
-        window.CESIUM_BASE_URL = 'https://cesium.com/downloads/cesiumjs/releases/1.109/Build/Cesium/';
+        // Local Cesium configuration
+        window.CESIUM_BASE_URL = './cesium/';
     </script>
-    <script src="https://cesium.com/downloads/cesiumjs/releases/1.109/Build/Cesium/Cesium.js" 
-            crossorigin="anonymous"></script>
-    <link href="https://cesium.com/downloads/cesiumjs/releases/1.109/Build/Cesium/Widgets/widgets.css" 
-          rel="stylesheet" 
-          crossorigin="anonymous">
+    <script src="./cesium/Cesium.js"></script>
+    <link href="./cesium/Widgets/widgets.css" rel="stylesheet">
     
     <!-- Orbital Visualization Script -->
     <script src="assets/scripts/orbital-viz.js" defer></script>

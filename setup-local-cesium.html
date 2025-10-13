@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Local Cesium CZML Test</title>
+    <!-- Download Cesium 1.109 and extract to ./cesium/ directory -->
+    <script src="./cesium/Cesium.js"></script>
+    <link href="./cesium/Widgets/widgets.css" rel="stylesheet">
+    <style>
+        html, body, #cesiumContainer {
+            width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="cesiumContainer"></div>
+    <script>
+        // Set base URL to local directory
+        window.CESIUM_BASE_URL = './cesium/';
+        
+        const viewer = new Cesium.Viewer('cesiumContainer', {
+            terrainProvider: Cesium.createWorldTerrain(),
+            globe: {
+                enableLighting: false
+            }
+        });
+        
+        // Load your CZML files
+        const czmlFiles = [
+            './assets/data/LEO_shell.czml',
+            './assets/data/MEO_shell.czml', 
+            './assets/data/GEO_shell.czml'
+        ];
+        
+        czmlFiles.forEach(async (file) => {
+            try {
+                const dataSource = await Cesium.CzmlDataSource.load(file);
+                viewer.dataSources.add(dataSource);
+                console.log(`Loaded ${file}`);
+            } catch (error) {
+                console.error(`Failed to load ${file}:`, error);
+            }
+        });
+        
+        // Set camera to show orbital shells
+        viewer.camera.setView({
+            destination: Cesium.Cartesian3.fromDegrees(0, 0, 50000000)
+        });
+    </script>
+</body>
+</html>
