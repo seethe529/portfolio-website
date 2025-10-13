@@ -10,6 +10,33 @@
 
 'use strict';
 
+// Mobile Debug Console
+if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+    const debugConsole = document.createElement('div');
+    debugConsole.id = 'mobile-debug';
+    debugConsole.style.cssText = `
+        position: fixed; top: 0; right: 0; width: 300px; height: 200px;
+        background: rgba(0,0,0,0.9); color: #0f0; font-size: 10px;
+        padding: 10px; overflow-y: scroll; z-index: 10000;
+        font-family: monospace; border: 1px solid #0f0;
+    `;
+    document.body.appendChild(debugConsole);
+    
+    const originalLog = console.log;
+    const originalError = console.error;
+    const originalWarn = console.warn;
+    
+    function addToDebug(type, ...args) {
+        const msg = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ');
+        debugConsole.innerHTML += `<div style="color: ${type === 'error' ? '#f00' : type === 'warn' ? '#ff0' : '#0f0'}">[${type.toUpperCase()}] ${msg}</div>`;
+        debugConsole.scrollTop = debugConsole.scrollHeight;
+    }
+    
+    console.log = (...args) => { originalLog(...args); addToDebug('log', ...args); };
+    console.error = (...args) => { originalError(...args); addToDebug('error', ...args); };
+    console.warn = (...args) => { originalWarn(...args); addToDebug('warn', ...args); };
+}
+
 // AWS Security: Content Security Policy compliance
 if (typeof window !== 'undefined' && !window.CESIUM_BASE_URL) {
     window.CESIUM_BASE_URL = './cesium/';
