@@ -59,7 +59,7 @@ class OrbitalVisualization {
             timeline: false,
             fullscreenButton: false,
             vrButton: false,
-            homeButton: false,
+            homeButton: true,
             sceneModePicker: false,
             baseLayerPicker: false,
             navigationHelpButton: false,
@@ -132,13 +132,21 @@ class OrbitalVisualization {
     }
     
     setCameraView() {
+        // Position camera beyond GEO orbit (35,786km) to show all orbital shells
+        // GEO + buffer = ~45,000km altitude for optimal viewing
         this.viewer.camera.setView({
-            destination: Cesium.Cartesian3.fromDegrees(0, 0, 50000000),
+            destination: Cesium.Cartesian3.fromDegrees(0, 0, 45000000),
             orientation: {
                 heading: 0,
-                pitch: -Cesium.Math.PI_OVER_FOUR,
+                pitch: -Cesium.Math.PI_OVER_SIX, // Slight downward angle to center Earth
                 roll: 0
             }
+        });
+        
+        // Set home button to return to this optimal view
+        this.viewer.homeButton.viewModel.command.beforeExecute.addEventListener((e) => {
+            e.cancel = true;
+            this.setCameraView();
         });
     }
     
