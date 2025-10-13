@@ -235,15 +235,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('cesiumContainer');
     if (!container) return;
     
-    // Mobile: Show message instead of crashing
+    // Mobile: Show clear message to prevent waiting
     if (isMobile) {
         container.innerHTML = `
             <div style="display: flex; align-items: center; justify-content: center; height: 100%; 
-                       background: #1a1a1a; color: #00d4ff; font-family: Inter, sans-serif;">
-                <div style="text-align: center; padding: 2rem;">
-                    <h3>🛰️ Orbital Visualization</h3>
-                    <p>Mobile version coming soon</p>
-                    <p style="font-size: 0.9rem; opacity: 0.7;">View on desktop for full experience</p>
+                       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); 
+                       color: #ffffff; font-family: Inter, sans-serif; border-radius: 12px;">
+                <div style="text-align: center; padding: 2rem; max-width: 400px;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🛰️</div>
+                    <h3 style="color: #00d4ff; margin-bottom: 1rem; font-size: 1.5rem;">Interactive 3D Orbital Visualization</h3>
+                    <p style="margin-bottom: 1rem; line-height: 1.6;">Full 3D visualization best viewed on desktop — mobile view shows static preview.</p>
+                    <p style="font-size: 0.9rem; opacity: 0.8; color: #ff6b35;">💻 Switch to desktop for the complete interactive experience with 33,000+ orbital tracts</p>
                 </div>
             </div>
         `;
