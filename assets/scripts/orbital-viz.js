@@ -140,6 +140,19 @@ class OrbitalVisualization {
         
         try {
             const dataSource = await Cesium.CzmlDataSource.load(file.name);
+            
+            // Fix: Ensure all polygon entities are visible
+            dataSource.entities.values.forEach(entity => {
+                if (entity.polygon) {
+                    entity.polygon.show = true;
+                    entity.polygon.fill = true;
+                    entity.polygon.outline = true;
+                    entity.polygon.material = Cesium.Color.CYAN.withAlpha(0.3);
+                    entity.polygon.outlineColor = Cesium.Color.CYAN;
+                }
+                entity.show = true;
+            });
+            
             this.viewer.dataSources.add(dataSource);
             
             console.log(`✅ Loaded ${file.description}: ${dataSource.entities.values.length} entities`);
