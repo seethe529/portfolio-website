@@ -136,13 +136,13 @@ class OrbitalVisualization {
     }
     
     setCameraView() {
-        // Position camera far beyond GEO orbit to show all orbital shells
-        // GEO at 35,786km + significant buffer = ~80,000km for full shell visibility
+        // Position camera to show Earth with sun in background
+        // Optimal distance to see all orbital shells with sun context
         this.viewer.camera.setView({
-            destination: Cesium.Cartesian3.fromDegrees(0, 0, 800000),
+            destination: Cesium.Cartesian3.fromDegrees(-45, 30, 800000),
             orientation: {
-                heading: 0,
-                pitch: -Cesium.Math.PI_OVER_THREE, // Look down toward Earth to see shells
+                heading: Cesium.Math.toRadians(45), // Angle toward sun position
+                pitch: -Cesium.Math.PI_OVER_SIX, // Slight downward angle
                 roll: 0
             }
         });
