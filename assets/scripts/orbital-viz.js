@@ -82,27 +82,19 @@ class OrbitalVisualization {
         // Security: Disable right-click context menu
         this.viewer.cesiumWidget.canvas.oncontextmenu = () => false;
         
-        // Debug: Add a test entity to verify Cesium is working
-        this.viewer.entities.add({
-            name: 'Test Point',
-            position: Cesium.Cartesian3.fromDegrees(-75.0, 40.0, 1000000),
-            point: {
-                pixelSize: 20,
-                color: Cesium.Color.YELLOW,
-                outlineColor: Cesium.Color.BLACK,
-                outlineWidth: 2
-            },
-            label: {
-                text: 'TEST POINT',
-                font: '14pt sans-serif',
-                fillColor: Cesium.Color.WHITE,
-                outlineColor: Cesium.Color.BLACK,
-                outlineWidth: 2,
-                style: Cesium.LabelStyle.FILL_AND_OUTLINE
+        // Set initial camera position to see Earth
+        this.viewer.camera.setView({
+            destination: Cesium.Cartesian3.fromDegrees(0, 0, 15000000),
+            orientation: {
+                heading: 0,
+                pitch: -Cesium.Math.PI_OVER_SIX,
+                roll: 0
             }
         });
         
-        console.log('Test entity added. Total entities:', this.viewer.entities.values.length);
+        console.log('Initial camera position set');
+        console.log('Camera position:', this.viewer.camera.position);
+        console.log('Camera direction:', this.viewer.camera.direction);
     }
     
     async loadCZMLData() {
@@ -197,18 +189,23 @@ class OrbitalVisualization {
             }
         }
         
-        // Try multiple camera positions
+        // Zoom to show all data
         setTimeout(() => {
-            console.log('Setting camera to Earth view...');
-            this.viewer.camera.setView({
-                destination: Cesium.Cartesian3.fromDegrees(0, 0, 20000000),
-                orientation: {
-                    heading: 0,
-                    pitch: -Cesium.Math.PI_OVER_FOUR,
-                    roll: 0
-                }
-            });
-        }, 1000);
+            console.log('Zooming to all data...');
+            if (this.viewer.dataSources.length > 0) {
+                this.viewer.zoomTo(this.viewer.dataSources);
+            } else {
+                // Fallback camera position
+                this.viewer.camera.setView({
+                    destination: Cesium.Cartesian3.fromDegrees(0, 0, 40000000),
+                    orientation: {
+                        heading: 0,
+                        pitch: -Cesium.Math.PI_OVER_THREE,
+                        roll: 0
+                    }
+                });
+            }
+        }, 2000);
         
         // Force render
         this.viewer.scene.requestRender();
