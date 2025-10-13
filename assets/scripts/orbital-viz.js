@@ -57,7 +57,7 @@ class OrbitalVisualization {
             navigationHelpButton: false,
             geocoder: false,
             terrainProvider: new Cesium.EllipsoidTerrainProvider(),
-            imageryProvider: new Cesium.IonImageryProvider({ assetId: 2 }),
+            imageryProvider: false,
             requestRenderMode: false
         });
         
