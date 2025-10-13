@@ -58,20 +58,51 @@ class OrbitalVisualization {
             geocoder: false,
             terrainProvider: new Cesium.EllipsoidTerrainProvider(),
             imageryProvider: new Cesium.IonImageryProvider({ assetId: 2 }),
-            requestRenderMode: true,
-            maximumRenderTimeChange: Infinity
+            requestRenderMode: false
         });
         
         // Configure scene for space visualization
         this.viewer.scene.skyBox.show = true;
         this.viewer.scene.skyAtmosphere.show = true;
-        this.viewer.scene.backgroundColor = Cesium.Color.BLACK;
+        this.viewer.scene.backgroundColor = Cesium.Color.fromCssColorString('#0a0a0f');
         this.viewer.scene.globe.show = true;
-        this.viewer.scene.sun.show = false;
-        this.viewer.scene.moon.show = false;
+        this.viewer.scene.sun.show = true;
+        this.viewer.scene.moon.show = true;
+        
+        // Debug scene configuration
+        console.log('Scene configured:');
+        console.log('- Globe show:', this.viewer.scene.globe.show);
+        console.log('- SkyBox show:', this.viewer.scene.skyBox.show);
+        console.log('- Background color:', this.viewer.scene.backgroundColor);
+        console.log('- Request render mode:', this.viewer.scene.requestRenderMode);
+        
+        // Force initial render
+        this.viewer.scene.requestRender();
         
         // Security: Disable right-click context menu
         this.viewer.cesiumWidget.canvas.oncontextmenu = () => false;
+        
+        // Debug: Add a test entity to verify Cesium is working
+        this.viewer.entities.add({
+            name: 'Test Point',
+            position: Cesium.Cartesian3.fromDegrees(-75.0, 40.0, 1000000),
+            point: {
+                pixelSize: 20,
+                color: Cesium.Color.YELLOW,
+                outlineColor: Cesium.Color.BLACK,
+                outlineWidth: 2
+            },
+            label: {
+                text: 'TEST POINT',
+                font: '14pt sans-serif',
+                fillColor: Cesium.Color.WHITE,
+                outlineColor: Cesium.Color.BLACK,
+                outlineWidth: 2,
+                style: Cesium.LabelStyle.FILL_AND_OUTLINE
+            }
+        });
+        
+        console.log('Test entity added. Total entities:', this.viewer.entities.values.length);
     }
     
     async loadCZMLData() {
@@ -131,21 +162,43 @@ class OrbitalVisualization {
     onLoadingComplete() {
         console.log(`🎯 Orbital visualization loaded: ${this.loadedCount}/${this.totalFiles} files`);
         
-        // Performance: Set optimal camera position
-        this.viewer.camera.setView({
-            destination: Cesium.Cartesian3.fromDegrees(0, 0, 50000000),
-            orientation: {
-                heading: 0,
-                pitch: -Cesium.Math.PI_OVER_TWO,
-                roll: 0
-            }
-        });
+        // Debug: Check viewer state
+        console.log('Viewer scene:', this.viewer.scene);
+        console.log('Globe show:', this.viewer.scene.globe.show);
+        console.log('SkyBox show:', this.viewer.scene.skyBox.show);
         
         // Log data sources for debugging
         for (let i = 0; i < this.viewer.dataSources.length; i++) {
             const ds = this.viewer.dataSources.get(i);
             console.log(`Data source ${i}: ${ds.name} (${ds.entities.values.length} entities)`);
+            
+            // Debug first entity in each data source
+            if (ds.entities.values.length > 0) {
+                const entity = ds.entities.values[0];
+                console.log('First entity:', entity.name, entity.id);
+                console.log('Entity show:', entity.show);
+                if (entity.polygon) {
+                    console.log('Polygon show:', entity.polygon.show);
+                    console.log('Polygon positions:', entity.polygon.hierarchy);
+                }
+            }
         }
+        
+        // Try multiple camera positions
+        setTimeout(() => {
+            console.log('Setting camera to Earth view...');
+            this.viewer.camera.setView({
+                destination: Cesium.Cartesian3.fromDegrees(0, 0, 20000000),
+                orientation: {
+                    heading: 0,
+                    pitch: -Cesium.Math.PI_OVER_FOUR,
+                    roll: 0
+                }
+            });
+        }, 1000);
+        
+        // Force render
+        this.viewer.scene.requestRender();
     }
     
     setupEventHandlers() {
