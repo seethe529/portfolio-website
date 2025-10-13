@@ -142,7 +142,7 @@ class OrbitalVisualization {
             destination: Cesium.Cartesian3.fromDegrees(0, 0, 80000000),
             orientation: {
                 heading: 0,
-                pitch: -Cesium.Math.PI_OVER_FOUR, // Better angle to see all shells
+                pitch: -Cesium.Math.PI_OVER_SIX, // Look down toward Earth to see shells
                 roll: 0
             }
         });
