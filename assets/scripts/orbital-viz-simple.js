@@ -84,6 +84,11 @@ class OrbitalVisualization {
         this.viewer.scene.globe.show = true;
         this.viewer.scene.skyBox.show = true;
         this.viewer.scene.backgroundColor = Cesium.Color.fromCssColorString('#0a0a0f');
+        
+        // Force hide loading indicator
+        setTimeout(() => {
+            this.hideLoadingIndicator();
+        }, 2000);
     }
     
     async loadCZMLData() {
@@ -154,6 +159,12 @@ class OrbitalVisualization {
         const loading = document.getElementById('orbital-loading');
         if (loading) {
             loading.style.display = 'none';
+        }
+        
+        // Also hide any Cesium loading screens
+        const cesiumLoading = document.querySelector('.cesium-viewer-loading');
+        if (cesiumLoading) {
+            cesiumLoading.style.display = 'none';
         }
     }
     
