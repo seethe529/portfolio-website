@@ -82,34 +82,7 @@ class OrbitalVisualization {
         // Security: Disable right-click context menu
         this.viewer.cesiumWidget.canvas.oncontextmenu = () => false;
         
-        // Add highly visible test entities
-        this.viewer.entities.add({
-            name: 'BRIGHT RED BOX',
-            position: Cesium.Cartesian3.fromDegrees(0, 0, 1000000),
-            box: {
-                dimensions: new Cesium.Cartesian3(2000000, 2000000, 2000000),
-                material: Cesium.Color.RED,
-                outline: true,
-                outlineColor: Cesium.Color.YELLOW
-            }
-        });
-        
-        // Add a simple polygon at ground level
-        this.viewer.entities.add({
-            name: 'GROUND POLYGON',
-            polygon: {
-                hierarchy: Cesium.Cartesian3.fromDegreesArray([
-                    -10, -10,
-                    10, -10,
-                    10, 10,
-                    -10, 10
-                ]),
-                material: Cesium.Color.BLUE.withAlpha(0.5),
-                outline: true,
-                outlineColor: Cesium.Color.BLUE,
-                height: 0
-            }
-        });
+        // Remove debug entities - they're no longer needed
         
         // Set camera to see these test entities
         this.viewer.camera.setView({
