@@ -1,0 +1,1528 @@
+/* ==========================================================================
+   RESET AND BASE STYLES
+   ========================================================================== */
+
+/* Universal box-sizing reset for consistent layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles with space-themed gradient background */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #e8e8e8;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 140, 0, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+        linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Subtle star field effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.4), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(2px 2px at 160px 30px, rgba(255, 255, 255, 0.3), transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+/* Container for consistent max-width and centering */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   HEADER SECTION
+   ========================================================================== */
+
+/* Header with banner image and overlay */
+header {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Banner container with fixed height */
+.banner-container {
+    position: relative;
+    height: 400px;
+}
+
+/* Banner image covering full container */
+.banner-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Overlay content positioned over banner image */
+.header-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Left-aligned text within header */
+.header-content .container {
+    text-align: left;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Main heading with shadow effects */
+header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.6), 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Subtitle with lighter weight */
+header p {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* Tagline styling */
+header .tagline {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    font-style: italic;
+    margin-top: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* ==========================================================================
+   MAIN CONTENT AREA
+   ========================================================================== */
+
+/* Main content wrapper with padding */
+main {
+    padding: 60px 0;
+    position: relative;
+}
+
+/* ==========================================================================
+   HERO SECTION (About Me)
+   ========================================================================== */
+
+/* Hero section with space-themed glass morphism effect */
+.hero {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 60px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border-radius: 24px;
+    padding: 50px;
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle orbital ring effect */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Hero image container with decorative border */
+.hero-image {
+    position: relative;
+}
+
+/* Space-themed glowing border effect */
+.hero-image::before {
+    content: '';
+    position: absolute;
+    inset: -12px;
+    background: linear-gradient(45deg, #ff6b35, #ff8c00, #ff4500, #ff6b35);
+    border-radius: 24px;
+    z-index: -1;
+    animation: cosmicGlow 3s ease-in-out infinite alternate;
+    filter: blur(1px);
+}
+
+@keyframes cosmicGlow {
+    0% { 
+        opacity: 0.6; 
+        transform: scale(1) rotate(0deg); 
+        filter: blur(1px) hue-rotate(0deg);
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1.02) rotate(2deg); 
+        filter: blur(2px) hue-rotate(10deg);
+    }
+}
+
+/* Glow animation keyframes */
+@keyframes glow {
+    0% { opacity: 0.6; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.02); }
+}
+
+/* Hero image styling */
+.hero-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+/* Hero content heading */
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Hero content paragraph */
+.hero-content p {
+    font-size: 1.2rem;
+    color: #cccccc;
+    line-height: 1.8;
+}
+
+/* ==========================================================================
+   EXPERIENCE SECTION
+   ========================================================================== */
+
+/* Experience section heading with space gradient text */
+.experience h2 {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #ffffff;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff6b35, #ff8c00, #ffa500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
+}
+
+/* Grid layout for experience cards */
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+/* Space-themed experience card styling */
+.experience-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 107, 53, 0.4);
+    text-align: center;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 240px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Subtle nebula effect on cards */
+.experience-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+/* Space-themed experience card hover effects */
+.experience-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 20px 60px rgba(255, 107, 53, 0.3),
+        0 0 30px rgba(255, 107, 53, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 107, 53, 0.8);
+}
+
+.experience-card:hover::after {
+    opacity: 1;
+}
+
+/* Experience card headings */
+.experience-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #ff6b35;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Experience card descriptions */
+.experience-card p {
+    color: #cccccc;
+    line-height: 1.6;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Company logo container */
+.company-logo {
+    height: 60px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Company logo image sizing */
+.company-logo img {
+    max-height: 50px;
+    max-width: 120px;
+    object-fit: contain;
+}
+
+/* ==========================================================================
+   RESUME SECTION
+   ========================================================================== */
+
+/* Space-themed resume section */
+.resume-section {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    padding: 60px;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 107, 53, 0.4);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Cosmic energy pulse effect */
+.resume-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, rgba(255, 140, 0, 0.1) 30%, transparent 70%);
+    animation: cosmicPulse 6s ease-in-out infinite;
+}
+
+@keyframes cosmicPulse {
+    0%, 100% { 
+        transform: scale(1) rotate(0deg); 
+        opacity: 0.3; 
+    }
+    50% { 
+        transform: scale(1.1) rotate(180deg); 
+        opacity: 0.6; 
+    }
+}
+
+/* Pulse animation keyframes */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* Resume section heading */
+.resume-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #ffffff;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+}
+
+/* Resume section description */
+.resume-section p {
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-bottom: 35px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Resume download button */
+.resume-link {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff6b35 0%, #d84315 100%);
+    color: white;
+    padding: 18px 40px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+}
+
+/* Resume button hover effects */
+.resume-link:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(255, 107, 53, 0.5);
+    background: linear-gradient(135deg, #d84315 0%, #bf360c 100%);
+}
+
+/* ==========================================================================
+   ACCOMPLISHMENTS SECTION
+   ========================================================================== */
+
+/* Accomplishments section with normal spacing */
+.accomplishments {
+    margin-top: 60px;
+}
+
+/* Accomplishments section heading with space gradient */
+.accomplishments h2 {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #ffffff;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff6b35, #ff8c00, #ffa500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
+}
+
+/* Grid layout for accomplishment cards */
+.accomplishment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Space-themed accomplishment card styling */
+.accomplishment-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    padding: 24px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 107, 53, 0.4);
+    text-align: center;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 220px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Cosmic energy sweep effect */
+.accomplishment-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.2), rgba(255, 140, 0, 0.1), transparent);
+    transition: left 0.6s ease;
+    filter: blur(1px);
+}
+
+/* Trigger sliding effect on hover */
+.accomplishment-card:hover::before {
+    left: 100%;
+}
+
+/* Space-themed accomplishment card hover effects */
+.accomplishment-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 
+        0 25px 60px rgba(255, 107, 53, 0.3),
+        0 0 40px rgba(255, 107, 53, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 107, 53, 0.8);
+}
+
+/* Accomplishment card headings */
+.accomplishment-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #ff6b35;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Accomplishment card descriptions */
+.accomplishment-card p {
+    color: #cccccc;
+    line-height: 1.6;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   TECH STACK SECTION
+   ========================================================================== */
+
+/* Tech stack section styling */
+.tech-stack {
+    margin-bottom: 100px;
+}
+
+/* Tech stack section heading */
+.tech-stack h2 {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff6b35, #ff8c00, #ffa500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
+}
+
+/* Tech stack description */
+.tech-stack p {
+    font-size: 1.2rem;
+    color: #cccccc;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Tech grid layout */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Tech category styling */
+.tech-category {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 107, 53, 0.4);
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Tech category hover effects */
+.tech-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 20px 40px rgba(255, 107, 53, 0.2),
+        0 0 30px rgba(255, 107, 53, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 107, 53, 0.6);
+}
+
+/* Tech category headings */
+.tech-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #ff6b35;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Tech items container */
+.tech-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Individual tech item styling */
+.tech-item {
+    background: rgba(255, 107, 53, 0.2);
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+/* Tech item hover effects */
+.tech-item:hover {
+    background: rgba(255, 107, 53, 0.4);
+    border-color: rgba(255, 107, 53, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+/* ==========================================================================
+   ORBITAL VISUALIZATION SECTION
+   ========================================================================== */
+
+/* Orbital visualization section */
+.orbital-section {
+    margin-bottom: 100px;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    border-radius: 28px;
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    padding: 60px;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Cosmic background effect */
+.orbital-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.08) 0%, rgba(255, 140, 0, 0.04) 30%, transparent 70%);
+    animation: cosmicPulse 12s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Orbital header */
+.orbital-header {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Orbital section heading */
+.orbital-header h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff6b35, #ff8c00, #ffa500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
+}
+
+/* Orbital section description */
+.orbital-header p {
+    font-size: 1.2rem;
+    color: #cccccc;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Cesium viewer container */
+.orbital-viewer-container {
+    position: relative;
+    height: 600px;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 107, 53, 0.4);
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(255, 107, 53, 0.2);
+    z-index: 1;
+}
+
+/* Cesium viewer */
+.cesium-viewer {
+    width: 100%;
+    height: 100%;
+    background: #0a0a0f;
+}
+
+/* Loading indicator */
+.orbital-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #ff6b35;
+    font-size: 1.1rem;
+    font-weight: 500;
+    z-index: 10;
+    background: rgba(10, 10, 15, 0.9);
+    padding: 20px 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 107, 53, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+/* Loading spinner */
+.loading-spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(255, 107, 53, 0.3);
+    border-top: 3px solid #ff6b35;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Orbital details section */
+.orbital-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Orbital overview */
+.orbital-overview h3 {
+    font-size: 1.8rem;
+    color: #ff6b35;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.orbital-overview p {
+    color: #cccccc;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+/* Orbit examples grid */
+.orbit-examples {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Orbit cards */
+.orbit-card {
+    background: rgba(255, 107, 53, 0.08);
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.orbit-card:hover {
+    border-color: rgba(255, 107, 53, 0.6);
+    background: rgba(255, 107, 53, 0.12);
+    transform: translateX(5px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.2);
+}
+
+.orbit-card h4 {
+    color: #ff6b35;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.orbit-card code {
+    background: rgba(0, 0, 0, 0.4);
+    color: #a8d8ff;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.orbit-card p {
+    color: #cccccc;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Technical info section */
+.orbital-tech-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.tech-implementation,
+.applications {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    border-radius: 15px;
+    padding: 25px;
+    transition: all 0.3s ease;
+}
+
+.tech-implementation:hover,
+.applications:hover {
+    border-color: rgba(255, 107, 53, 0.6);
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.15);
+}
+
+.tech-implementation h4,
+.applications h4 {
+    color: #ff6b35;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.tech-implementation ul,
+.applications ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tech-implementation li,
+.applications li {
+    color: #cccccc;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.tech-implementation li::before,
+.applications li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: #ff6b35;
+    font-size: 0.8rem;
+}
+
+/* Orbital footer */
+.orbital-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 107, 53, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.orbital-footer p {
+    color: #999;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Hide Cesium UI elements */
+.cesium-viewer-timelineContainer,
+.cesium-viewer-animationContainer,
+.cesium-viewer-bottom-container,
+.cesium-baseLayerPickerDropDown,
+.cesium-viewer-geocoderContainer {
+    display: none !important;
+}
+
+.cesium-viewer-toolbar {
+    background: rgba(10, 10, 15, 0.8) !important;
+    border: 1px solid rgba(255, 107, 53, 0.3) !important;
+}
+
+/* ==========================================================================
+   CONTACT FORM SECTION
+   ========================================================================== */
+
+/* Contact form section styling */
+.contact-section {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    padding: 60px;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 107, 53, 0.4);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    margin-bottom: 60px;
+}
+
+/* Contact section heading */
+.contact-section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff6b35, #ff8c00, #ffa500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
+}
+
+/* Contact section description */
+.contact-section p {
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Contact form container */
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Contact form styling */
+.contact-form {
+    text-align: left;
+}
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 25px;
+}
+
+/* Form labels */
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ff6b35;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* Form inputs and textarea */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+/* Form input focus states */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: rgba(255, 107, 53, 0.8);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.2);
+}
+
+/* Placeholder styling */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Textarea specific styling */
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Form actions container */
+.form-actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+/* Submit button styling */
+.submit-btn {
+    background: linear-gradient(135deg, #ff6b35 0%, #d84315 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+    min-width: 150px;
+}
+
+/* Submit button hover effects */
+.submit-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(255, 107, 53, 0.5);
+    background: linear-gradient(135deg, #d84315 0%, #bf360c 100%);
+}
+
+/* Submit button disabled state */
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* LinkedIn button styling */
+.linkedin-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #cccccc;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 107, 53, 0.4);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+}
+
+/* LinkedIn button hover effects */
+.linkedin-btn:hover {
+    color: #ff6b35;
+    background: rgba(255, 107, 53, 0.15);
+    border-color: rgba(255, 107, 53, 0.8);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.2);
+}
+
+/* Form message styling */
+.form-message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Success message */
+.form-message.success {
+    background: rgba(76, 175, 80, 0.2);
+    border: 1px solid rgba(76, 175, 80, 0.5);
+    color: #4caf50;
+}
+
+/* Error message */
+.form-message.error {
+    background: rgba(244, 67, 54, 0.2);
+    border: 1px solid rgba(244, 67, 54, 0.5);
+    color: #f44336;
+}
+
+/* Cosmic energy effect for contact section */
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, rgba(255, 140, 0, 0.05) 30%, transparent 70%);
+    animation: cosmicPulse 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   FOOTER SECTION
+   ========================================================================== */
+
+/* Space-themed footer */
+footer {
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+    color: #cccccc;
+    padding: 40px 0;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 107, 53, 0.3);
+    position: relative;
+}
+
+/* Subtle constellation effect in footer */
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.5), transparent);
+}
+
+/* Footer content wrapper for flexbox layout */
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+/* Contact links container */
+.contact-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Space-themed contact link styling */
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #cccccc;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 107, 53, 0.4);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+}
+
+/* Space-themed contact link hover effects */
+.contact-link:hover {
+    color: #ff6b35;
+    background: rgba(255, 107, 53, 0.15);
+    border-color: rgba(255, 107, 53, 0.8);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.2);
+}
+
+/* SVG icon transitions */
+.contact-link svg {
+    transition: all 0.3s ease;
+}
+
+/* Footer copyright text */
+footer p {
+    margin: 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Tech showcase in footer */
+footer .tech-showcase {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    margin-top: 8px;
+}
+
+/* ==========================================================================
+   CONSISTENT VERTICAL SPACING
+   ========================================================================== */
+
+/* Global section spacing for consistent vertical rhythm */
+section {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+/* Specific section margin overrides */
+.experience,
+.resume-section {
+    margin: 0 auto 100px auto;
+}
+
+.accomplishments {
+    margin: 120px auto 100px auto;
+}
+
+/* Consistent heading spacing */
+.experience h2,
+.accomplishments h2,
+.resume-section h2 {
+    margin-bottom: 50px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN - MOBILE STYLES
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    /* Reduced banner height for mobile */
+    .banner-container {
+        height: 250px;
+    }
+    
+    /* Smaller heading sizes for mobile */
+    header h1 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+        margin-bottom: 10px;
+    }
+    
+    header p {
+        font-size: 1rem;
+        line-height: 1.4;
+        margin-bottom: 8px;
+    }
+    
+    header .tagline {
+        font-size: 0.95rem;
+        line-height: 1.3;
+        padding: 0 10px;
+    }
+    
+    /* Single column hero layout for mobile */
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+        padding: 30px;
+    }
+    
+    /* Constrained hero image size */
+    .hero-image {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+    
+    /* Smaller hero heading for mobile */
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    
+    /* Smaller section headings for mobile */
+    .experience h2,
+    .accomplishments h2 {
+        font-size: 2.2rem;
+    }
+    
+    /* Single column experience grid for mobile */
+    .experience-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    /* Adjusted experience card padding */
+    .experience-card {
+        padding: 25px;
+    }
+    
+    /* Single column accomplishment grid for mobile */
+    .accomplishment-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    /* Adjusted accomplishment card padding */
+    .accomplishment-card {
+        padding: 30px;
+    }
+    
+    /* Reduced resume section padding for mobile */
+    .resume-section {
+        padding: 40px 30px;
+    }
+    
+    /* Smaller resume heading for mobile */
+    .resume-section h2 {
+        font-size: 2rem;
+    }
+    
+    /* Vertical contact links for mobile */
+    .contact-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    /* Smaller contact link padding for mobile */
+    .contact-link {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+    
+    /* Reduced section spacing for mobile */
+    section {
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+    
+    /* Tech stack mobile styles */
+    .tech-stack h2 {
+        font-size: 2.2rem;
+    }
+    
+    .tech-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .tech-category {
+        padding: 25px 20px;
+    }
+    
+    .tech-category h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    .tech-items {
+        gap: 8px;
+    }
+    
+    .tech-item {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+    
+    /* Orbital visualization mobile styles */
+    .orbital-section {
+        padding: 40px 30px;
+    }
+    
+    .orbital-header h2 {
+        font-size: 2.2rem;
+    }
+    
+    .orbital-viewer-container {
+        height: 400px;
+    }
+    
+    .orbital-details {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .tech-implementation,
+    .applications {
+        padding: 20px;
+    }
+    
+    .orbital-tech-info {
+        gap: 20px;
+    }
+    
+    /* Contact form mobile styles */
+    .contact-section {
+        padding: 40px 30px;
+    }
+    
+    .contact-section h2 {
+        font-size: 2.2rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .submit-btn,
+    .linkedin-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ==========================================================================
+   EXTRA SMALL SCREENS (PHONES IN PORTRAIT)
+   ========================================================================== */
+
+@media (max-width: 480px) {
+    /* Container padding adjustment for very small screens */
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Better header content padding */
+    .header-content .container {
+        padding: 0 20px;
+    }
+    
+    /* Further reduced banner height */
+    .banner-container {
+        height: 200px;
+    }
+    
+    /* Even smaller headings */
+    header h1 {
+        font-size: 1.8rem;
+        line-height: 1.1;
+    }
+    
+    header p {
+        font-size: 0.9rem;
+    }
+    
+    header .tagline {
+        font-size: 0.85rem;
+        padding: 0 5px;
+    }
+    
+    /* Tighter hero section */
+    .hero {
+        padding: 20px 15px;
+        gap: 25px;
+    }
+    
+    /* Better text wrapping for mobile */
+    .hero-content p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    /* Compact tech stack for very small screens */
+    .tech-stack {
+        margin-bottom: 60px;
+    }
+    
+    .tech-stack h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    
+    .tech-stack p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+    
+    .tech-category {
+        padding: 20px 15px;
+    }
+    
+    .tech-category h3 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+    
+    .tech-items {
+        gap: 6px;
+    }
+    
+    .tech-item {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+    
+    /* Compact other sections */
+    .experience-card,
+    .accomplishment-card {
+        padding: 20px 15px;
+    }
+    
+    /* Better mobile text sizing */
+    .experience-card p,
+    .accomplishment-card p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    .experience-card h3,
+    .accomplishment-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+    
+    .resume-section,
+    .contact-section {
+        padding: 30px 20px;
+    }
+    
+    section {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+    /* Ensure all text content wraps properly */
+    p, h1, h2, h3 {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+}
