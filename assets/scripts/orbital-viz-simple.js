@@ -157,7 +157,7 @@ class SimpleOrbitalVisualization {
 // Debug initialization
 console.log('🔍 DEBUG: Script loaded, setting up initialization');
 
-document.addEventListener('DOMContentLoady', () => {
+document.addEventListener('DOMContentLoaded', () => {
     console.log('🔍 DEBUG: DOM loaded');
     
     const container = document.getElementById('cesiumContainer');
