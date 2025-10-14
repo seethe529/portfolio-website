@@ -3,8 +3,8 @@
     {
       "id": "why-orbital-governance-matters",
       "title": "Why Orbital Governance Matters",
-      "date": "2025-01-16",
-      "excerpt": "Exploring the critical need for transparency, segmentation, and equitable access in near-Earth space as satellite constellations multiply exponentially.",
+      "date": "2025-10-14",
+      "excerpt": "Orbital space is becoming the next shared environment of humanity—yet it remains largely unstructured. How do we give structure to a realm that has none?",
       "tags": ["Governance", "Policy", "Space"],
       "readTime": "5 min read",
       "category": "Reflection"
@@ -12,7 +12,7 @@
     {
       "id": "orbital-tract-framework",
       "title": "The Orbital Tract Framework: A New Map for Space",
-      "date": "2025-01-14",
+      "date": "2025-10-12",
       "excerpt": "Introducing a spatial zoning system that organizes near-Earth space into discrete, mappable volumes for better satellite mission planning and space traffic management.",
       "tags": ["Technology", "Framework", "Visualization"],
       "readTime": "10 min read",
@@ -21,7 +21,7 @@
     {
       "id": "building-orbital-governance-api",
       "title": "Building the Orbital Governance API",
-      "date": "2025-01-10",
+      "date": "2025-10-08",
       "excerpt": "Technical walkthrough of designing scalable APIs for orbital data transparency, featuring endpoint architecture and segmentation logic for space governance.",
       "tags": ["Technology", "API", "Development"],
       "readTime": "12 min read",
