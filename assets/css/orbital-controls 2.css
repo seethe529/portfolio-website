@@ -1,0 +1,74 @@
+.orbital-controls {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 16px;
+    color: white;
+    font-size: 14px;
+    max-width: 250px;
+    z-index: 1000;
+}
+
+.control-panel h4 {
+    margin: 0 0 12px 0;
+    color: #00d4ff;
+    font-size: 16px;
+}
+
+.zone-toggles {
+    margin-bottom: 16px;
+}
+
+.zone-toggles label {
+    display: block;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.zone-toggles input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.view-controls {
+    margin-bottom: 16px;
+}
+
+.view-controls button {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    background: #1a1a2e;
+    color: white;
+    border: 1px solid #00d4ff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.3s ease;
+}
+
+.view-controls button:hover {
+    background: #00d4ff;
+    color: #000;
+}
+
+.info-display {
+    padding: 12px;
+    background: rgba(0, 212, 255, 0.1);
+    border-radius: 4px;
+    border-left: 3px solid #00d4ff;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+#zone-info {
+    color: #ccc;
+}
+
+.cesium-viewer canvas {
+    outline: none;
+}

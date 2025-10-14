@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan Charles Lingo, M.A. - Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            background: white;
+            font-size: 11pt;
+        }
+
+        .resume-container {
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.75in;
+            background: white;
+            min-height: 11in;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #ff6b35;
+            padding-bottom: 20px;
+        }
+
+        .name {
+            font-size: 28pt;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 10pt;
+            color: #666;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .contact-item a {
+            color: #ff6b35;
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
+        @media print {
+            .contact-item a {
+                color: #666;
+                text-decoration: none;
+            }
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 14pt;
+            font-weight: 600;
+            color: #ff6b35;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #ff6b35;
+            padding-bottom: 3px;
+        }
+
+        .job {
+            margin-bottom: 20px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .job-title {
+            font-size: 12pt;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .company {
+            font-size: 11pt;
+            font-weight: 500;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        .date-location {
+            text-align: right;
+            font-size: 10pt;
+            color: #666;
+            line-height: 1.3;
+        }
+
+        .job-description {
+            margin-left: 0;
+        }
+
+        .job-description li {
+            margin-bottom: 4px;
+            font-size: 10pt;
+            line-height: 1.4;
+        }
+
+        .education-item {
+            margin-bottom: 15px;
+        }
+
+        .degree {
+            font-size: 11pt;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .school {
+            font-size: 10pt;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .skill-category {
+            margin-bottom: 12px;
+        }
+
+        .skill-category-title {
+            font-size: 10pt;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 5px;
+        }
+
+        .skill-items {
+            font-size: 9pt;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .certifications {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .cert-item {
+            font-size: 10pt;
+            color: #666;
+        }
+
+        .cert-title {
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .publications {
+            font-size: 10pt;
+            line-height: 1.4;
+        }
+
+        .publication {
+            margin-bottom: 8px;
+            color: #666;
+        }
+
+        .publication-title {
+            font-weight: 500;
+            color: #1a1a2e;
+        }
+
+        @media print {
+            body {
+                font-size: 10pt;
+            }
+            
+            .resume-container {
+                padding: 0.5in;
+                box-shadow: none;
+            }
+            
+            .section {
+                break-inside: avoid;
+                margin-bottom: 20px;
+            }
+            
+            .job {
+                break-inside: avoid;
+                margin-bottom: 15px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .resume-container {
+                padding: 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .date-location {
+                text-align: left;
+                margin-top: 5px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="name">Ryan Charles Lingo, M.A.</h1>
+            <div class="contact-info">
+                <div class="contact-item">🔗 linkedin.com/in/xzmkc96nhmemwpsp8emrkgtvup</div>
+                <div class="contact-item">🌐 www.ryan-lingo.com</div>
+            </div>
+        </div>
+
+        <!-- Professional Experience -->
+        <div class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">GIS Database Engineer</div>
+                        <div class="company">Excellent Technology Solutions (XTS) – United States Geological Survey</div>
+                    </div>
+                    <div class="date-location">
+                        January 2025 – September 2025<br>
+                        Remote
+                    </div>
+                </div>
+                <ul class="job-description">
+                    <li>Develop Python-based geoprocessing tools for transportation, graphics, and spatial datasets, automating workflows that support national geospatial programs</li>
+                    <li>Manage and optimize geodatabases with ArcGIS Enterprise, Workflow Manager, and PostgreSQL/pgAdmin, leveraging traditional and branch versioning</li>
+                    <li>Built replica sync automation script with validation counts and automated email reporting; support EC2 monitoring and sync integrity</li>
+                    <li>Contribute to Terraform-driven deployments of EC2 instances with mission-critical software</li>
+                    <li>Collaborate in Agile workflows using Jira and GitLab for task tracking, source control, and code reviews</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Digital Marketing and Systems Specialist</div>
+                        <div class="company">The Lingo Group Inc.</div>
+                    </div>
+                    <div class="date-location">
+                        December 2023 – January 2024<br>
+                        Greater Philadelphia Area
+                    </div>
+                </div>
+                <ul class="job-description">
+                    <li>Led content creation, layout planning, and design input for a modern website to enhance traffic, user engagement, and lead generation</li>
+                    <li>Utilized Adobe Creative Suite, Microsoft Visio, and Jira to streamline project management and track deliverables</li>
+                    <li>Developed automation tools, including an EZ Pass transponder tracking system and inventory management solutions using Power Apps and Microsoft Lists</li>
+                    <li>Redesigned company logos and integrated them across digital platforms to strengthen online presence</li>
+                    <li>Implemented SEO strategies to improve search engine visibility and support marketing efforts</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">GIS Developer/Automation Support</div>
+                        <div class="company">Leidos Inc. – Federal Aviation Administration</div>
+                    </div>
+                    <div class="date-location">
+                        October 2020 – August 2023<br>
+                        Washington, DC
+                    </div>
+                </div>
+                <ul class="job-description">
+                    <li>Developed geoprocessing workflows and automated data analysis using Python and AWS tools, enhancing data extraction and management</li>
+                    <li>Conducted data validation and user-acceptance testing for geospatial applications, ensuring functionality met requirements</li>
+                    <li>Created data visualizations using ArcGIS, Tableau, and Power BI, delivering actionable insights to stakeholders</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Geographer</div>
+                        <div class="company">United States Census Bureau</div>
+                    </div>
+                    <div class="date-location">
+                        February 2019 – October 2020<br>
+                        Washington, DC
+                    </div>
+                </div>
+                <ul class="job-description">
+                    <li>Designed Python tools to support spatial analysis and data quality control for nationwide geographic programs</li>
+                    <li>Developed and implemented quality control systems to meet operational schedules and standards</li>
+                    <li>Completed advanced courses in ArcPy, Python, and Machine Learning to enhance geospatial analysis capabilities</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Graduate Assistant</div>
+                        <div class="company">Department of Geography and Environmental Planning</div>
+                    </div>
+                    <div class="date-location">
+                        August 2016 – May 2018<br>
+                        Towson, MD
+                    </div>
+                </div>
+                <ul class="job-description">
+                    <li>Assisted with GIS lab grading and research projects, including mapping land surface temperature for city planning</li>
+                    <li>Provided support for courses in GIS, Geography, and Climatology, contributing to academic development</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Geospatial Research Consultant</div>
+                        <div class="company">Science Systems and Applications Inc., NASA DEVELOP National Program</div>
+                    </div>
+                    <div class="date-location">
+                        May 2017 – September 2017<br>
+                        Greenbelt, MD
+                    </div>
+                </div>
+                <ul class="job-description">
+                    <li>Developed a global resiliency monitoring tool based on precipitation analysis for the Niger Water Resources project</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Paleoclimatology Intern - Paleogeosciences Cataloguer</div>
+                        <div class="company">NOAA - World Data Center for Paleoclimatology</div>
+                    </div>
+                    <div class="date-location">
+                        May 2014 – September 2014<br>
+                        Boulder, CO
+                    </div>
+                </div>
+                <ul class="job-description">
+                    <li>Collected and cataloged paleogeoscience resources for global database integration, authoring over 200 resource descriptions</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="education-item">
+                <div class="degree">Master of Arts - Geography and Environmental Planning</div>
+                <div class="school">Towson University - Towson, Maryland</div>
+            </div>
+            
+            <div class="education-item">
+                <div class="degree">Bachelor of Science - Geology</div>
+                <div class="school">California University of Pennsylvania - California, Pennsylvania</div>
+            </div>
+            
+            <div class="education-item">
+                <div class="degree">Bachelor of Science - Environmental Earth Science</div>
+                <div class="school">Minor: Meteorology</div>
+            </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-category-title">GIS Software & Platforms</div>
+                    <div class="skill-items">ArcGIS Enterprise, ArcGIS Pro, ArcGIS Desktop, ArcGIS Online, ArcGIS Workflow Manager, QGIS, TerrSet</div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-category-title">Programming & Automation</div>
+                    <div class="skill-items">Python, ArcPy, SQL, Terraform, JavaScript, HTML, CSS</div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-category-title">Spatial Database Management</div>
+                    <div class="skill-items">PostgreSQL/PostGIS, pgAdmin, Oracle SQL Developer, TOAD, Geodatabase Design, Branch Versioning</div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-category-title">Cloud & Infrastructure</div>
+                    <div class="skill-items">Amazon Web Services (AWS), EC2, Terraform, Cloud-based GIS Workflows</div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-category-title">Data Analysis & Visualization</div>
+                    <div class="skill-items">Tableau, Power BI, SPSS, Geoprocessing Workflows, Spatial Analysis, Data Quality Control</div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-category-title">Python Libraries & Tools</div>
+                    <div class="skill-items">ArcPy, PANDAS, Fiona, BOTO3, arcgis, urllib3, regex, json, git</div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-category-title">Project Management & Collaboration</div>
+                    <div class="skill-items">JIRA, GitLab, GitHub, Agile Workflows, Microsoft Office 365, SharePoint, Teams</div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-category-title">Data Formats & Standards</div>
+                    <div class="skill-items">Raster, Vector, KML, GeoJSON, Shapefile, XML, JSON-LD, Geospatial Data Standards</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="section">
+            <h2 class="section-title">Certifications</h2>
+            
+            <div class="certifications">
+                <div class="cert-item">
+                    <span class="cert-title">AWS Certified Cloud Practitioner Foundational</span> – December 2023
+                </div>
+            </div>
+        </div>
+
+        <!-- Publications & Research -->
+        <div class="section">
+            <h2 class="section-title">Publications & Research</h2>
+            
+            <div class="publications">
+                <div class="publication">
+                    <span class="publication-title">Tomlin, J., El-Behaedi, R., Lingo, R., McCartney, S., Thieme,</span> "Stress and Duress in the Sahel: Building Resiliency in Niger" Earthzine August (2017)
+                </div>
+                
+                <div class="publication">
+                    <span class="publication-title">Anderson, David M., K. Horlick, and R. Lingo.</span> "Share Your Geoscience Resources in the EarthCube Paleogeoscience Catalog." Past Global Changes, PAGES June (2014): 1, Web.
+                </div>
+                
+                <div class="publication">
+                    <span class="publication-title">Conference Presentations:</span> Long-term trend analysis and changes to the mean and variability of temperature in Pennsylvania from 1983 to 2014; American Association of Geographers, 2017
+                </div>
+                
+                <div class="publication">
+                    <span class="publication-title">Research Projects:</span> Baltimore City Urban Heat Island: A Problem Based Approach; Middle Atlantic Division of the American Association of Geographers, 2016
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

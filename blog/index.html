@@ -3,15 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Ryan Lingo</title>
-    <meta name="description" content="Thought leadership on orbital governance, space policy, and geospatial technology by Ryan Lingo">
     
+    <!-- SEO Meta Tags -->
+    <title>Blog - Ryan Lingo | Orbital Governance & Space Policy Insights</title>
+    <meta name="description" content="Expert insights on orbital governance, space policy, and geospatial technology. Read Ryan Lingo's thoughts on the Orbital Tract Framework and space sustainability.">
+    <meta name="keywords" content="orbital governance, space policy, geospatial technology, satellite tracking, space sustainability, orbital tract framework">
+    <meta name="author" content="Ryan Charles Lingo">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog - Ryan Lingo | Orbital Governance & Space Policy">
+    <meta property="og:description" content="Expert insights on orbital governance, space policy, and geospatial technology.">
+    <meta property="og:url" content="https://development.d35zfk5lpgtdjq.amplifyapp.com/blog/">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://development.d35zfk5lpgtdjq.amplifyapp.com/blog/">
+    
+    <!-- Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="../assets/css/styles.css" as="style">
     
+    <!-- Fonts & Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/orbital-controls.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Ryan Lingo's Blog",
+      "description": "Expert insights on orbital governance, space policy, and geospatial technology",
+      "url": "https://development.d35zfk5lpgtdjq.amplifyapp.com/blog/",
+      "author": {
+        "@type": "Person",
+        "name": "Ryan Charles Lingo"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Ryan Charles Lingo"
+      }
+    }
+    </script>
     
     <style>
         .blog-header {
@@ -179,19 +215,19 @@
     </style>
 </head>
 <body>
-    <main class="container">
-        <div class="nav-breadcrumb">
+    <main class="container" role="main">
+        <nav class="nav-breadcrumb" aria-label="Breadcrumb">
             <a href="../index.html">Home</a> / Blog
-        </div>
+        </nav>
         
-        <div class="blog-header">
+        <header class="blog-header">
             <h1>Blog</h1>
             <p>Exploring orbital governance, space policy, and the intersection of geospatial technology with the future of space exploration. Insights on building transparent, equitable frameworks for our expanding presence in near-Earth space.</p>
-        </div>
+        </header>
         
-        <div id="blog-grid" class="blog-grid">
+        <section id="blog-grid" class="blog-grid" aria-label="Blog posts">
             <!-- Blog posts will be loaded here dynamically -->
-        </div>
+        </section>
     </main>
 
     <footer>
