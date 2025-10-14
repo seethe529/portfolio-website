@@ -4,5 +4,9 @@ Allow: /
 # Sitemap
 Sitemap: https://development.d35zfk5lpgtdjq.amplifyapp.com/sitemap.xml
 
-# Crawl-delay for respectful crawling
-Crawl-delay: 1
+# Disallow sensitive files
+Disallow: /amplify/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /*.log
+Disallow: /server.log

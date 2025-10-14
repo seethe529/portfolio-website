@@ -1,40 +1,96 @@
 <!DOCTYPE html>
-<!-- HTML5 document type declaration -->
 <html lang="en">
 <head>
-    <!-- Character encoding for proper text display -->
     <meta charset="UTF-8">
-    <!-- Responsive design viewport meta tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Page title shown in browser tab -->
-    <title>Ryan Lingo - Accomplishments & Portfolio</title>
     
-    <!-- Google Fonts preconnect for performance optimization -->
+    <!-- SEO Meta Tags -->
+    <title>Ryan Lingo - GIS Engineer & Orbital Governance Expert | AWS Cloud Solutions</title>
+    <meta name="description" content="Ryan Lingo: GIS Database Engineer specializing in orbital governance, geospatial automation, and AWS cloud infrastructure. Expert in Python, ArcGIS, and space policy frameworks.">
+    <meta name="keywords" content="GIS Engineer, Orbital Governance, AWS Cloud, Geospatial Analysis, Python Automation, Space Policy, Satellite Tracking, ArcGIS, PostgreSQL">
+    <meta name="author" content="Ryan Charles Lingo">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ryan Lingo - GIS Engineer & Orbital Governance Expert">
+    <meta property="og:description" content="Bridging geospatial science and cloud technology to transform how we understand Earth and space.">
+    <meta property="og:url" content="https://development.d35zfk5lpgtdjq.amplifyapp.com/">
+    <meta property="og:site_name" content="Ryan Lingo Portfolio">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ryan Lingo - GIS Engineer & Orbital Governance Expert">
+    <meta name="twitter:description" content="Bridging geospatial science and cloud technology to transform how we understand Earth and space.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://development.d35zfk5lpgtdjq.amplifyapp.com/">
+    
+    <!-- Performance Optimizations -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Inter font family import with multiple weights -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="preload" href="./cesium/Cesium.js" as="script">
+    <link rel="preload" href="assets/css/styles.css" as="style">
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Production Performance -->
-    <link rel="preload" href="./cesium/Cesium.js" as="script">
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    
-    <!-- Production SEO -->
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Ryan Charles Lingo">
-    <link rel="canonical" href="https://development.d35zfk5lpgtdjq.amplifyapp.com/">
-    <!-- Main stylesheet link -->
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/orbital-controls.css">
-    <!-- Updated: Technical skills section enhanced -->
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ff6b35">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ryan Charles Lingo",
+      "jobTitle": "GIS Database Engineer",
+      "description": "GIS Database Engineer specializing in orbital governance, geospatial automation, and AWS cloud infrastructure",
+      "url": "https://development.d35zfk5lpgtdjq.amplifyapp.com/",
+      "sameAs": [
+        "https://www.linkedin.com/in/xzmkc96nhmemwpsp8emrkgtvup"
+      ],
+      "knowsAbout": [
+        "GIS", "Geospatial Analysis", "AWS Cloud Computing", "Python Programming", 
+        "Orbital Governance", "Space Policy", "PostgreSQL", "ArcGIS"
+      ],
+      "alumniOf": "Master of Arts",
+      "hasCredential": "AWS Certified Cloud Practitioner"
+    }
+    </script>
 </head>
 <body>
     <!-- Header section with banner image and overlay text -->
     <header>
+        <!-- Navigation -->
+        <nav role="navigation" aria-label="Main navigation">
+            <div class="container nav-container">
+                <a href="#" class="nav-logo" aria-label="Ryan Lingo - Home">Ryan Lingo</a>
+                <button class="nav-toggle" onclick="toggleMobileNav()" aria-label="Toggle mobile navigation" aria-expanded="false">
+                    <span aria-hidden="true">☰</span>
+                </button>
+                <div class="nav-links" id="navLinks" role="menubar">
+                    <a href="#about" class="nav-link" role="menuitem">About</a>
+                    <a href="#experience" class="nav-link" role="menuitem">Experience</a>
+                    <a href="#orbital-viz" class="nav-link" role="menuitem">Orbital Viz</a>
+                    <a href="blog/index.html" class="nav-link" role="menuitem">Blog</a>
+                    <a href="#contact" class="nav-link" role="menuitem">Contact</a>
+                </div>
+            </div>
+        </nav>
+        
         <!-- Container for banner image with overlay content -->
-        <div class="banner-container">
+        <div class="banner-container" style="margin-top: 60px;">
             <!-- Background banner image -->
-            <img src="assets/images/professional-banner.jpeg" alt="Professional Banner">
+            <img src="assets/images/professional-banner.jpeg" alt="Professional banner showing Ryan Lingo's workspace with geospatial technology" loading="eager" width="1200" height="400">
             <!-- Overlay content positioned over the banner -->
             <div class="header-content">
                 <div class="container">
@@ -52,21 +108,21 @@
     <!-- Main content area with container for consistent width -->
     <main class="container">
         <!-- About Section: Hero section with image and introduction -->
-        <section id="about" class="hero">
+        <section id="about" class="hero" aria-labelledby="about-heading">
             <!-- Professional headshot with decorative border effects -->
             <div class="hero-image">
-                <img src="assets/images/ryan-lingo-headshot.jpg" alt="Ryan Lingo Professional Headshot">
+                <img src="assets/images/ryan-lingo-headshot.jpg" alt="Ryan Lingo professional headshot - GIS Database Engineer" loading="lazy" width="350" height="350">
             </div>
             <!-- About content with heading and description -->
             <div class="hero-content">
-                <h2>About Me</h2>
+                <h2 id="about-heading">About Me</h2>
                 <p>I'm a GIS Database Engineer who designs cloud-integrated geospatial systems that turn complex data into actionable intelligence. My work combines Python automation, AWS infrastructure, and geospatial analytics to support national research and environmental initiatives. I focus on creating scalable, resilient tools that help organizations better visualize, understand, and protect our planet.</p>
             </div>
         </section>
 
         <!-- Experience Section: Grid layout of professional roles -->
-        <section id="experience" class="experience">
-            <h2>Professional Experience</h2>
+        <section id="experience" class="experience" aria-labelledby="experience-heading">
+            <h2 id="experience-heading">Professional Experience</h2>
             <!-- Grid container for experience cards -->
             <div class="experience-grid">
                 <!-- Individual experience card with title and description -->
@@ -90,11 +146,11 @@
         </section>
 
         <!-- Resume Section: Download link for PDF resume -->
-        <section id="resume" class="resume-section">
-            <h2>Resume</h2>
+        <section id="resume" class="resume-section" aria-labelledby="resume-heading">
+            <h2 id="resume-heading">Resume</h2>
             <p>Download my complete professional resume for detailed information about my experience and qualifications.</p>
             <!-- Resume download link that opens in new tab -->
-            <a href="assets/documents/ryan-lingo-resume.pdf" class="resume-link" target="_blank">
+            <a href="assets/documents/ryan-lingo-resume.pdf" class="resume-link" target="_blank" rel="noopener" aria-label="Download Ryan Lingo's resume as PDF (opens in new tab)">
                 Download Resume (PDF)
             </a>
         </section>
@@ -325,6 +381,40 @@ The model illustrates how orbital environments can be indexed, visualized, and a
     <footer>
         <div class="container">
             <div class="footer-content">
+                <div class="contact-links">
+                    <a href="#about" class="contact-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        About
+                    </a>
+                    <a href="blog/index.html" class="contact-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="10,9 9,9 8,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Blog
+                    </a>
+                    <a href="#contact" class="contact-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Contact
+                    </a>
+                    <a href="https://www.linkedin.com/in/xzmkc96nhmemwpsp8emrkgtvup" class="contact-link" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8V8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6 9H2V21H6V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                </div>
                 <!-- Copyright notice -->
                 <p>&copy; 2025 Ryan Lingo. All rights reserved.</p>
                 <p class="tech-showcase">Built with AWS Amplify, Lambda, and DynamoDB — a showcase of modern cloud development.</p>
@@ -345,5 +435,43 @@ The model illustrates how orbital environments can be indexed, visualized, and a
     
     <!-- Contact form JavaScript -->
     <script src="assets/scripts/contact-form.js"></script>
+    
+    <!-- Navigation JavaScript -->
+    <script>
+        function toggleMobileNav() {
+            const navLinks = document.getElementById('navLinks');
+            const navToggle = document.querySelector('.nav-toggle');
+            const isActive = navLinks.classList.toggle('active');
+            navToggle.setAttribute('aria-expanded', isActive);
+        }
+        
+        // Close mobile nav when clicking on a link
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.getElementById('navLinks');
+            const navToggle = document.querySelector('.nav-toggle');
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const offsetTop = target.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html><!-- Trigger deployment -->

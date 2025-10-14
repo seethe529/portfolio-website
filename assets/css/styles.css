@@ -52,6 +52,62 @@ body::before {
 }
 
 /* ==========================================================================
+   NAVIGATION SECTION
+   ========================================================================== */
+
+/* Fixed navigation bar */
+nav {
+    background: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 107, 53, 0.3);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    color: #ff6b35;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: #cccccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #ff6b35;
+}
+
+/* Mobile navigation toggle */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #cccccc;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ==========================================================================
    HEADER SECTION
    ========================================================================== */
 
@@ -294,6 +350,10 @@ main {
 }
 
 /* Space-themed experience card hover effects */
+.experience-card {
+    will-change: transform;
+}
+
 .experience-card:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 
@@ -423,6 +483,10 @@ main {
 }
 
 /* Resume button hover effects */
+.resume-link {
+    will-change: transform;
+}
+
 .resume-link:hover {
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 20px 40px rgba(255, 107, 53, 0.5);
@@ -500,6 +564,10 @@ main {
 }
 
 /* Space-themed accomplishment card hover effects */
+.accomplishment-card {
+    will-change: transform;
+}
+
 .accomplishment-card:hover {
     transform: translateY(-12px) scale(1.02);
     box-shadow: 
@@ -1231,6 +1299,37 @@ section {
    ========================================================================== */
 
 @media (max-width: 768px) {
+    /* Mobile navigation */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(10, 10, 15, 0.98);
+        flex-direction: column;
+        padding: 20px;
+        border-top: 1px solid rgba(255, 107, 53, 0.3);
+        gap: 15px;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-toggle {
+        display: block;
+    }
+    
+    .nav-link {
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+    }
+    
+    .nav-link:last-child {
+        border-bottom: none;
+    }
+    
     /* Reduced banner height for mobile */
     .banner-container {
         height: 250px;
@@ -1419,6 +1518,11 @@ section {
     /* Better header content padding */
     .header-content .container {
         padding: 0 20px;
+    }
+    
+    /* Adjust banner margin for mobile nav */
+    .banner-container {
+        margin-top: 70px !important;
     }
     
     /* Further reduced banner height */

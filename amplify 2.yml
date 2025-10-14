@@ -1,0 +1,15 @@
+version: 1
+frontend:
+  phases:
+    build:
+      commands:
+        - echo "Static site - no build needed"
+  artifacts:
+    baseDirectory: .
+    files:
+      - '**/*'
+  customHeaders:
+    - pattern: '**/*.czml'
+      headers:
+        - key: 'Content-Type'
+          value: 'application/json'
