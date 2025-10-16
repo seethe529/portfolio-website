@@ -1,6 +1,15 @@
 {
   "posts": [
     {
+      "id": "for-the-record-accountability-matters",
+      "title": "For the Record: Why Accountability Still Matters",
+      "date": "2025-10-16",
+      "excerpt": "A reflection on resilience, ethics, and the pursuit of accountability in technology and governance — documenting a professional journey toward transparent systems for Earth and space.",
+      "tags": ["Accountability", "Ethics", "Resilience", "Governance"],
+      "readTime": "8 min read",
+      "category": "Reflection"
+    },
+    {
       "id": "why-orbital-governance-matters",
       "title": "Why Orbital Governance Matters",
       "date": "2025-10-14",
