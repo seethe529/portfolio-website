@@ -60,19 +60,21 @@ class BlogManager {
         });
 
         postCard.innerHTML = `
-            <div class="blog-card-header">
-                <h2>${post.title}</h2>
-                <div class="blog-meta">
-                    <span class="blog-date">${formattedDate}</span>
-                    <span class="blog-category">${post.category}</span>
-                    <span>${post.readTime}</span>
+            <article>
+                <div class="blog-card-header">
+                    <h2><a href="./posts/${post.id}.html" class="post-title-link">${post.title}</a></h2>
+                    <div class="blog-meta">
+                        <time datetime="${post.date}" class="blog-date">${formattedDate}</time>
+                        <span class="blog-category">${post.category}</span>
+                        <span>${post.readTime}</span>
+                    </div>
                 </div>
-            </div>
-            <p class="blog-excerpt">${post.excerpt}</p>
-            <div class="blog-tags">
-                ${post.tags.map(tag => `<span class="blog-tag">${tag}</span>`).join('')}
-            </div>
-            <a href="./posts/${post.id}.html" class="read-more-btn">Read More</a>
+                <p class="blog-excerpt">${post.excerpt}</p>
+                <div class="blog-tags" role="list" aria-label="Post tags">
+                    ${post.tags.map(tag => `<span class="blog-tag" role="listitem">${tag}</span>`).join('')}
+                </div>
+                <a href="./posts/${post.id}.html" class="read-more-btn" aria-label="Read more about ${post.title}">Read More</a>
+            </article>
         `;
 
         return postCard;

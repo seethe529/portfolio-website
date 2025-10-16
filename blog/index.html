@@ -15,10 +15,21 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Blog - Ryan Lingo | Orbital Governance & Space Policy">
     <meta property="og:description" content="Expert insights on orbital governance, space policy, and geospatial technology.">
-    <meta property="og:url" content="https://development.d35zfk5lpgtdjq.amplifyapp.com/blog/">
+    <meta property="og:url" content="https://ryan-lingo.com/blog/">
+    <meta property="og:image" content="https://ryan-lingo.com/assets/images/ryan-lingo-headshot.jpg">
+    <meta property="og:image:width" content="350">
+    <meta property="og:image:height" content="350">
+    <meta property="og:image:alt" content="Ryan Lingo Blog - Orbital Governance & Space Policy">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog - Ryan Lingo | Orbital Governance & Space Policy">
+    <meta name="twitter:description" content="Expert insights on orbital governance, space policy, and geospatial technology.">
+    <meta name="twitter:image" content="https://ryan-lingo.com/assets/images/ryan-lingo-headshot.jpg">
+    <meta name="twitter:image:alt" content="Ryan Lingo Blog">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://development.d35zfk5lpgtdjq.amplifyapp.com/blog/">
+    <link rel="canonical" href="https://ryan-lingo.com/blog/">
     
     <!-- Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,7 +48,7 @@
       "@type": "Blog",
       "name": "Ryan Lingo's Blog",
       "description": "Expert insights on orbital governance, space policy, and geospatial technology",
-      "url": "https://development.d35zfk5lpgtdjq.amplifyapp.com/blog/",
+      "url": "https://ryan-lingo.com/blog/",
       "author": {
         "@type": "Person",
         "name": "Ryan Charles Lingo"
@@ -127,6 +138,18 @@
             font-weight: 600;
         }
         
+        .post-title-link {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .post-title-link:hover,
+        .post-title-link:focus {
+            color: #ff6b35;
+            text-decoration: underline;
+        }
+        
         .blog-meta {
             display: flex;
             align-items: center;
@@ -209,9 +232,15 @@
             }
         }
     </style>
+    
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
 </head>
 <body>
-    <main class="container" role="main" style="margin-top: 80px;">
+    <!-- Skip Navigation Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <main id="main-content" class="container" role="main" style="margin-top: 80px;">
         <nav class="nav-breadcrumb" aria-label="Breadcrumb">
             <a href="../index.html">Home</a> / Blog
         </nav>
@@ -237,7 +266,7 @@
                         </svg>
                         Contact
                     </a>
-                    <a href="https://www.linkedin.com/in/xzmkc96nhmemwpsp8emrkgtvup" class="contact-link" target="_blank">
+                    <a href="https://www.linkedin.com/in/ryanclingo" class="contact-link" target="_blank" rel="noopener" aria-label="Connect with Ryan Lingo on LinkedIn (opens in new tab)">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8V8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M6 9H2V21H6V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

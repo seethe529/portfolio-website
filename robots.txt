@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://development.d35zfk5lpgtdjq.amplifyapp.com/sitemap.xml
+Sitemap: https://ryan-lingo.com/sitemap.xml
 
 # Disallow sensitive files
 Disallow: /amplify/

@@ -15,16 +15,22 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Ryan Lingo - Mapping the Future of Earth and Space">
     <meta property="og:description" content="Integrating geography, data, and technology to build next-generation systems for understanding Earth and space.">
-    <meta property="og:url" content="https://development.d35zfk5lpgtdjq.amplifyapp.com/">
+    <meta property="og:url" content="https://ryan-lingo.com/">
     <meta property="og:site_name" content="Ryan Lingo Portfolio">
+    <meta property="og:image" content="https://ryan-lingo.com/assets/images/ryan-lingo-headshot.jpg">
+    <meta property="og:image:width" content="350">
+    <meta property="og:image:height" content="350">
+    <meta property="og:image:alt" content="Ryan Lingo - GIS Database Engineer">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Ryan Lingo - Mapping the Future of Earth and Space">
     <meta name="twitter:description" content="Integrating geography, data, and technology to build next-generation systems for understanding Earth and space.">
+    <meta name="twitter:image" content="https://ryan-lingo.com/assets/images/ryan-lingo-headshot.jpg">
+    <meta name="twitter:image:alt" content="Ryan Lingo - GIS Database Engineer">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://development.d35zfk5lpgtdjq.amplifyapp.com/">
+    <link rel="canonical" href="https://ryan-lingo.com/">
     
     <!-- Performance Optimizations -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,9 +60,11 @@
       "name": "Ryan Charles Lingo",
       "jobTitle": "GIS Database Engineer",
       "description": "GIS Database Engineer integrating geography, data, and technology to build next-generation systems",
-      "url": "https://development.d35zfk5lpgtdjq.amplifyapp.com/",
+      "url": "https://ryan-lingo.com/",
+      "image": "https://ryan-lingo.com/assets/images/ryan-lingo-headshot.jpg",
       "sameAs": [
-        "https://www.linkedin.com/in/xzmkc96nhmemwpsp8emrkgtvup"
+        "https://www.linkedin.com/in/ryanclingo",
+        "https://github.com/seethe529"
       ],
       "knowsAbout": [
         "GIS", "Geospatial Analysis", "AWS Cloud Computing", "Python Programming", 
@@ -66,8 +74,14 @@
       "hasCredential": "AWS Certified Cloud Practitioner"
     }
     </script>
+    
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://lpgzsfaxr3.execute-api.us-east-1.amazonaws.com;">
 </head>
 <body>
+    <!-- Skip Navigation Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <!-- Header section with banner image and overlay text -->
     <header>
         <!-- Navigation -->
@@ -106,7 +120,7 @@
     </header>
 
     <!-- Main content area with container for consistent width -->
-    <main class="container">
+    <main id="main-content" class="container">
         <!-- About Section: Hero section with image and introduction -->
         <section id="about" class="hero" aria-labelledby="about-heading">
             <!-- Professional headshot with decorative border effects -->
@@ -333,23 +347,27 @@ The model illustrates how orbital environments can be indexed, visualized, and a
                 <!-- Contact Form -->
                 <form id="contactForm" class="contact-form">
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <label for="name">Name <span aria-label="required">*</span></label>
+                        <input type="text" id="name" name="name" required aria-describedby="name-error" autocomplete="name">
+                        <div id="name-error" class="error-message" role="alert" aria-live="polite"></div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email <span aria-label="required">*</span></label>
+                        <input type="email" id="email" name="email" required aria-describedby="email-error" autocomplete="email">
+                        <div id="email-error" class="error-message" role="alert" aria-live="polite"></div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
+                        <label for="subject">Subject <span aria-label="required">*</span></label>
+                        <input type="text" id="subject" name="subject" required aria-describedby="subject-error">
+                        <div id="subject-error" class="error-message" role="alert" aria-live="polite"></div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <label for="message">Message <span aria-label="required">*</span></label>
+                        <textarea id="message" name="message" rows="5" required aria-describedby="message-error"></textarea>
+                        <div id="message-error" class="error-message" role="alert" aria-live="polite"></div>
                     </div>
                     
                     <div class="form-actions">
@@ -358,7 +376,7 @@ The model illustrates how orbital environments can be indexed, visualized, and a
                             <span class="btn-loading" style="display: none;">Sending...</span>
                         </button>
                         
-                        <a href="https://www.linkedin.com/in/xzmkc96nhmemwpsp8emrkgtvup" class="linkedin-btn" target="_blank">
+                        <a href="https://www.linkedin.com/in/ryanclingo" class="linkedin-btn" target="_blank" rel="noopener" aria-label="Connect with Ryan Lingo on LinkedIn (opens in new tab)">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8V8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M6 9H2V21H6V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -404,7 +422,7 @@ The model illustrates how orbital environments can be indexed, visualized, and a
                         </svg>
                         Contact
                     </a>
-                    <a href="https://www.linkedin.com/in/xzmkc96nhmemwpsp8emrkgtvup" class="contact-link" target="_blank">
+                    <a href="https://www.linkedin.com/in/ryanclingo" class="contact-link" target="_blank" rel="noopener" aria-label="Connect with Ryan Lingo on LinkedIn (opens in new tab)">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8V8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M6 9H2V21H6V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

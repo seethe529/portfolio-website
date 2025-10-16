@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1000" height="700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #333; }
+      .service { font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; fill: #fff; }
+      .label { font-family: Arial, sans-serif; font-size: 10px; fill: #666; }
+      .aws-orange { fill: #FF9900; }
+      .aws-blue { fill: #232F3E; }
+      .github { fill: #24292e; }
+      .user { fill: #4CAF50; }
+      .data { fill: #2196F3; }
+      .arrow { stroke: #666; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .connection { stroke: #999; stroke-width: 1; stroke-dasharray: 5,5; fill: none; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Ryan Lingo Portfolio - AWS Architecture</text>
+  
+  <!-- User/Browser -->
+  <rect x="50" y="80" width="120" height="60" rx="10" class="user"/>
+  <text x="110" y="105" text-anchor="middle" class="service">User Browser</text>
+  <text x="110" y="120" text-anchor="middle" class="label">Desktop/Mobile</text>
+  
+  <!-- GitHub -->
+  <rect x="50" y="200" width="120" height="60" rx="10" class="github"/>
+  <text x="110" y="225" text-anchor="middle" class="service">GitHub Repo</text>
+  <text x="110" y="240" text-anchor="middle" class="label">Source Control</text>
+  
+  <!-- AWS Amplify -->
+  <rect x="250" y="200" width="120" height="60" rx="10" class="aws-orange"/>
+  <text x="310" y="220" text-anchor="middle" class="service">AWS Amplify</text>
+  <text x="310" y="235" text-anchor="middle" class="label">CI/CD & Hosting</text>
+  <text x="310" y="250" text-anchor="middle" class="label">Build & Deploy</text>
+  
+  <!-- CloudFront CDN -->
+  <rect x="450" y="200" width="120" height="60" rx="10" class="aws-orange"/>
+  <text x="510" y="220" text-anchor="middle" class="service">CloudFront</text>
+  <text x="510" y="235" text-anchor="middle" class="label">Global CDN</text>
+  <text x="510" y="250" text-anchor="middle" class="label">Edge Caching</text>
+  
+  <!-- S3 Bucket -->
+  <rect x="650" y="200" width="120" height="60" rx="10" class="aws-orange"/>
+  <text x="710" y="220" text-anchor="middle" class="service">S3 Bucket</text>
+  <text x="710" y="235" text-anchor="middle" class="label">Static Assets</text>
+  <text x="710" y="250" text-anchor="middle" class="label">HTML/CSS/JS</text>
+  
+  <!-- API Gateway -->
+  <rect x="250" y="350" width="120" height="60" rx="10" class="aws-orange"/>
+  <text x="310" y="370" text-anchor="middle" class="service">API Gateway</text>
+  <text x="310" y="385" text-anchor="middle" class="label">REST Endpoint</text>
+  <text x="310" y="400" text-anchor="middle" class="label">Rate Limiting</text>
+  
+  <!-- Lambda Function -->
+  <rect x="450" y="350" width="120" height="60" rx="10" class="aws-orange"/>
+  <text x="510" y="370" text-anchor="middle" class="service">Lambda</text>
+  <text x="510" y="385" text-anchor="middle" class="label">Contact Handler</text>
+  <text x="510" y="400" text-anchor="middle" class="label">Node.js Runtime</text>
+  
+  <!-- DynamoDB -->
+  <rect x="650" y="350" width="120" height="60" rx="10" class="data"/>
+  <text x="710" y="370" text-anchor="middle" class="service">DynamoDB</text>
+  <text x="710" y="385" text-anchor="middle" class="label">Contact Messages</text>
+  <text x="710" y="400" text-anchor="middle" class="label">NoSQL Database</text>
+  
+  <!-- SES -->
+  <rect x="450" y="500" width="120" height="60" rx="10" class="aws-orange"/>
+  <text x="510" y="520" text-anchor="middle" class="service">Amazon SES</text>
+  <text x="510" y="535" text-anchor="middle" class="label">Email Service</text>
+  <text x="510" y="550" text-anchor="middle" class="label">Notifications</text>
+  
+  <!-- CloudWatch -->
+  <rect x="800" y="350" width="120" height="60" rx="10" class="aws-blue"/>
+  <text x="860" y="370" text-anchor="middle" class="service">CloudWatch</text>
+  <text x="860" y="385" text-anchor="middle" class="label">Monitoring</text>
+  <text x="860" y="400" text-anchor="middle" class="label">Logs & Metrics</text>
+  
+  <!-- Cesium 3D -->
+  <rect x="800" y="80" width="120" height="60" rx="10" class="user"/>
+  <text x="860" y="100" text-anchor="middle" class="service">CesiumJS</text>
+  <text x="860" y="115" text-anchor="middle" class="label">3D Visualization</text>
+  <text x="860" y="130" text-anchor="middle" class="label">Self-hosted</text>
+  
+  <!-- Arrows and Connections -->
+  
+  <!-- User to CloudFront -->
+  <path d="M 170 110 Q 350 110 450 220" class="arrow"/>
+  <text x="300" y="100" class="label">HTTPS Requests</text>
+  
+  <!-- GitHub to Amplify -->
+  <path d="M 170 230 L 250 230" class="arrow"/>
+  <text x="200" y="220" class="label">Git Push</text>
+  
+  <!-- Amplify to CloudFront -->
+  <path d="M 370 230 L 450 230" class="arrow"/>
+  <text x="400" y="220" class="label">Deploy</text>
+  
+  <!-- CloudFront to S3 -->
+  <path d="M 570 230 L 650 230" class="arrow"/>
+  <text x="600" y="220" class="label">Origin</text>
+  
+  <!-- User to API Gateway (Contact Form) -->
+  <path d="M 110 140 Q 110 300 250 380" class="arrow"/>
+  <text x="150" y="280" class="label">Contact Form</text>
+  
+  <!-- API Gateway to Lambda -->
+  <path d="M 370 380 L 450 380" class="arrow"/>
+  <text x="400" y="370" class="label">Invoke</text>
+  
+  <!-- Lambda to DynamoDB -->
+  <path d="M 570 380 L 650 380" class="arrow"/>
+  <text x="600" y="370" class="label">Store</text>
+  
+  <!-- Lambda to SES -->
+  <path d="M 510 410 L 510 500" class="arrow"/>
+  <text x="520" y="450" class="label">Send Email</text>
+  
+  <!-- CloudWatch connections (dashed) -->
+  <path d="M 370 380 Q 600 320 800 380" class="connection"/>
+  <path d="M 570 380 Q 700 320 800 380" class="connection"/>
+  <path d="M 510 410 Q 650 450 800 410" class="connection"/>
+  
+  <!-- User to Cesium -->
+  <path d="M 170 110 Q 500 50 800 110" class="connection"/>
+  <text x="500" y="40" class="label">3D Orbital Visualization</text>
+  
+  <!-- Legend -->
+  <rect x="50" y="600" width="900" height="80" rx="5" fill="#f5f5f5" stroke="#ddd"/>
+  <text x="70" y="620" class="service" fill="#333">Legend:</text>
+  
+  <rect x="70" y="630" width="15" height="15" class="aws-orange"/>
+  <text x="95" y="642" class="label">AWS Services</text>
+  
+  <rect x="200" y="630" width="15" height="15" class="data"/>
+  <text x="225" y="642" class="label">Database</text>
+  
+  <rect x="320" y="630" width="15" height="15" class="github"/>
+  <text x="345" y="642" class="label">External Services</text>
+  
+  <rect x="470" y="630" width="15" height="15" class="user"/>
+  <text x="495" y="642" class="label">Client/Frontend</text>
+  
+  <line x1="600" y1="637" x2="630" y2="637" class="arrow"/>
+  <text x="640" y="642" class="label">Data Flow</text>
+  
+  <line x1="720" y1="637" x2="750" y2="637" class="connection"/>
+  <text x="760" y="642" class="label">Monitoring</text>
+  
+  <!-- Security Indicators -->
+  <circle cx="400" cy="180" r="8" fill="#4CAF50"/>
+  <text x="415" y="185" class="label">HTTPS</text>
+  
+  <circle cx="400" cy="330" r="8" fill="#FF5722"/>
+  <text x="415" y="335" class="label">Rate Limited</text>
+  
+</svg>
