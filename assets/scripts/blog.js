@@ -53,7 +53,7 @@ class BlogManager {
         const postCard = document.createElement('div');
         postCard.className = 'blog-card';
         
-        const formattedDate = new Date(post.date).toLocaleDateString('en-US', { 
+        const formattedDate = new Date(post.date + 'T12:00:00').toLocaleDateString('en-US', { 
             year: 'numeric', 
             month: 'long', 
             day: 'numeric' 
