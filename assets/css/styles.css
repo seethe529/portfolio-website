@@ -21,10 +21,17 @@
     border-radius: 4px;
     z-index: 10000;
     font-weight: 600;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
 }
 
 .skip-link:focus {
     top: 6px;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 /* Error message styles for forms */
