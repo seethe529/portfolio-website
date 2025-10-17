@@ -104,6 +104,38 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
         
+        .post-content h2 {
+            color: #ff6b35;
+            font-size: 1.8rem;
+            margin: 40px 0 20px 0;
+            font-weight: 600;
+        }
+        
+        .post-content h3 {
+            color: #ff8c00;
+            font-size: 1.4rem;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+        }
+        
+        .post-content p {
+            color: #cccccc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .post-content ul, .post-content ol {
+            color: #cccccc;
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        .post-content li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
         .chat-container {
             background: rgba(0, 0, 0, 0.8);
             border: 1px solid rgba(255, 107, 53, 0.5);
@@ -276,7 +308,7 @@
                 <header class="post-header">
                     <h1 class="post-title">We Reserved Orbit: A Shift Log Between Satellite Operators</h1>
                     <div class="post-meta">
-                        <span class="post-date">December 19, 2024</span>
+                        <span class="post-date">October 2, 2025</span>
                         <span class="post-category">Operations</span>
                         <span>8 min read</span>
                     </div>
@@ -297,22 +329,22 @@
                         <div class="chat-header">🛰️ LEO-OPS-CHANNEL #climate-deploy</div>
                         
                         <div class="message ana">
-                            <div class="username">Ana (Ops Lead) <span class="timestamp">2024-12-19T23:42:15Z</span></div>
+                            <div class="username">Ana (Ops Lead) <span class="timestamp">2025-10-02T23:42:15Z</span></div>
                             <div class="message-text">Status on the CLIMATE-5A reservation?</div>
                         </div>
                         
                         <div class="message derek">
-                            <div class="username">Derek (Orbital Ops) <span class="timestamp">2024-12-19T23:43:02Z</span></div>
+                            <div class="username">Derek (Orbital Ops) <span class="timestamp">2025-10-02T23:43:02Z</span></div>
                             <div class="message-text">Complete. Reserved LEO window 1000-1050km, inclination 10-15°, RAAN 210-215° range. Three tracts allocated.</div>
                         </div>
                         
                         <div class="message ana">
-                            <div class="username">Ana <span class="timestamp">2024-12-19T23:43:18Z</span></div>
+                            <div class="username">Ana <span class="timestamp">2025-10-02T23:43:18Z</span></div>
                             <div class="message-text">Confirmed. Which tracts were allocated?</div>
                         </div>
                         
                         <div class="message derek">
-                            <div class="username">Derek <span class="timestamp">2024-12-19T23:43:45Z</span></div>
+                            <div class="username">Derek <span class="timestamp">2025-10-02T23:43:45Z</span></div>
                             <div class="message-text">Three tracts reserved:</div>
                             <div class="tract-list">
                                 • <span class="tract-id">LEO-A1000-I10-RAAN205_210</span><br>
@@ -323,12 +355,12 @@
                         </div>
                         
                         <div class="message ana">
-                            <div class="username">Ana <span class="timestamp">2024-12-19T23:44:12Z</span></div>
+                            <div class="username">Ana <span class="timestamp">2025-10-02T23:44:12Z</span></div>
                             <div class="message-text">Proceeding with satellite registration.</div>
                         </div>
                         
                         <div class="message system">
-                            <div class="username">SYSTEM <span class="timestamp">2024-12-19T23:44:28Z</span></div>
+                            <div class="username">SYSTEM <span class="timestamp">2025-10-02T23:44:28Z</span></div>
                             <div class="api-call" onclick="registerSatellite('C5A-001', 1003, 11.1, 212.5)">POST /satellites/register</div>
                             <div class="message-text">
                                 Registration request: C5A-001<br>
@@ -339,155 +371,112 @@
                         </div>
                         
                         <div class="message derek">
-                            <div class="username">Derek <span class="timestamp">2024-12-19T23:44:52Z</span></div>
+                            <div class="username">Derek <span class="timestamp">2025-10-02T23:44:52Z</span></div>
                             <div class="message-text">C5A-001 compliance validation complete. RAAN 212.5° falls within tract LEO-A1000-I10-RAAN210_215.</div>
                         </div>
                         
                         <div class="message derek">
-                            <div class="username">Derek <span class="timestamp">2024-12-19T23:45:08Z</span></div>
+                            <div class="username">Derek <span class="timestamp">2025-10-02T23:45:08Z</span></div>
                             <div class="message-text">Registration successful. Satellite assigned to reserved tract boundaries.</div>
                         </div>
                         
                         <div class="message ana">
-                            <div class="username">Ana <span class="timestamp">2024-12-19T23:45:23Z</span></div>
+                            <div class="username">Ana <span class="timestamp">2025-10-02T23:45:23Z</span></div>
                             <div class="message-text">Confirmed. Proceeding with remaining satellites.</div>
                         </div>
                         
                         <div class="message derek">
-                            <div class="username">Derek <span class="timestamp">23:48</span></div>
-                            <div class="message-text">Running...</div>
-                            <div class="api-call">GET /tracts/LEO-A1000-I10-RAAN215_220?include_visualization=true</div>
-                        </div>
-                        
-                        <div class="message derek">
-                            <div class="username">Derek <span class="timestamp">23:49</span></div>
-                            <div class="message-text">CZML shows 2.3° drift over 6 hours. C5A-002 will slide into <span class="tract-id">LEO-A1000-I10-RAAN210_215</span> by 05:30.</div>
-                        </div>
-                        
-                        <div class="message ana">
-                            <div class="username">Ana <span class="timestamp">23:49</span></div>
-                            <div class="message-text">That tract reserved?</div>
-                        </div>
-                        
-                        <div class="message derek">
-                            <div class="username">Derek <span class="timestamp">23:50</span></div>
-                            <div class="message-text">Nope. Empty. Want me to grab it?</div>
-                        </div>
-                        
-                        <div class="message ana">
-                            <div class="username">Ana <span class="timestamp">23:50</span></div>
-                            <div class="message-text">Confirmed. Reserve that tract.</div>
-                        </div>
-                        
-                        <div class="message system">
-                            <div class="username">SYSTEM <span class="timestamp">23:51</span></div>
-                            <div class="api-call" onclick="reserveTract('LEO-A1000-I10-RAAN210_215')">POST /tracts/reserve</div>
-                            <div class="message-text">Reserved <span class="tract-id">LEO-A1000-I10-RAAN210_215</span> for CLIMATE-5A mission</div>
-                            <div id="reserve-response-1" class="api-response" style="display: none;"></div>
-                        </div>
-                        
-                        <div class="message derek">
-                            <div class="username">Derek <span class="timestamp">23:51</span></div>
-                            <div class="message-text">Locked. C5A-002 is good to drift.</div>
-                        </div>
-                        
-                        <div class="message ana">
-                            <div class="username">Ana <span class="timestamp">23:52</span></div>
-                            <div class="message-text">What about the third bird? C5A-003 launches tomorrow.</div>
-                        </div>
-                        
-                        <div class="message derek">
-                            <div class="username">Derek <span class="timestamp">2024-12-19T23:46:15Z</span></div>
+                            <div class="username">Derek <span class="timestamp">2025-10-02T23:46:15Z</span></div>
                             <div class="message-text">Querying tract database for additional C5A-003 placement options...</div>
                             <div class="api-call" onclick="getTracts()">GET /tracts/search?altitude_min=1000&altitude_max=1050&raan_min=200&raan_max=210</div>
                             <div id="tracts-response-1" class="api-response" style="display: none;"></div>
                         </div>
                         
                         <div class="message derek">
-                            <div class="username">Derek <span class="timestamp">2024-12-19T23:46:42Z</span></div>
+                            <div class="username">Derek <span class="timestamp">2025-10-02T23:46:42Z</span></div>
                             <div class="message-text">Query returned available tracts: <span class="tract-id">LEO-A1000-I0-RAAN200_205</span> and <span class="tract-id">LEO-A1000-I0-RAAN205_210</span>.</div>
                         </div>
                         
                         <div class="message ana">
-                            <div class="username">Ana <span class="timestamp">2024-12-19T23:47:01Z</span></div>
+                            <div class="username">Ana <span class="timestamp">2025-10-02T23:47:01Z</span></div>
                             <div class="message-text">Select LEO-A1000-I0-RAAN205_210. Optimal orbital spacing from C5A-001.</div>
                         </div>
                         
                         <div class="message derek">
-                            <div class="username">Derek <span class="timestamp">2024-12-19T23:47:18Z</span></div>
+                            <div class="username">Derek <span class="timestamp">2025-10-02T23:47:18Z</span></div>
                             <div class="message-text">Tract reserved. All three satellites have confirmed orbital assignments.</div>
                         </div>
                         
                         <div class="message ana">
-                            <div class="username">Ana <span class="timestamp">2024-12-19T23:47:35Z</span></div>
-                            <div class="message-text">Mission coordination complete. Launch window T-06:00:00 at 2024-12-20T05:47:35Z.</div>
+                            <div class="username">Ana <span class="timestamp">2025-10-02T23:47:35Z</span></div>
+                            <div class="message-text">Mission coordination complete. Launch window T-06:00:00 at 2025-10-03T05:47:35Z.</div>
                         </div>
                         
                         <div class="message derek">
-                            <div class="username">Derek <span class="timestamp">2024-12-19T23:48:12Z</span></div>
+                            <div class="username">Derek <span class="timestamp">2025-10-02T23:48:12Z</span></div>
                             <div class="message-text">System validation complete. API responses consistent with orbital mechanics calculations.</div>
                         </div>
                         
                         <div class="message ana">
-                            <div class="username">Ana <span class="timestamp">2024-12-19T23:48:28Z</span></div>
+                            <div class="username">Ana <span class="timestamp">2025-10-02T23:48:28Z</span></div>
                             <div class="message-text">Significant improvement over manual coordination protocols. Reduced collision risk assessment time by 85%.</div>
                         </div>
                         
                         <div class="message derek">
-                            <div class="username">Derek <span class="timestamp">2024-12-19T23:48:45Z</span></div>
+                            <div class="username">Derek <span class="timestamp">2025-10-02T23:48:45Z</span></div>
                             <div class="message-text">Agreed. Standardized tract definitions enable predictable orbital resource allocation.</div>
                         </div>
                         
                         <div class="message ana">
-                            <div class="username">Ana <span class="timestamp">2024-12-19T23:49:02Z</span></div>
-                            <div class="message-text">Handover complete. Launch operations commence at T-00:00:00 2024-12-20T05:47:35Z.</div>
+                            <div class="username">Ana <span class="timestamp">2025-10-02T23:49:02Z</span></div>
+                            <div class="message-text">Handover complete. Launch operations commence at T-00:00:00 2025-10-03T05:47:35Z.</div>
                         </div>
                         
                         <div class="message derek">
-                            <div class="username">Derek <span class="timestamp">2024-12-19T23:49:15Z</span></div>
+                            <div class="username">Derek <span class="timestamp">2025-10-02T23:49:15Z</span></div>
                             <div class="message-text">Acknowledged. Standing by for launch sequence.</div>
                         </div>
                     </div>
                     
                     <h2>What Just Happened</h2>
                     
-                    <p>In 17 minutes, Ana and Derek coordinated a three-satellite deployment using the Orbital Governance API. No meetings, no paperwork, no bureaucracy. Just two professionals doing their job.</p>
+                    <p>In 7 minutes, Ana and Derek coordinated a three-satellite deployment using the Orbital Governance API. No meetings, no paperwork, no bureaucracy. Just two professionals doing their job.</p>
                     
                     <p>The API handled:</p>
                     <ul>
-                        <li><strong>Tract reservation</strong> for the CLIMATE-5A mission across multiple RAAN ranges</li>
-                        <li><strong>Real-time conflict detection</strong> when C5A-002's orbit drifted outside its reserved tract</li>
-                        <li><strong>Predictive modeling</strong> using CZML visualization to forecast orbital drift</li>
-                        <li><strong>Dynamic re-reservation</strong> to accommodate the satellite's natural orbital evolution</li>
+                        <li><strong>Tract reservation:</strong> CLIMATE-5A mission across RAAN ranges 205-220°</li>
+                        <li><strong>Compliance validation:</strong> Real-time verification of satellite orbital parameters</li>
+                        <li><strong>Database queries:</strong> Dynamic tract availability searches</li>
+                        <li><strong>Resource allocation:</strong> Automated assignment of orbital space volumes</li>
                     </ul>
                     
-                    <p>This is what operational space governance looks like when the tools actually work.</p>
+                    <p>This is operational space governance with proper tooling.</p>
                     
-                    <h2>The Technical Reality</h2>
+                    <h2>The Technical Implementation</h2>
                     
                     <p>Behind this conversation, the API processed:</p>
                     <ul>
-                        <li><strong>4 tract reservations</strong> across LEO altitude bands</li>
-                        <li><strong>3 satellite registrations</strong> with real orbital parameters</li>
-                        <li><strong>1 CZML visualization</strong> showing 6-hour orbital drift prediction</li>
-                        <li><strong>2 conflict resolution</strong> operations when satellites moved between tracts</li>
+                        <li><strong>3 tract reservations</strong> in LEO altitude band 1000-1050km</li>
+                        <li><strong>1 satellite registration</strong> with compliance validation</li>
+                        <li><strong>1 tract database query</strong> with parameter filtering</li>
+                        <li><strong>GeoParquet exports</strong> for downstream analysis</li>
                     </ul>
                     
-                    <p>Total processing time: 17 minutes. Total API cost: $0.00.</p>
+                    <p>Total processing time: 7 minutes. Total API cost: $0.00.</p>
                     
-                    <p>The tract IDs aren't random strings—they encode real orbital mechanics. <code>LEO-A1000-I10-RAAN195_200</code> means Low Earth Orbit, 1000km+ altitude, 10°+ inclination, RAAN between 195° and 200°. Every satellite operator knows exactly what that means.</p>
+                    <p>The tract IDs encode real orbital mechanics. LEO-A1000-I10-RAAN210_215 means Low Earth Orbit, 1000km+ altitude, 10°+ inclination, RAAN between 210° and 215°. Every satellite operator understands this notation.</p>
                     
-                    <h2>Why This Matters</h2>
+                    <h2>Operational Impact</h2>
                     
-                    <p>Ana and Derek aren't fictional characters. They represent thousands of satellite operators working right now, coordinating missions across an increasingly crowded orbital environment.</p>
+                    <p>Ana and Derek represent thousands of satellite operators coordinating missions across increasingly crowded orbital space. The difference is access to standardized governance tools.</p>
                     
-                    <p>The difference is that most operators are still working with spreadsheets, email chains, and manual coordination. Ana and Derek have access to a system that treats orbital space like what it is: a shared resource that needs governance, not chaos.</p>
+                    <p>Traditional coordination relies on spreadsheets, email chains, and manual processes. This system treats orbital space as a managed resource requiring structured allocation and validation.</p>
                     
-                    <p>The Orbital Governance API isn't solving a theoretical problem. It's solving the problem that keeps satellite operators awake at night: how do you coordinate complex missions in real time without stepping on each other?</p>
+                    <p>The Orbital Governance API addresses real operational challenges: coordinating complex missions in real time while avoiding conflicts with existing operations.</p>
                     
-                    <p>The answer isn't more meetings or bigger bureaucracies. It's better tools and cleaner data.</p>
+                    <p>The solution is standardized data formats, automated validation, and transparent resource allocation.</p>
                     
-                    <p>This is what that looks like.</p>
+                    <p>This demonstrates that implementation in practice.</p>
                 </div>
             </article>
             
