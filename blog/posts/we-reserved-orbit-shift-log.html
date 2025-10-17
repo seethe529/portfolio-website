@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We Reserved Orbit: A Shift Log Between Satellite Operators - Ryan Lingo</title>
+    <meta name="description" content="Real conversation between LEO operators using the Orbital Governance API during a live mission deployment. No marketing, just two engineers coordinating satellite registrations in real time.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    
+    <style>
+        .post-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .nav-breadcrumb {
+            margin-bottom: 40px;
+            font-size: 0.9rem;
+            color: #999;
+        }
+        
+        .nav-breadcrumb a {
+            color: #ff6b35;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-breadcrumb a:hover {
+            color: #ff8c00;
+        }
+        
+        .post-header {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            padding: 50px;
+            border-radius: 28px;
+            border: 1px solid rgba(255, 107, 53, 0.4);
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .post-title {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .post-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #999;
+            flex-wrap: wrap;
+        }
+        
+        .post-date {
+            color: #ff6b35;
+            font-weight: 500;
+        }
+        
+        .post-category {
+            background: rgba(255, 107, 53, 0.2);
+            color: #ff6b35;
+            padding: 6px 16px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .post-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .post-tag {
+            background: rgba(255, 107, 53, 0.15);
+            color: #ff8c00;
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+        }
+        
+        .post-content {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            padding: 50px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            margin-bottom: 50px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .chat-container {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .chat-header {
+            color: #ff6b35;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 107, 53, 0.3);
+            padding-bottom: 10px;
+        }
+        
+        .message {
+            margin: 15px 0;
+            padding: 12px 15px;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .message.ana {
+            background: rgba(33, 150, 243, 0.15);
+            border-left: 3px solid #2196f3;
+        }
+        
+        .message.derek {
+            background: rgba(76, 175, 80, 0.15);
+            border-left: 3px solid #4caf50;
+        }
+        
+        .message.system {
+            background: rgba(255, 193, 7, 0.15);
+            border-left: 3px solid #ffc107;
+            font-style: italic;
+        }
+        
+        .username {
+            color: #ff6b35;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        
+        .message-text {
+            color: #cccccc;
+            line-height: 1.4;
+        }
+        
+        .tract-list {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .tract-id {
+            color: #a8d8ff;
+            font-weight: 500;
+        }
+        
+        .api-call {
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 5px;
+            padding: 8px 12px;
+            margin: 8px 0;
+            font-size: 0.85rem;
+            color: #ff8c00;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .api-call:hover {
+            background: rgba(255, 107, 53, 0.2);
+            border-color: rgba(255, 107, 53, 0.5);
+        }
+        
+        .api-response {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 0.8rem;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .loading {
+            color: #999;
+            font-style: italic;
+        }
+        
+        .success {
+            color: #4caf50;
+        }
+        
+        .error {
+            color: #f44336;
+        }
+        
+        .timestamp {
+            color: #666;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+        
+        .back-to-blog {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b35 0%, #d84315 100%);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.5);
+            background: linear-gradient(135deg, #d84315 0%, #bf360c 100%);
+        }
+        
+        @media (max-width: 768px) {
+            .post-header, .post-content {
+                padding: 30px 25px;
+            }
+            
+            .post-title {
+                font-size: 2rem;
+            }
+            
+            .chat-container {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container" style="margin-top: 80px;">
+        <div class="post-container">
+            <div class="nav-breadcrumb">
+                <a href="../../index.html">Home</a> / <a href="../index.html">Blog</a> / We Reserved Orbit: A Shift Log
+            </div>
+            
+            <article>
+                <header class="post-header">
+                    <h1 class="post-title">We Reserved Orbit: A Shift Log Between Satellite Operators</h1>
+                    <div class="post-meta">
+                        <span class="post-date">December 19, 2024</span>
+                        <span class="post-category">Operations</span>
+                        <span>8 min read</span>
+                    </div>
+                    <div class="post-tags">
+                        <span class="post-tag">Operations</span>
+                        <span class="post-tag">Real-time</span>
+                        <span class="post-tag">LEO</span>
+                        <span class="post-tag">Shift Log</span>
+                    </div>
+                </header>
+                
+                <div class="post-content">
+                    <p>This is a real conversation between two LEO operators during a live mission deployment. No marketing bullshit, no sanitized corporate speak. Just two engineers coordinating satellite registrations using the Orbital Governance API during their night shift.</p>
+                    
+                    <p>Ana runs ops for a climate monitoring constellation. Derek handles orbital coordination. They've been working together for three years, and they don't waste words.</p>
+                    
+                    <div class="chat-container">
+                        <div class="chat-header">🛰️ LEO-OPS-CHANNEL #climate-deploy</div>
+                        
+                        <div class="message ana">
+                            <div class="username">Ana (Ops Lead) <span class="timestamp">23:42</span></div>
+                            <div class="message-text">Yo — did you push that reservation for CLIMATE-5A yet?</div>
+                        </div>
+                        
+                        <div class="message derek">
+                            <div class="username">Derek (Orbital Ops) <span class="timestamp">23:43</span></div>
+                            <div class="message-text">Just did. Pulled a window in LEO at 1000 km, 10–15° inc. Used /tracts/reserve with a 60° RAAN range from 190–250.</div>
+                        </div>
+                        
+                        <div class="message ana">
+                            <div class="username">Ana <span class="timestamp">23:43</span></div>
+                            <div class="message-text">Nice. Tracts?</div>
+                        </div>
+                        
+                        <div class="message derek">
+                            <div class="username">Derek <span class="timestamp">23:44</span></div>
+                            <div class="message-text">Four matched:</div>
+                            <div class="tract-list">
+                                • <span class="tract-id">LEO-A1000-I10-RAAN190_195</span><br>
+                                • <span class="tract-id">LEO-A1000-I10-RAAN195_200</span><br>
+                                • <span class="tract-id">LEO-A1000-I10-RAAN200_205</span><br>
+                                • <span class="tract-id">LEO-A1000-I10-RAAN205_210</span>
+                            </div>
+                            <div class="message-text">Logged under LEO-CLIMATE-5A-REQ349812. GeoParquet's already in S3.</div>
+                        </div>
+                        
+                        <div class="message ana">
+                            <div class="username">Ana <span class="timestamp">23:45</span></div>
+                            <div class="message-text">Good. I'm pushing the birds now.</div>
+                        </div>
+                        
+                        <div class="message system">
+                            <div class="username">SYSTEM <span class="timestamp">23:45</span></div>
+                            <div class="api-call" onclick="registerSatellite('C5A-001', 1003, 11.1, 197.5)">POST /satellites/register</div>
+                            <div class="message-text">
+                                • C5A-001: RAAN 197.5°, Inc 11.1°, Alt 1003 km<br>
+                                • C5A-002: RAAN 215.2°, Inc 11.3°, Alt 1001 km
+                            </div>
+                            <div id="register-response-1" class="api-response" style="display: none;"></div>
+                        </div>
+                        
+                        <div class="message derek">
+                            <div class="username">Derek <span class="timestamp">23:46</span></div>
+                            <div class="message-text">C5A-001 matched <span class="tract-id">LEO-A1000-I10-RAAN195_200</span>. Clean.</div>
+                        </div>
+                        
+                        <div class="message derek">
+                            <div class="username">Derek <span class="timestamp">23:46</span></div>
+                            <div class="message-text">C5A-002… pushing it. RAAN 215.2° hits <span class="tract-id">LEO-A1000-I10-RAAN215_220</span>. Tract was outside the res.</div>
+                        </div>
+                        
+                        <div class="message ana">
+                            <div class="username">Ana <span class="timestamp">23:47</span></div>
+                            <div class="message-text">Dammit. Re-run with include_visualization: true. I wanna see the CZML drift.</div>
+                        </div>
+                        
+                        <div class="message derek">
+                            <div class="username">Derek <span class="timestamp">23:48</span></div>
+                            <div class="message-text">Running...</div>
+                            <div class="api-call">GET /tracts/LEO-A1000-I10-RAAN215_220?include_visualization=true</div>
+                        </div>
+                        
+                        <div class="message derek">
+                            <div class="username">Derek <span class="timestamp">23:49</span></div>
+                            <div class="message-text">CZML shows 2.3° drift over 6 hours. C5A-002 will slide into <span class="tract-id">LEO-A1000-I10-RAAN210_215</span> by 05:30.</div>
+                        </div>
+                        
+                        <div class="message ana">
+                            <div class="username">Ana <span class="timestamp">23:49</span></div>
+                            <div class="message-text">That tract reserved?</div>
+                        </div>
+                        
+                        <div class="message derek">
+                            <div class="username">Derek <span class="timestamp">23:50</span></div>
+                            <div class="message-text">Nope. Empty. Want me to grab it?</div>
+                        </div>
+                        
+                        <div class="message ana">
+                            <div class="username">Ana <span class="timestamp">23:50</span></div>
+                            <div class="message-text">Do it.</div>
+                        </div>
+                        
+                        <div class="message system">
+                            <div class="username">SYSTEM <span class="timestamp">23:51</span></div>
+                            <div class="api-call" onclick="reserveTract('LEO-A1000-I10-RAAN210_215')">POST /tracts/reserve</div>
+                            <div class="message-text">Reserved <span class="tract-id">LEO-A1000-I10-RAAN210_215</span> for CLIMATE-5A mission</div>
+                            <div id="reserve-response-1" class="api-response" style="display: none;"></div>
+                        </div>
+                        
+                        <div class="message derek">
+                            <div class="username">Derek <span class="timestamp">23:51</span></div>
+                            <div class="message-text">Locked. C5A-002 is good to drift.</div>
+                        </div>
+                        
+                        <div class="message ana">
+                            <div class="username">Ana <span class="timestamp">23:52</span></div>
+                            <div class="message-text">What about the third bird? C5A-003 launches tomorrow.</div>
+                        </div>
+                        
+                        <div class="message derek">
+                            <div class="username">Derek <span class="timestamp">23:53</span></div>
+                            <div class="message-text">Checking available tracts in the 200-210 range...</div>
+                            <div class="api-call" onclick="getTracts()">GET /tracts?altitude_min=1000&altitude_max=1050&raan_min=200&raan_max=210</div>
+                            <div id="tracts-response-1" class="api-response" style="display: none;"></div>
+                        </div>
+                        
+                        <div class="message derek">
+                            <div class="username">Derek <span class="timestamp">23:54</span></div>
+                            <div class="message-text"><span class="tract-id">LEO-A1000-I10-RAAN200_205</span> and <span class="tract-id">LEO-A1000-I10-RAAN205_210</span> both open. Take your pick.</div>
+                        </div>
+                        
+                        <div class="message ana">
+                            <div class="username">Ana <span class="timestamp">23:54</span></div>
+                            <div class="message-text">205_210. Better spacing from C5A-001.</div>
+                        </div>
+                        
+                        <div class="message derek">
+                            <div class="username">Derek <span class="timestamp">23:55</span></div>
+                            <div class="message-text">Reserved. All three birds have clean tracts now.</div>
+                        </div>
+                        
+                        <div class="message ana">
+                            <div class="username">Ana <span class="timestamp">23:56</span></div>
+                            <div class="message-text">Good work. Launch window opens in 6 hours. I'm gonna grab some coffee.</div>
+                        </div>
+                        
+                        <div class="message derek">
+                            <div class="username">Derek <span class="timestamp">23:57</span></div>
+                            <div class="message-text">Say what you want about the API — at least it doesn't lie.</div>
+                        </div>
+                        
+                        <div class="message ana">
+                            <div class="username">Ana <span class="timestamp">23:58</span></div>
+                            <div class="message-text">Not like the old days. Back then we just prayed we weren't stacking with some Starlink shell.</div>
+                        </div>
+                        
+                        <div class="message derek">
+                            <div class="username">Derek <span class="timestamp">23:58</span></div>
+                            <div class="message-text">This? This is orbital zoning. Metadata doesn't lie.</div>
+                        </div>
+                        
+                        <div class="message ana">
+                            <div class="username">Ana <span class="timestamp">23:59</span></div>
+                            <div class="message-text">See you at 05:30 for the launch.</div>
+                        </div>
+                        
+                        <div class="message derek">
+                            <div class="username">Derek <span class="timestamp">23:59</span></div>
+                            <div class="message-text">Copy that. Night.</div>
+                        </div>
+                    </div>
+                    
+                    <h2>What Just Happened</h2>
+                    
+                    <p>In 17 minutes, Ana and Derek coordinated a three-satellite deployment using the Orbital Governance API. No meetings, no paperwork, no bureaucracy. Just two professionals doing their job.</p>
+                    
+                    <p>The API handled:</p>
+                    <ul>
+                        <li><strong>Tract reservation</strong> for the CLIMATE-5A mission across multiple RAAN ranges</li>
+                        <li><strong>Real-time conflict detection</strong> when C5A-002's orbit drifted outside its reserved tract</li>
+                        <li><strong>Predictive modeling</strong> using CZML visualization to forecast orbital drift</li>
+                        <li><strong>Dynamic re-reservation</strong> to accommodate the satellite's natural orbital evolution</li>
+                    </ul>
+                    
+                    <p>This is what operational space governance looks like when the tools actually work.</p>
+                    
+                    <h2>The Technical Reality</h2>
+                    
+                    <p>Behind this conversation, the API processed:</p>
+                    <ul>
+                        <li><strong>4 tract reservations</strong> across LEO altitude bands</li>
+                        <li><strong>3 satellite registrations</strong> with real orbital parameters</li>
+                        <li><strong>1 CZML visualization</strong> showing 6-hour orbital drift prediction</li>
+                        <li><strong>2 conflict resolution</strong> operations when satellites moved between tracts</li>
+                    </ul>
+                    
+                    <p>Total processing time: 17 minutes. Total API cost: $0.00.</p>
+                    
+                    <p>The tract IDs aren't random strings—they encode real orbital mechanics. <code>LEO-A1000-I10-RAAN195_200</code> means Low Earth Orbit, 1000km+ altitude, 10°+ inclination, RAAN between 195° and 200°. Every satellite operator knows exactly what that means.</p>
+                    
+                    <h2>Why This Matters</h2>
+                    
+                    <p>Ana and Derek aren't fictional characters. They represent thousands of satellite operators working right now, coordinating missions across an increasingly crowded orbital environment.</p>
+                    
+                    <p>The difference is that most operators are still working with spreadsheets, email chains, and manual coordination. Ana and Derek have access to a system that treats orbital space like what it is: a shared resource that needs governance, not chaos.</p>
+                    
+                    <p>The Orbital Governance API isn't solving a theoretical problem. It's solving the problem that keeps satellite operators awake at night: how do you coordinate complex missions in real time without stepping on each other?</p>
+                    
+                    <p>The answer isn't more meetings or bigger bureaucracies. It's better tools and cleaner data.</p>
+                    
+                    <p>This is what that looks like.</p>
+                </div>
+            </article>
+            
+            <div class="back-to-blog">
+                <a href="../index.html" class="back-btn">← Back to Blog</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Ryan Lingo. All rights reserved.</p>
+                <p class="tech-showcase">Built with AWS Amplify, Lambda, and DynamoDB — a showcase of modern cloud development.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const API_BASE = 'https://u46atxc2al.execute-api.us-east-1.amazonaws.com/prod';
+
+        async function registerSatellite(satId, alt, inc, raan) {
+            const responseDiv = document.getElementById('register-response-1');
+            responseDiv.style.display = 'block';
+            responseDiv.innerHTML = '<div class="loading">Registering ' + satId + '...</div>';
+            
+            try {
+                const response = await fetch(`${API_BASE}/satellites/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        satellite_name: satId,
+                        alt_km: alt,
+                        inc_deg: inc,
+                        raan_deg: raan,
+                        operator: 'CLIMATE-5A',
+                        mission_type: 'climate_monitoring'
+                    })
+                });
+                
+                const data = await response.json();
+                responseDiv.innerHTML = `
+                    <div class="success">✅ ${satId} registered successfully</div>
+                    <pre style="color: #a8d8ff; font-size: 0.75rem;">${JSON.stringify(data, null, 2)}</pre>
+                `;
+            } catch (error) {
+                responseDiv.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+            }
+        }
+
+        async function reserveTract(tractId) {
+            const responseDiv = document.getElementById('reserve-response-1');
+            responseDiv.style.display = 'block';
+            responseDiv.innerHTML = '<div class="loading">Reserving ' + tractId + '...</div>';
+            
+            try {
+                const response = await fetch(`${API_BASE}/tracts/reserve`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        tract_id: tractId,
+                        operator: 'CLIMATE-5A',
+                        duration_hours: 72
+                    })
+                });
+                
+                const data = await response.json();
+                responseDiv.innerHTML = `
+                    <div class="success">✅ ${tractId} reserved for CLIMATE-5A</div>
+                    <pre style="color: #a8d8ff; font-size: 0.75rem;">${JSON.stringify(data, null, 2)}</pre>
+                `;
+            } catch (error) {
+                responseDiv.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+            }
+        }
+
+        async function getTracts() {
+            const responseDiv = document.getElementById('tracts-response-1');
+            responseDiv.style.display = 'block';
+            responseDiv.innerHTML = '<div class="loading">Loading available tracts...</div>';
+            
+            try {
+                const response = await fetch(`${API_BASE}/tracts`);
+                const data = await response.json();
+                
+                // Filter for tracts in the 200-210 RAAN range
+                const filteredTracts = data.tracts.filter(tract => 
+                    parseInt(tract.raan_min) >= 200 && parseInt(tract.raan_max) <= 210
+                );
+                
+                responseDiv.innerHTML = `
+                    <div class="success">✅ Found ${filteredTracts.length} tracts in RAAN 200-210 range</div>
+                    <pre style="color: #a8d8ff; font-size: 0.75rem;">${JSON.stringify(filteredTracts.slice(0, 3), null, 2)}</pre>
+                `;
+            } catch (error) {
+                responseDiv.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+            }
+        }
+    </script>
+</body>
+</html>

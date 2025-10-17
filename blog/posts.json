@@ -1,13 +1,13 @@
 {
   "posts": [
     {
-      "id": "orbital-governance-api-showcase",
-      "title": "Building a $0/Month Orbital Governance API: From $479 to Free Tier",
+      "id": "we-reserved-orbit-shift-log",
+      "title": "We Reserved Orbit: A Shift Log Between Satellite Operators",
       "date": "2024-12-19",
-      "excerpt": "Interactive showcase of a live orbital governance API that manages satellite reservations and tract assignments. See how AWS optimization reduced costs from $479/month to $0 while handling real orbital data.",
-      "tags": ["API", "AWS", "Cost Optimization", "Interactive Demo"],
-      "readTime": "12 min read",
-      "category": "Technical Showcase"
+      "excerpt": "Real conversation between LEO operators using the Orbital Governance API during a live mission deployment. No marketing, just two engineers coordinating satellite registrations in real time.",
+      "tags": ["Operations", "Real-time", "LEO", "Shift Log"],
+      "readTime": "8 min read",
+      "category": "Operations"
     },
     {
       "id": "for-the-record-accountability-matters",
