@@ -297,59 +297,60 @@
                         <div class="chat-header">🛰️ LEO-OPS-CHANNEL #climate-deploy</div>
                         
                         <div class="message ana">
-                            <div class="username">Ana (Ops Lead) <span class="timestamp">23:42</span></div>
-                            <div class="message-text">Yo — did you push that reservation for CLIMATE-5A yet?</div>
+                            <div class="username">Ana (Ops Lead) <span class="timestamp">2024-12-19T23:42:15Z</span></div>
+                            <div class="message-text">Status on the CLIMATE-5A reservation?</div>
                         </div>
                         
                         <div class="message derek">
-                            <div class="username">Derek (Orbital Ops) <span class="timestamp">23:43</span></div>
-                            <div class="message-text">Just did. Pulled a window in LEO at 1000 km, 10–15° inc. Used /tracts/reserve with a 60° RAAN range from 190–250.</div>
+                            <div class="username">Derek (Orbital Ops) <span class="timestamp">2024-12-19T23:43:02Z</span></div>
+                            <div class="message-text">Complete. Reserved LEO window 1000-1050km, inclination 10-15°, RAAN 210-215° range. Three tracts allocated.</div>
                         </div>
                         
                         <div class="message ana">
-                            <div class="username">Ana <span class="timestamp">23:43</span></div>
-                            <div class="message-text">Nice. Tracts?</div>
+                            <div class="username">Ana <span class="timestamp">2024-12-19T23:43:18Z</span></div>
+                            <div class="message-text">Confirmed. Which tracts were allocated?</div>
                         </div>
                         
                         <div class="message derek">
-                            <div class="username">Derek <span class="timestamp">23:44</span></div>
-                            <div class="message-text">Three matched:</div>
+                            <div class="username">Derek <span class="timestamp">2024-12-19T23:43:45Z</span></div>
+                            <div class="message-text">Three tracts reserved:</div>
                             <div class="tract-list">
                                 • <span class="tract-id">LEO-A1000-I10-RAAN205_210</span><br>
                                 • <span class="tract-id">LEO-A1000-I10-RAAN210_215</span><br>
                                 • <span class="tract-id">LEO-A1000-I10-RAAN215_220</span>
                             </div>
-                            <div class="message-text">Logged under reservation ID. GeoParquet export ready.</div>
+                            <div class="message-text">Reservation ID: 3a09da91-c122-44fd-87cb-528a908d6f93. GeoParquet export available.</div>
                         </div>
                         
                         <div class="message ana">
-                            <div class="username">Ana <span class="timestamp">23:45</span></div>
-                            <div class="message-text">Good. I'm pushing the birds now.</div>
+                            <div class="username">Ana <span class="timestamp">2024-12-19T23:44:12Z</span></div>
+                            <div class="message-text">Proceeding with satellite registration.</div>
                         </div>
                         
                         <div class="message system">
-                            <div class="username">SYSTEM <span class="timestamp">23:45</span></div>
+                            <div class="username">SYSTEM <span class="timestamp">2024-12-19T23:44:28Z</span></div>
                             <div class="api-call" onclick="registerSatellite('C5A-001', 1003, 11.1, 212.5)">POST /satellites/register</div>
                             <div class="message-text">
-                                • C5A-001: RAAN 197.5°, Inc 11.1°, Alt 1003 km<br>
-                                • C5A-002: RAAN 215.2°, Inc 11.3°, Alt 1001 km
+                                Registration request: C5A-001<br>
+                                Orbital parameters: Alt 1003.0km, Inc 11.1°, RAAN 212.5°<br>
+                                Reservation ID: 3a09da91-c122-44fd-87cb-528a908d6f93
                             </div>
                             <div id="register-response-1" class="api-response" style="display: none;"></div>
                         </div>
                         
                         <div class="message derek">
-                            <div class="username">Derek <span class="timestamp">23:46</span></div>
-                            <div class="message-text">C5A-001 failed compliance. RAAN 197.5° is outside reserved ranges.</div>
+                            <div class="username">Derek <span class="timestamp">2024-12-19T23:44:52Z</span></div>
+                            <div class="message-text">C5A-001 compliance validation complete. RAAN 212.5° falls within tract LEO-A1000-I10-RAAN210_215.</div>
                         </div>
                         
                         <div class="message derek">
-                            <div class="username">Derek <span class="timestamp">23:46</span></div>
-                            <div class="message-text">C5A-002 at RAAN 215.2° would hit <span class="tract-id">LEO-A1000-I10-RAAN215_220</span>. That's in our reservation.</div>
+                            <div class="username">Derek <span class="timestamp">2024-12-19T23:45:08Z</span></div>
+                            <div class="message-text">Registration successful. Satellite assigned to reserved tract boundaries.</div>
                         </div>
                         
                         <div class="message ana">
-                            <div class="username">Ana <span class="timestamp">23:47</span></div>
-                            <div class="message-text">Adjust C5A-001 to RAAN 212.5°. Should hit the 210_215 tract.</div>
+                            <div class="username">Ana <span class="timestamp">2024-12-19T23:45:23Z</span></div>
+                            <div class="message-text">Confirmed. Proceeding with remaining satellites.</div>
                         </div>
                         
                         <div class="message derek">
@@ -375,7 +376,7 @@
                         
                         <div class="message ana">
                             <div class="username">Ana <span class="timestamp">23:50</span></div>
-                            <div class="message-text">Do it.</div>
+                            <div class="message-text">Confirmed. Reserve that tract.</div>
                         </div>
                         
                         <div class="message system">
@@ -396,55 +397,55 @@
                         </div>
                         
                         <div class="message derek">
-                            <div class="username">Derek <span class="timestamp">23:53</span></div>
-                            <div class="message-text">Checking available tracts in the 200-210 range...</div>
-                            <div class="api-call" onclick="getTracts()">GET /tracts?altitude_min=1000&altitude_max=1050&raan_min=200&raan_max=210</div>
+                            <div class="username">Derek <span class="timestamp">2024-12-19T23:46:15Z</span></div>
+                            <div class="message-text">Querying tract database for additional C5A-003 placement options...</div>
+                            <div class="api-call" onclick="getTracts()">GET /tracts/search?altitude_min=1000&altitude_max=1050&raan_min=200&raan_max=210</div>
                             <div id="tracts-response-1" class="api-response" style="display: none;"></div>
                         </div>
                         
                         <div class="message derek">
-                            <div class="username">Derek <span class="timestamp">23:54</span></div>
-                            <div class="message-text"><span class="tract-id">LEO-A1000-I10-RAAN200_205</span> and <span class="tract-id">LEO-A1000-I10-RAAN205_210</span> both open. Take your pick.</div>
+                            <div class="username">Derek <span class="timestamp">2024-12-19T23:46:42Z</span></div>
+                            <div class="message-text">Query returned available tracts: <span class="tract-id">LEO-A1000-I0-RAAN200_205</span> and <span class="tract-id">LEO-A1000-I0-RAAN205_210</span>.</div>
                         </div>
                         
                         <div class="message ana">
-                            <div class="username">Ana <span class="timestamp">23:54</span></div>
-                            <div class="message-text">205_210. Better spacing from C5A-001.</div>
+                            <div class="username">Ana <span class="timestamp">2024-12-19T23:47:01Z</span></div>
+                            <div class="message-text">Select LEO-A1000-I0-RAAN205_210. Optimal orbital spacing from C5A-001.</div>
                         </div>
                         
                         <div class="message derek">
-                            <div class="username">Derek <span class="timestamp">23:55</span></div>
-                            <div class="message-text">Reserved. All three birds have clean tracts now.</div>
+                            <div class="username">Derek <span class="timestamp">2024-12-19T23:47:18Z</span></div>
+                            <div class="message-text">Tract reserved. All three satellites have confirmed orbital assignments.</div>
                         </div>
                         
                         <div class="message ana">
-                            <div class="username">Ana <span class="timestamp">23:56</span></div>
-                            <div class="message-text">Good work. Launch window opens in 6 hours. I'm gonna grab some coffee.</div>
+                            <div class="username">Ana <span class="timestamp">2024-12-19T23:47:35Z</span></div>
+                            <div class="message-text">Mission coordination complete. Launch window T-06:00:00 at 2024-12-20T05:47:35Z.</div>
                         </div>
                         
                         <div class="message derek">
-                            <div class="username">Derek <span class="timestamp">23:57</span></div>
-                            <div class="message-text">Say what you want about the API — at least it doesn't lie.</div>
+                            <div class="username">Derek <span class="timestamp">2024-12-19T23:48:12Z</span></div>
+                            <div class="message-text">System validation complete. API responses consistent with orbital mechanics calculations.</div>
                         </div>
                         
                         <div class="message ana">
-                            <div class="username">Ana <span class="timestamp">23:58</span></div>
-                            <div class="message-text">Not like the old days. Back then we just prayed we weren't stacking with some Starlink shell.</div>
+                            <div class="username">Ana <span class="timestamp">2024-12-19T23:48:28Z</span></div>
+                            <div class="message-text">Significant improvement over manual coordination protocols. Reduced collision risk assessment time by 85%.</div>
                         </div>
                         
                         <div class="message derek">
-                            <div class="username">Derek <span class="timestamp">23:58</span></div>
-                            <div class="message-text">This? This is orbital zoning. Metadata doesn't lie.</div>
+                            <div class="username">Derek <span class="timestamp">2024-12-19T23:48:45Z</span></div>
+                            <div class="message-text">Agreed. Standardized tract definitions enable predictable orbital resource allocation.</div>
                         </div>
                         
                         <div class="message ana">
-                            <div class="username">Ana <span class="timestamp">23:59</span></div>
-                            <div class="message-text">See you at 05:30 for the launch.</div>
+                            <div class="username">Ana <span class="timestamp">2024-12-19T23:49:02Z</span></div>
+                            <div class="message-text">Handover complete. Launch operations commence at T-00:00:00 2024-12-20T05:47:35Z.</div>
                         </div>
                         
                         <div class="message derek">
-                            <div class="username">Derek <span class="timestamp">23:59</span></div>
-                            <div class="message-text">Copy that. Night.</div>
+                            <div class="username">Derek <span class="timestamp">2024-12-19T23:49:15Z</span></div>
+                            <div class="message-text">Acknowledged. Standing by for launch sequence.</div>
                         </div>
                     </div>
                     
@@ -581,20 +582,22 @@
         async function getTracts() {
             const responseDiv = document.getElementById('tracts-response-1');
             responseDiv.style.display = 'block';
-            responseDiv.innerHTML = '<div class="loading">Loading available tracts...</div>';
+            responseDiv.innerHTML = '<div class="loading">Querying tract database...</div>';
             
             try {
-                const response = await fetch(`${API_BASE}/tracts`);
+                const response = await fetch(`${API_BASE}/tracts/search?altitude_min=1000&altitude_max=1050&raan_min=200&raan_max=210`);
                 const data = await response.json();
                 
-                // Filter for tracts in the 200-210 RAAN range
                 const filteredTracts = data.tracts.filter(tract => 
                     parseInt(tract.raan_min) >= 200 && parseInt(tract.raan_max) <= 210
                 );
                 
                 responseDiv.innerHTML = `
-                    <div class="success">✅ Found ${filteredTracts.length} tracts in RAAN 200-210 range</div>
-                    <pre style="color: #64b5f6; font-size: 0.75rem;">${JSON.stringify(filteredTracts.slice(0, 3), null, 2)}</pre>
+                    <div class="success">✅ Query returned ${filteredTracts.length} matching tracts</div>
+                    <pre style="color: #64b5f6; font-size: 0.75rem;">${JSON.stringify(filteredTracts.slice(0, 2), null, 2)}</pre>
+                    <div style="color: #999; font-size: 0.75rem; margin-top: 8px;">
+                        Available: ${filteredTracts.map(t => t.tract_id).slice(0, 3).join(', ')}
+                    </div>
                 `;
             } catch (error) {
                 responseDiv.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
