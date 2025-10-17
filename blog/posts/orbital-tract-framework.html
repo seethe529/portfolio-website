@@ -231,6 +231,26 @@
             font-size: 1.2rem;
         }
         
+        .framework-figure {
+            max-width: 800px;
+            margin: 40px auto 60px auto;
+            text-align: center;
+        }
+        
+        .framework-figure img {
+            width: 100%;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            margin-bottom: 15px;
+        }
+        
+        .framework-figure figcaption {
+            text-align: center;
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+        
         .back-to-blog {
             text-align: center;
             margin: 40px 0;
@@ -270,6 +290,10 @@
             
             .framework-example {
                 padding: 20px 15px;
+            }
+            
+            .framework-figure img {
+                width: 90%;
             }
         }
     </style>
@@ -313,6 +337,14 @@
                     </ul>
                     
                     <h2>Introducing Orbital Tracts</h2>
+                    
+                    <figure class="framework-figure">
+                        <img src="../../assets/images/OrbitalTractVisualization.png" alt="CesiumJS visualization of an orbital tract showing altitude, inclination, and RAAN segmentation." loading="lazy">
+                        <figcaption>
+                            <strong>Figure 1.</strong> Visualization of orbital tracts in <em>CesiumJS</em> showing altitude, inclination, and RAAN segmentation.
+                            The blue translucent shell represents tract <code>LEO-A1900-I160-RAAN60_90</code>, demonstrating how orbital volumes can be defined and indexed in three dimensions.
+                        </figcaption>
+                    </figure>
                     
                     <p>The Orbital Tract Framework addresses these challenges by dividing near-Earth space into discrete, three-dimensional volumes called "orbital tracts." Each tract is defined by specific ranges of orbital parameters:</p>
                     
