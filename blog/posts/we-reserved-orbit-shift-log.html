@@ -8,7 +8,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="../../assets/css/styles.css">
     
@@ -105,12 +105,13 @@
         }
         
         .chat-container {
-            background: rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(255, 107, 53, 0.3);
-            border-radius: 15px;
-            padding: 25px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 107, 53, 0.5);
+            border-radius: 12px;
+            padding: 20px;
             margin: 30px 0;
-            font-family: 'Courier New', monospace;
+            font-family: 'JetBrains Mono', 'Consolas', monospace;
+            font-size: 0.9rem;
         }
         
         .chat-header {
@@ -124,78 +125,87 @@
         }
         
         .message {
-            margin: 15px 0;
-            padding: 12px 15px;
-            border-radius: 8px;
+            margin: 12px 0;
+            padding: 10px 12px;
+            border-radius: 6px;
             position: relative;
+            line-height: 1.4;
         }
         
         .message.ana {
-            background: rgba(33, 150, 243, 0.15);
-            border-left: 3px solid #2196f3;
+            background: rgba(33, 150, 243, 0.2);
+            border-left: 4px solid #2196f3;
         }
         
         .message.derek {
-            background: rgba(76, 175, 80, 0.15);
-            border-left: 3px solid #4caf50;
+            background: rgba(76, 175, 80, 0.2);
+            border-left: 4px solid #4caf50;
         }
         
         .message.system {
-            background: rgba(255, 193, 7, 0.15);
-            border-left: 3px solid #ffc107;
-            font-style: italic;
+            background: rgba(255, 193, 7, 0.2);
+            border-left: 4px solid #ffc107;
         }
         
         .username {
             color: #ff6b35;
             font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 5px;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+            display: block;
         }
         
         .message-text {
-            color: #cccccc;
-            line-height: 1.4;
-        }
-        
-        .tract-list {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 10px;
-            border-radius: 5px;
-            margin: 8px 0;
+            color: #e0e0e0;
+            line-height: 1.5;
             font-size: 0.9rem;
         }
         
+        .tract-list {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin: 6px 0;
+            font-size: 0.85rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
         .tract-id {
-            color: #a8d8ff;
+            color: #64b5f6;
             font-weight: 500;
+            font-family: 'JetBrains Mono', monospace;
         }
         
         .api-call {
-            background: rgba(255, 107, 53, 0.1);
-            border: 1px solid rgba(255, 107, 53, 0.3);
-            border-radius: 5px;
-            padding: 8px 12px;
-            margin: 8px 0;
-            font-size: 0.85rem;
-            color: #ff8c00;
+            background: rgba(255, 107, 53, 0.2);
+            border: 1px solid rgba(255, 107, 53, 0.5);
+            border-radius: 4px;
+            padding: 6px 10px;
+            margin: 6px 0;
+            font-size: 0.8rem;
+            color: #ff9800;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
         }
         
         .api-call:hover {
-            background: rgba(255, 107, 53, 0.2);
-            border-color: rgba(255, 107, 53, 0.5);
+            background: rgba(255, 107, 53, 0.3);
+            border-color: rgba(255, 107, 53, 0.7);
+            transform: translateY(-1px);
         }
         
         .api-response {
-            background: rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(255, 107, 53, 0.3);
-            border-radius: 5px;
-            padding: 10px;
-            margin: 10px 0;
-            font-size: 0.8rem;
-            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 107, 53, 0.4);
+            border-radius: 4px;
+            padding: 12px;
+            margin: 8px 0;
+            font-size: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            max-height: 200px;
+            overflow-y: auto;
         }
         
         .loading {
@@ -303,14 +313,13 @@
                         
                         <div class="message derek">
                             <div class="username">Derek <span class="timestamp">23:44</span></div>
-                            <div class="message-text">Four matched:</div>
+                            <div class="message-text">Three matched:</div>
                             <div class="tract-list">
-                                • <span class="tract-id">LEO-A1000-I10-RAAN190_195</span><br>
-                                • <span class="tract-id">LEO-A1000-I10-RAAN195_200</span><br>
-                                • <span class="tract-id">LEO-A1000-I10-RAAN200_205</span><br>
-                                • <span class="tract-id">LEO-A1000-I10-RAAN205_210</span>
+                                • <span class="tract-id">LEO-A1000-I10-RAAN205_210</span><br>
+                                • <span class="tract-id">LEO-A1000-I10-RAAN210_215</span><br>
+                                • <span class="tract-id">LEO-A1000-I10-RAAN215_220</span>
                             </div>
-                            <div class="message-text">Logged under LEO-CLIMATE-5A-REQ349812. GeoParquet's already in S3.</div>
+                            <div class="message-text">Logged under reservation ID. GeoParquet export ready.</div>
                         </div>
                         
                         <div class="message ana">
@@ -320,7 +329,7 @@
                         
                         <div class="message system">
                             <div class="username">SYSTEM <span class="timestamp">23:45</span></div>
-                            <div class="api-call" onclick="registerSatellite('C5A-001', 1003, 11.1, 197.5)">POST /satellites/register</div>
+                            <div class="api-call" onclick="registerSatellite('C5A-001', 1003, 11.1, 212.5)">POST /satellites/register</div>
                             <div class="message-text">
                                 • C5A-001: RAAN 197.5°, Inc 11.1°, Alt 1003 km<br>
                                 • C5A-002: RAAN 215.2°, Inc 11.3°, Alt 1001 km
@@ -330,17 +339,17 @@
                         
                         <div class="message derek">
                             <div class="username">Derek <span class="timestamp">23:46</span></div>
-                            <div class="message-text">C5A-001 matched <span class="tract-id">LEO-A1000-I10-RAAN195_200</span>. Clean.</div>
+                            <div class="message-text">C5A-001 failed compliance. RAAN 197.5° is outside reserved ranges.</div>
                         </div>
                         
                         <div class="message derek">
                             <div class="username">Derek <span class="timestamp">23:46</span></div>
-                            <div class="message-text">C5A-002… pushing it. RAAN 215.2° hits <span class="tract-id">LEO-A1000-I10-RAAN215_220</span>. Tract was outside the res.</div>
+                            <div class="message-text">C5A-002 at RAAN 215.2° would hit <span class="tract-id">LEO-A1000-I10-RAAN215_220</span>. That's in our reservation.</div>
                         </div>
                         
                         <div class="message ana">
                             <div class="username">Ana <span class="timestamp">23:47</span></div>
-                            <div class="message-text">Dammit. Re-run with include_visualization: true. I wanna see the CZML drift.</div>
+                            <div class="message-text">Adjust C5A-001 to RAAN 212.5°. Should hit the 210_215 tract.</div>
                         </div>
                         
                         <div class="message derek">
@@ -509,45 +518,60 @@
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        satellite_name: satId,
-                        alt_km: alt,
-                        inc_deg: inc,
-                        raan_deg: raan,
-                        operator: 'CLIMATE-5A',
-                        mission_type: 'climate_monitoring'
+                        reservation_id: 'CLIMATE-5A-REQ349812',
+                        include_visualization: true,
+                        satellites: [{
+                            sat_id: satId,
+                            raan_deg: raan,
+                            inc_deg: inc,
+                            alt_km: alt
+                        }]
                     })
                 });
                 
                 const data = await response.json();
+                const report = data.compliance_report?.[0];
+                const status = report?.status === 'PASS' ? 'success' : 'error';
+                const icon = report?.status === 'PASS' ? '✅' : '❌';
+                
                 responseDiv.innerHTML = `
-                    <div class="success">✅ ${satId} registered successfully</div>
-                    <pre style="color: #a8d8ff; font-size: 0.75rem;">${JSON.stringify(data, null, 2)}</pre>
+                    <div class="${status}">${icon} ${satId} Registration Complete</div>
+                    <pre style="color: #64b5f6; font-size: 0.75rem;">${JSON.stringify(data, null, 2)}</pre>
+                    <div style="color: #999; font-size: 0.75rem; margin-top: 8px;">
+                        ${report?.message || 'Processing complete'} | Tract: ${report?.tract_id || 'N/A'}
+                    </div>
                 `;
             } catch (error) {
-                responseDiv.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+                responseDiv.innerHTML = `<div class="error">❌ Network Error: ${error.message}</div>`;
             }
         }
 
         async function reserveTract(tractId) {
             const responseDiv = document.getElementById('reserve-response-1');
             responseDiv.style.display = 'block';
-            responseDiv.innerHTML = '<div class="loading">Reserving ' + tractId + '...</div>';
+            responseDiv.innerHTML = '<div class="loading">Reserving tracts for CLIMATE-5A...</div>';
             
             try {
                 const response = await fetch(`${API_BASE}/tracts/reserve`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        tract_id: tractId,
-                        operator: 'CLIMATE-5A',
-                        duration_hours: 72
+                        mission_name: 'CLIMATE-5A',
+                        orbit_zone: 'LEO',
+                        altitude_km: [1000, 1050],
+                        inclination_deg: [10, 15],
+                        raan_range: [210, 215],
+                        tract_count: 3
                     })
                 });
                 
                 const data = await response.json();
                 responseDiv.innerHTML = `
-                    <div class="success">✅ ${tractId} reserved for CLIMATE-5A</div>
-                    <pre style="color: #a8d8ff; font-size: 0.75rem;">${JSON.stringify(data, null, 2)}</pre>
+                    <div class="success">✅ Tracts Reserved Successfully</div>
+                    <pre style="color: #64b5f6; font-size: 0.75rem;">${JSON.stringify(data, null, 2)}</pre>
+                    <div style="color: #999; font-size: 0.75rem; margin-top: 8px;">
+                        Reserved ${data.tract_count || 0} tracts for mission ${data.mission_name || 'CLIMATE-5A'}
+                    </div>
                 `;
             } catch (error) {
                 responseDiv.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
@@ -570,7 +594,7 @@
                 
                 responseDiv.innerHTML = `
                     <div class="success">✅ Found ${filteredTracts.length} tracts in RAAN 200-210 range</div>
-                    <pre style="color: #a8d8ff; font-size: 0.75rem;">${JSON.stringify(filteredTracts.slice(0, 3), null, 2)}</pre>
+                    <pre style="color: #64b5f6; font-size: 0.75rem;">${JSON.stringify(filteredTracts.slice(0, 3), null, 2)}</pre>
                 `;
             } catch (error) {
                 responseDiv.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
