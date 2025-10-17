@@ -508,7 +508,7 @@
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        reservation_id: 'CLIMATE-5A-REQ349812',
+                        reservation_id: '3a09da91-c122-44fd-87cb-528a908d6f93',
                         include_visualization: true,
                         satellites: [{
                             sat_id: satId,
@@ -574,7 +574,7 @@
             responseDiv.innerHTML = '<div class="loading">Querying tract database...</div>';
             
             try {
-                const response = await fetch(`${API_BASE}/tracts/search?altitude_min=1000&altitude_max=1050&raan_min=200&raan_max=210`);
+                const response = await fetch(`${API_BASE}/tracts?altitude_min=1000&altitude_max=1050&inclination_min=9&inclination_max=11`);
                 const data = await response.json();
                 
                 const filteredTracts = data.tracts.filter(tract => 
