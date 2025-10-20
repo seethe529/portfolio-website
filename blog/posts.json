@@ -1,6 +1,15 @@
 {
   "posts": [
     {
+      "id": "sustainability-space-ecosystem",
+      "title": "Sustainability of the Space Ecosystem",
+      "date": "2025-10-18",
+      "excerpt": "Humanity's acceleration into orbital space has exceeded the pace of its regulatory development. Achieving long-term space sustainability requires systemic architecture for managing orbital domains as shared global infrastructure.",
+      "tags": ["Sustainability", "Policy", "Space Governance", "Kessler Syndrome"],
+      "readTime": "7 min read",
+      "category": "Analysis"
+    },
+    {
       "id": "we-reserved-orbit-shift-log",
       "title": "We Reserved Orbit: A Shift Log Between Satellite Operators",
       "date": "2025-10-02",
