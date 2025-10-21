@@ -170,6 +170,41 @@
             letter-spacing: 0.5em;
         }
         
+        .social-share {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            flex-wrap: wrap;
+        }
+        
+        .social-share span {
+            color: #ff6b35;
+            font-weight: 500;
+        }
+        
+        .share-btn {
+            padding: 8px 16px;
+            background: rgba(255, 107, 53, 0.2);
+            color: #ff6b35;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+        }
+        
+        .share-btn:hover {
+            background: rgba(255, 107, 53, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+        
         .back-to-blog {
             text-align: center;
             margin: 40px 0;
@@ -200,6 +235,16 @@
             
             .post-title {
                 font-size: 2rem;
+            }
+            
+            .social-share {
+                padding: 15px;
+                gap: 10px;
+            }
+            
+            .share-btn {
+                font-size: 0.8rem;
+                padding: 6px 12px;
             }
         }
     </style>
@@ -247,6 +292,13 @@
                     <h2>A Future Worth Protecting</h2>
                     
                     <p>Humanity's expansion into space does not need to be disorganized. By building systems that are proactive and designed for long-term sustainability, we can protect the future of orbital space for generations to come. Every so often, when fragments from old satellites reenter the atmosphere, people pause and look up—sometimes in wonder, sometimes in fear. That uncertainty says something about how fragile and unstructured our presence in orbit still is. Sustainable space governance means ensuring that the sky remains a source of connection, not concern. When future generations look up, they should see a reflection of human foresight and cooperation—not the consequences of neglect.</p>
+                    
+                    <div class="social-share">
+                        <span>Share:</span>
+                        <a href="#" class="share-btn" data-platform="twitter">Twitter</a>
+                        <a href="#" class="share-btn" data-platform="linkedin">LinkedIn</a>
+                        <a href="#" class="share-btn" data-platform="facebook">Facebook</a>
+                    </div>
                 </div>
             </article>
             
@@ -264,5 +316,24 @@
             </div>
         </div>
     </footer>
+    
+    <script>
+        document.querySelectorAll('.share-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const platform = btn.dataset.platform;
+                const url = encodeURIComponent(window.location.href);
+                const title = encodeURIComponent(document.title);
+                
+                const shareUrls = {
+                    twitter: `https://twitter.com/intent/tweet?url=${url}&text=${title}`,
+                    linkedin: `https://linkedin.com/sharing/share-offsite/?url=${url}`,
+                    facebook: `https://facebook.com/sharer/sharer.php?u=${url}`
+                };
+                
+                window.open(shareUrls[platform], '_blank', 'width=600,height=400');
+            });
+        });
+    </script>
 </body>
 </html>
