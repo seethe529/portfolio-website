@@ -290,7 +290,7 @@
                 <header class="post-header">
                     <h1 class="post-title">Building the Future of Space Traffic Management: Orbital Governance MVP</h1>
                     <div class="post-meta">
-                        <span class="post-date">December 19, 2024</span>
+                        <span class="post-date">October 22, 2025</span>
                         <span class="post-category">Technical</span>
                         <span>8 min read</span>
                     </div>
@@ -304,7 +304,7 @@
                 </header>
                 
                 <div class="post-content">
-                <p class="lead">Space is getting crowded. With over 12,000 active satellites and plans for 100,000+ more by 2030, we need a new approach to managing orbital space. I built the Extra-Orbital Solutions MVP to demonstrate how we can transform orbital space from an unmanaged commons into a governed, sustainable resource.</p>
+                <p class="lead">Space is getting crowded. With over 12,000 active satellites and plans for 100,000+ more by 2030, we need new approaches to managing orbital space. I built this MVP to explore what an orbital governance system might look like - it's a proof of concept that demonstrates the basic components needed for space traffic coordination.</p>
 
                 <h2>The Problem: Space Traffic Chaos</h2>
                 
@@ -319,9 +319,9 @@
 
                 <p>The space industry needs what aviation had a century ago: air traffic control for orbital space.</p>
 
-                <h2>The Solution: Orbital Governance System</h2>
+                <h2>The Concept: Orbital Governance System</h2>
 
-                <p>The Extra-Orbital Solutions MVP demonstrates a production-ready approach to orbital space management. Think of it as "parking spaces for satellites" - a systematic way to allocate, track, and manage orbital resources.</p>
+                <p>The Extra-Orbital Solutions MVP explores what orbital space management could look like. Think of it as "parking spaces for satellites" - a conceptual framework for how we might systematically allocate and track orbital resources in the future.</p>
 
                 <h3>Core Architecture</h3>
 
@@ -329,12 +329,12 @@
 
                 <div class="code-block">
                     <h4>1. Orbital Tract Database</h4>
-                    <pre><code>95,904 volumetric orbital shells covering:
+                    <pre><code>95,904 orbital parameter combinations covering:
 ├── Altitude: 200-2000km (50km bins)
 ├── Inclination: 0-170° (5° bins)  
 └── RAAN: 0-360° (5° bins)
 
-Spatial accuracy: 100% validated with live satellite data</code></pre>
+Note: Basic parameter mapping - needs SME input for proper orbital geometry</code></pre>
                 </div>
 
                 <div class="code-block">
@@ -403,29 +403,30 @@ LIMIT 10</code></pre>
                 <h3>API Design</h3>
                 <p>The REST API follows modern conventions with comprehensive error handling and validation. All endpoints return JSON with appropriate HTTP status codes and descriptive error messages.</p>
 
-                <h2>Production Readiness</h2>
+                <h2>Current Status & Limitations</h2>
 
-                <p>This isn't just a demo - it's a production-ready foundation for orbital governance:</p>
+                <p>This is an MVP that demonstrates the concept - not a production system. Here's what it actually does and what it needs:</p>
 
-                <h3>Validated Accuracy</h3>
+                <h3>What Works</h3>
                 <ul>
-                    <li><strong>100% spatial accuracy</strong> validated with live satellite data</li>
-                    <li><strong>Real-time tracking</strong> of 12,981 satellites</li>
-                    <li><strong>Optimized queries</strong> for sub-second response times</li>
+                    <li><strong>Basic database</strong> with satellite tracking data</li>
+                    <li><strong>Simple API</strong> for querying satellites and orbital parameters</li>
+                    <li><strong>Interactive demo</strong> showing the workflow concept</li>
                 </ul>
 
-                <h3>Scalable Architecture</h3>
+                <h3>What's Missing</h3>
                 <ul>
-                    <li><strong>PostgreSQL clustering</strong> ready for 1M+ queries/second</li>
-                    <li><strong>AWS serverless</strong> deployment for global scaling</li>
-                    <li><strong>Modular design</strong> for easy feature additions</li>
+                    <li><strong>Proper orbital geometry</strong> - needs industry SMEs for PostGIS spatial modeling</li>
+                    <li><strong>Real spatial accuracy</strong> - current system uses basic parameter matching</li>
+                    <li><strong>Production architecture</strong> - this is a local demo, not scalable infrastructure</li>
+                    <li><strong>Regulatory integration</strong> - no actual governance authority or legal framework</li>
                 </ul>
 
-                <h3>Cost Optimization</h3>
+                <h3>Development Approach</h3>
                 <ul>
-                    <li><strong>$0/month</strong> development cost using local PostgreSQL</li>
-                    <li><strong>AWS free tier</strong> compatible for initial deployment</li>
-                    <li><strong>Efficient queries</strong> minimizing database load</li>
+                    <li><strong>Proof of concept</strong> built to explore the problem space</li>
+                    <li><strong>Learning exercise</strong> in orbital mechanics and space policy</li>
+                    <li><strong>Foundation for collaboration</strong> with domain experts</li>
                 </ul>
 
                 <h2>Market Opportunity</h2>
@@ -476,14 +477,14 @@ LIMIT 10</code></pre>
 
                 <h2>Technical Challenges Solved</h2>
 
-                <h3>Spatial Accuracy</h3>
-                <p>Achieving 100% spatial accuracy required developing a novel approach using orbital parameter coordinates instead of Cartesian coordinates. This enables efficient queries while maintaining precision for conjunction screening.</p>
+                <h3>Database Design Challenges</h3>
+                <p>The current system uses basic orbital parameter matching rather than true spatial geometry. Building proper orbital arc geometry in PostGIS requires deep expertise in astrodynamics that I'm still learning.</p>
 
-                <h3>Real-time Performance</h3>
-                <p>Tracking 12,981 satellites with sub-second query times required optimizing PostgreSQL with proper indexing and query optimization. The system handles concurrent users without performance degradation.</p>
+                <h3>API Development</h3>
+                <p>The Flask API demonstrates the workflow concept with simple database queries. Real orbital conjunction analysis would require much more sophisticated spatial calculations and industry-standard algorithms.</p>
 
-                <h3>Scalable Data Model</h3>
-                <p>The orbital tract generator creates 95,904 volumetric shells covering the entire LEO parameter space. This provides comprehensive coverage while maintaining manageable data sizes.</p>
+                <h3>Learning Process</h3>
+                <p>This MVP helped me understand the complexity of orbital mechanics and the need for collaboration with subject matter experts. The "tract" concept needs validation from astrodynamics professionals.</p>
 
                 <h2>Future Enhancements</h2>
 
@@ -508,18 +509,18 @@ LIMIT 10</code></pre>
                 </ul>
 
                 <div class="demo-box">
-                    <h4>🚀 Ready to Launch?</h4>
-                    <p>The orbital governance system is production-ready and available for pilot programs with satellite operators, space agencies, and regulatory bodies.</p>
-                    <p><strong>Contact:</strong> Ready to discuss implementation and partnership opportunities.</p>
+                    <h4>🚀 Interested in the Concept?</h4>
+                    <p>This MVP demonstrates a potential approach to orbital governance. It's a starting point for discussion, not a finished product.</p>
+                    <p><strong>Looking for:</strong> Collaboration with astrodynamics experts and space policy professionals to develop this concept further.</p>
                 </div>
 
                 <h2>Conclusion</h2>
 
-                <p>The Extra-Orbital Solutions MVP demonstrates that orbital governance isn't just possible - it's ready for deployment today. With 100% spatial accuracy, real-time tracking of 12,981 satellites, and a complete registration workflow, this system provides the technical foundation for transforming orbital space into a governed, sustainable resource.</p>
+                <p>This MVP explores what orbital governance might look like, but it's just the beginning. The database and API demonstrate the basic workflow, but building a real system requires expertise I don't have yet - proper orbital mechanics, astrodynamics, and space policy knowledge.</p>
 
-                <p>As the space economy grows toward $1 trillion by 2040, orbital governance will become as essential as air traffic control is today. The question isn't whether we need orbital governance - it's who will build it first.</p>
+                <p>As the space economy grows, orbital governance will become essential. This project helped me understand the problem space and identify what needs to be built. The real work requires collaboration with industry experts who understand orbital geometry and space traffic management.</p>
 
-                <p>The future of space traffic management starts now. And it's already running at localhost:3000.</p>
+                <p>It's a proof of concept running at localhost:3000 - a starting point for learning and discussion, not a finished solution.</p>
             </div>
 
                     
