@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extra Orbital Solutions - Live Demo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='assets/logo.png') }}">
+</head>
+<body>
+    <header>
+        <h1>🛰️ Extra-Orbital Solutions</h1>
+        <p>Real-time satellite tracking and orbital space management platform</p>
+        <div class="status-indicator">
+            <span class="status-online"></span>
+            <span>System Online - Tracking Live Satellites</span>
+        </div>
+    </header>
+
+    <main>
+        <section class="stats-dashboard">
+            <div class="stat-card">
+                <h3>Total Orbital Tracts</h3>
+                <div class="stat-number" id="total-tracts"><span class="loading"></span></div>
+                <p class="stat-description">Mapped LEO parking spaces</p>
+            </div>
+            <div class="stat-card">
+                <h3>Active Satellites</h3>
+                <div class="stat-number" id="active-satellites"><span class="loading"></span></div>
+                <p class="stat-description">Currently tracked spacecraft</p>
+            </div>
+            <div class="stat-card">
+                <h3>Available Spaces</h3>
+                <div class="stat-number" id="available-spaces"><span class="loading"></span></div>
+                <p class="stat-description">Open for new missions</p>
+            </div>
+            <div class="stat-card risk-indicator">
+                <h3>Collision Risk</h3>
+                <div class="stat-number" id="collision-risk"><span class="loading"></span></div>
+                <p class="stat-description" id="risk-description">Overall orbital safety</p>
+            </div>
+        </section>
+
+        <section class="satellite-tracker">
+            <h2>📡 Live Satellite Tracking</h2>
+            <div class="section-description">
+                <p>Real-time positions of active satellites in Low Earth Orbit, updated from live TLE data feeds.</p>
+                <div class="data-freshness">
+                    <span id="last-update">Last updated: Loading...</span>
+                </div>
+            </div>
+            <div class="search-controls">
+                <input type="text" id="satellite-search" placeholder="🔍 Search satellites (e.g., Starlink, OneWeb)..." class="search-input">
+                <div class="satellite-stats" id="satellite-stats">
+                    <span class="stat-item">Total: <span id="total-count">0</span></span>
+                    <span class="stat-item">Starlink: <span id="starlink-count">0</span></span>
+                    <span class="stat-item">OneWeb: <span id="oneweb-count">0</span></span>
+                    <span class="stat-item">Other: <span id="other-count">0</span></span>
+                </div>
+            </div>
+            <div id="satellite-list" class="satellite-grid">
+                <div class="loading-container">
+                    <span class="loading"></span>
+                    <span>Loading satellite data...</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="reservation-system">
+            <h2>🎯 Orbital Space Finder</h2>
+            <div class="section-description">
+                <p>Search for available orbital tracts based on your mission requirements. Enter your desired orbital parameters to find suitable parking spaces.</p>
+            </div>
+            <form id="reservation-form" class="modern-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="altitude">Mission Altitude (km)</label>
+                        <input type="number" id="altitude" min="200" max="2000" value="550" step="50" placeholder="e.g., 550">
+                    </div>
+                    <div class="form-group">
+                        <label for="inclination">Orbital Inclination</label>
+                        <select id="inclination">
+                            <option value="53">Starlink Configuration (53°)</option>
+                            <option value="97">Sun-Synchronous Polar (97°)</option>
+                            <option value="28">ISS-Compatible (28°)</option>
+                            <option value="0">Equatorial (0°)</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="search-button">
+                    🔍 Search Available Orbital Tracts
+                </button>
+            </form>
+            <div id="reservation-results" class="results-container"></div>
+        </section>
+
+        <section class="registration-system">
+            <h2>📝 Satellite Registration</h2>
+            <div class="section-description">
+                <p>Register your satellite for an approved orbital tract. Complete the orbital governance process with official registration.</p>
+            </div>
+            <form id="registration-form" class="modern-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="satellite-name">Satellite Name</label>
+                        <input type="text" id="satellite-name" placeholder="e.g., CommSat-1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="operator">Operator/Organization</label>
+                        <input type="text" id="operator" placeholder="e.g., SpaceX, NASA, OneWeb" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="tract-id">Orbital Tract ID</label>
+                        <input type="text" id="tract-id" placeholder="e.g., LEO-A550-I53-RAAN0_5" required>
+                        <small>Select from available tracts above</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="mission-type">Mission Type</label>
+                        <select id="mission-type" required>
+                            <option value="">Select Mission Type</option>
+                            <option value="Communications">Communications</option>
+                            <option value="Earth Observation">Earth Observation</option>
+                            <option value="Scientific Research">Scientific Research</option>
+                            <option value="Navigation">Navigation</option>
+                            <option value="Technology Demo">Technology Demo</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="register-button">
+                    📝 Register Satellite
+                </button>
+            </form>
+            <div id="registration-results" class="results-container"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p><strong>Extra-Orbital Solutions</strong> - Transforming Space Traffic Management</p>
+            <p class="footer-stats">
+                <span>100% Spatial Accuracy Validated</span> • 
+                <span>12,000+ Satellites Tracked</span> • 
+                <span>95,904 Orbital Tracts Mapped</span>
+            </p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+flask
+flask-cors
+psycopg2-binary
+skyfield
+sqlalchemy
+geoalchemy2
+shapely
+numpy
