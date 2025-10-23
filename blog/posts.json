@@ -1,6 +1,15 @@
 {
   "posts": [
     {
+      "id": "presentation-never-happened-transparency-threat",
+      "title": "The Presentation That Never Happened: How Transparency Became a Threat",
+      "date": "2025-03-02",
+      "excerpt": "In early 2023, my UAP visualization system was accepted for presentation at the ESRI User Conference. It was built to improve transparency—but that transparency was never allowed to happen.",
+      "tags": ["Transparency", "UAP", "Whistleblowing", "Accountability"],
+      "readTime": "6 min read",
+      "category": "Documentation"
+    },
+    {
       "id": "orbital-governance-mvp-demo",
       "title": "Building the Future of Space Traffic Management: Orbital Governance MVP",
       "date": "2025-10-22",
