@@ -39,7 +39,7 @@
     {
       "id": "for-the-record-accountability-matters",
       "title": "For the Record: Why Accountability Still Matters",
-      "date": "2024-10-16",
+      "date": "2025-10-16",
       "excerpt": "A reflection on resilience, ethics, and the pursuit of accountability in technology and governance — documenting a professional journey toward transparent systems for Earth and space.",
       "tags": ["Accountability", "Ethics", "Resilience", "Governance"],
       "readTime": "8 min read",
@@ -48,7 +48,7 @@
     {
       "id": "why-orbital-governance-matters",
       "title": "Why Orbital Governance Matters",
-      "date": "2024-10-15",
+      "date": "2025-10-15",
       "excerpt": "Orbital space is becoming the next shared environment of humanity—yet it remains largely unstructured. How do we give structure to a realm that has none?",
       "tags": ["Governance", "Policy", "Space"],
       "readTime": "5 min read",
@@ -57,7 +57,7 @@
     {
       "id": "orbital-tract-framework",
       "title": "The Orbital Tract Framework: A New Map for Space",
-      "date": "2024-10-14",
+      "date": "2025-10-14",
       "excerpt": "Introducing a spatial zoning system that organizes near-Earth space into discrete, mappable volumes for better satellite mission planning and space traffic management.",
       "tags": ["Technology", "Framework", "Visualization"],
       "readTime": "10 min read",
@@ -66,7 +66,7 @@
     {
       "id": "building-orbital-governance-api",
       "title": "Building the Orbital Governance API",
-      "date": "2024-10-12",
+      "date": "2025-10-12",
       "excerpt": "Technical walkthrough of designing scalable APIs for orbital data transparency, featuring endpoint architecture and segmentation logic for space governance.",
       "tags": ["Technology", "API", "Development"],
       "readTime": "12 min read",
