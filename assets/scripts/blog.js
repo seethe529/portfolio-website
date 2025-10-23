@@ -8,12 +8,15 @@ class BlogManager {
         this.posts = [];
         this.filteredPosts = [];
         this.currentFilter = 'all';
+        this.currentSort = 'date-desc';
         this.init();
     }
 
     async init() {
         try {
             await this.loadPosts();
+            this.populateFilters();
+            this.sortPosts();
             this.renderPosts();
             this.setupEventListeners();
         } catch (error) {
@@ -30,6 +33,36 @@ class BlogManager {
         const data = await response.json();
         this.posts = data.posts;
         this.filteredPosts = [...this.posts];
+    }
+    
+    populateFilters() {
+        const categoryFilter = document.getElementById('category-filter');
+        if (!categoryFilter) return;
+        
+        const categories = [...new Set(this.posts.map(post => post.category))].sort();
+        
+        // Clear existing options except "All Categories"
+        categoryFilter.innerHTML = '<option value="all">All Categories</option>';
+        
+        categories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category.toLowerCase();
+            option.textContent = category;
+            categoryFilter.appendChild(option);
+        });
+    }
+    
+    sortPosts() {
+        this.filteredPosts.sort((a, b) => {
+            const dateA = new Date(a.date);
+            const dateB = new Date(b.date);
+            
+            if (this.currentSort === 'date-desc') {
+                return dateB - dateA; // Newest first
+            } else {
+                return dateA - dateB; // Oldest first
+            }
+        });
     }
 
     renderPosts() {
@@ -87,13 +120,18 @@ class BlogManager {
             this.filteredPosts = [...this.posts];
         } else {
             this.filteredPosts = this.posts.filter(post => 
-                post.category.toLowerCase() === category.toLowerCase() ||
-                post.tags.some(tag => tag.toLowerCase() === category.toLowerCase())
+                post.category.toLowerCase() === category.toLowerCase()
             );
         }
         
+        this.sortPosts();
         this.renderPosts();
-        this.updateFilterButtons();
+    }
+    
+    changeSorting(sortType) {
+        this.currentSort = sortType;
+        this.sortPosts();
+        this.renderPosts();
     }
 
     updateFilterButtons() {
@@ -107,14 +145,21 @@ class BlogManager {
     }
 
     setupEventListeners() {
-        // Filter buttons
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        filterButtons.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                this.filterPosts(btn.dataset.filter);
+        // Sort dropdown
+        const sortSelect = document.getElementById('sort-select');
+        if (sortSelect) {
+            sortSelect.addEventListener('change', (e) => {
+                this.changeSorting(e.target.value);
             });
-        });
+        }
+        
+        // Category filter dropdown
+        const categoryFilter = document.getElementById('category-filter');
+        if (categoryFilter) {
+            categoryFilter.addEventListener('change', (e) => {
+                this.filterPosts(e.target.value);
+            });
+        }
 
         // Search functionality (if search input exists)
         const searchInput = document.getElementById('blog-search');

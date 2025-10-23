@@ -214,6 +214,52 @@
             background: linear-gradient(135deg, #d84315 0%, #bf360c 100%);
         }
         
+        .blog-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            padding: 20px 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            margin-bottom: 40px;
+            gap: 20px;
+        }
+        
+        .sort-controls, .filter-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .blog-controls label {
+            color: #cccccc;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .blog-controls select {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 107, 53, 0.4);
+            border-radius: 8px;
+            padding: 8px 12px;
+            color: #ffffff;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-controls select:hover {
+            border-color: rgba(255, 107, 53, 0.6);
+        }
+        
+        .blog-controls select:focus {
+            outline: none;
+            border-color: #ff6b35;
+            box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
+        }
+        
         @media (max-width: 768px) {
             .blog-grid {
                 grid-template-columns: 1fr;
@@ -230,6 +276,16 @@
             
             .blog-card {
                 padding: 25px 20px;
+            }
+            
+            .blog-controls {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 15px;
+            }
+            
+            .sort-controls, .filter-controls {
+                justify-content: space-between;
             }
         }
     </style>
@@ -250,6 +306,22 @@
             <h1>Blog</h1>
             <p>Exploring orbital governance, space policy, and the intersection of geospatial technology with the future of space exploration. Insights on building transparent, equitable frameworks for our expanding presence in near-Earth space.</p>
         </header>
+        
+        <div class="blog-controls">
+            <div class="sort-controls">
+                <label for="sort-select">Sort by:</label>
+                <select id="sort-select">
+                    <option value="date-desc">Newest First</option>
+                    <option value="date-asc">Oldest First</option>
+                </select>
+            </div>
+            <div class="filter-controls">
+                <label for="category-filter">Filter by category:</label>
+                <select id="category-filter">
+                    <option value="all">All Categories</option>
+                </select>
+            </div>
+        </div>
         
         <section id="blog-grid" class="blog-grid" aria-label="Blog posts">
             <!-- Blog posts will be loaded here dynamically -->
