@@ -1,50 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url>
-    <loc>https://ryan-lingo.com/</loc>
-    <lastmod>2024-10-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://ryan-lingo.com/assets/images/ryan-lingo-headshot.jpg</image:loc>
-      <image:title>Ryan Lingo - GIS Database Engineer</image:title>
-      <image:caption>Professional headshot of Ryan Lingo, GIS Database Engineer specializing in geospatial technology and orbital governance</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://ryan-lingo.com/blog/</loc>
-    <lastmod>2024-10-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ryan-lingo.com/blog/posts/for-the-record-accountability-matters.html</loc>
-    <lastmod>2024-10-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ryan-lingo.com/blog/posts/why-orbital-governance-matters.html</loc>
-    <lastmod>2024-10-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ryan-lingo.com/blog/posts/orbital-tract-framework.html</loc>
-    <lastmod>2024-10-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ryan-lingo.com/blog/posts/building-orbital-governance-api.html</loc>
-    <lastmod>2024-10-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ryan-lingo.com/assets/documents/ryan-lingo-resume.pdf</loc>
-    <lastmod>2024-10-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    
+    <!-- Homepage -->
+    <url>
+        <loc>https://ryanlingo.com/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Blog Index -->
+    <url>
+        <loc>https://ryanlingo.com/blog/</loc>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Blog Posts -->
+    <url>
+        <loc>https://ryanlingo.com/blog/posts/orbital-governance-mvp-demo.html</loc>
+        <lastmod>2025-10-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://ryanlingo.com/blog/posts/sustainability-space-ecosystem.html</loc>
+        <lastmod>2025-10-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://ryanlingo.com/blog/posts/we-reserved-orbit-shift-log.html</loc>
+        <lastmod>2025-10-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://ryanlingo.com/blog/posts/presentation-never-happened-transparency-threat.html</loc>
+        <lastmod>2025-03-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://ryanlingo.com/blog/posts/for-the-record-accountability-matters.html</loc>
+        <lastmod>2025-10-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://ryanlingo.com/blog/posts/why-orbital-governance-matters.html</loc>
+        <lastmod>2025-10-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://ryanlingo.com/blog/posts/orbital-tract-framework.html</loc>
+        <lastmod>2025-10-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://ryanlingo.com/blog/posts/building-orbital-governance-api.html</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
 </urlset>
