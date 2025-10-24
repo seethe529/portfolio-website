@@ -10,7 +10,7 @@ After the UAP visualization system was nearly complete, management introduced a 
 
 ## A Target for Transparency
 
-That same week, a previously canceled prescription was refilled without my authorization. Shortly after, I began receiving digital content laced with references to suicide and surveillance—tactics that appeared designed to manipulate my mental state. I reported these incidents through official ethics and whistleblower channels at the FAA, Leidos, and later through congressional offices, including Representative Brian Fitzpatrick and Senator Robert Casey. Each step forward only led to increased retaliation and digital interference.
+Around that same time, I began experiencing what appeared to be coordinated psychological targeting — digital content and interactions laced with references to suicide and surveillance, seemingly designed to destabilize and manipulate my mental state. I reported these incidents through official ethics and whistleblower channels at the FAA, Leidos, and later through congressional offices, including Representative Brian Fitzpatrick and Senator Robert Casey. Each step forward only led to increased retaliation and digital interference.
 
 By the summer of 2023, my communications were being tampered with, my professional reputation undermined, and my health weaponized. When I finally resigned from Leidos, it was not a career decision—it was self-preservation.
 
