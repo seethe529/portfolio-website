@@ -2,6 +2,8 @@
 
 In early 2023, my work on a UAP (Unidentified Anomalous Phenomena) visualization system within the Federal Aviation Administration’s System Security Operations was accepted for presentation at the ESRI User Conference. It was a project built to improve transparency—an organized, data-driven way to visualize and classify UAP reports against known satellite orbits. But that transparency was never allowed to happen.
 
+The abstract, titled *“Comparing Reports of Unidentified Aerial Phenomena to Starlink Satellite Orbits,”* was accepted for presentation, marking what should have been a milestone moment in the project’s transparency and technical innovation.
+
 ## The Project and Its Shift in Direction
 
 The original scope of the project was to develop a 3D visualization framework for increasing and analyzing UAP reports received by the Air Traffic Control System Command Center (ATSCC). The system aimed to provide traceability, pattern recognition, and public accountability regarding UAP activity in the National Airspace System.
