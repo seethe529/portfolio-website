@@ -13,7 +13,7 @@
       "id": "orbital-governance-mvp-demo",
       "title": "Building the Future of Space Traffic Management: Orbital Governance MVP",
       "date": "2025-10-22",
-      "excerpt": "A deep dive into the Extra-Orbital Solutions MVP - a production-ready system for managing orbital space as a governed resource with real-time satellite tracking and automated tract registration.",
+      "excerpt": "A deep dive into the Orbital Tract Framework MVP - a production-ready system for managing orbital space as a governed resource with real-time satellite tracking and automated tract registration.",
       "tags": ["Space Technology", "Orbital Governance", "Full-Stack Development", "PostgreSQL", "Flask API"],
       "readTime": "8 min read",
       "category": "Technical"
