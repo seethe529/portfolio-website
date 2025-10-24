@@ -13,7 +13,7 @@
       "id": "orbital-governance-mvp-demo",
       "title": "Building the Future of Space Traffic Management: Orbital Governance MVP",
       "date": "2025-10-22",
-      "excerpt": "A deep dive into the Orbital Zoning Framework MVP - a proof-of-concept system exploring how orbital space could be managed as a governed resource with database-driven tract mapping and registration workflow.",
+      "excerpt": "A deep dive into the Orbital Zoning Framework (OZF) MVP - a proof-of-concept system exploring how orbital space could be managed as a governed resource with database-driven tract mapping and registration workflow.",
       "tags": ["Space Technology", "Orbital Governance", "Full-Stack Development", "PostgreSQL", "Flask API"],
       "readTime": "8 min read",
       "category": "Technical"
