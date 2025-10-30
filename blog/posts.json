@@ -1,6 +1,15 @@
 {
   "posts": [
     {
+      "id": "case-for-orbital-zoning",
+      "title": "The Case for Orbital Zoning: Structuring Humanity's Shared Space",
+      "date": "2025-10-30",
+      "excerpt": "Low Earth orbit is becoming increasingly crowded and contested. If we want to protect this critical domain, we need to treat it as sovereign space and manage it with the same intentionality we apply to terrestrial environments.",
+      "tags": ["Orbital Zoning Framework", "Space Sustainability", "Governance", "LEO", "MEO", "GEO", "Cislunar", "Mars", "OZF"],
+      "readTime": "6 min read",
+      "category": "Analysis"
+    },
+    {
       "id": "presentation-never-happened-transparency-threat",
       "title": "The Presentation That Never Happened: How Transparency Became a Threat",
       "date": "2025-03-02",
