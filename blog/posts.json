@@ -1,6 +1,15 @@
 {
   "posts": [
     {
+      "id": "building-anchor-space-systems-thinking-mental-health",
+      "title": "Building Anchor: Applying Space Systems Thinking to Mental Health",
+      "date": "2025-11-14",
+      "excerpt": "How principles from orbital governance informed the design of Anchor – a React Native PTSD support app combining DBT/CBT techniques with AI-powered support. A technical reflection on building mental health tools with systems thinking.",
+      "tags": ["Mental Health", "App Development", "PTSD", "React Native", "Orbital Governance", "Systems Design", "iOS", "AI"],
+      "readTime": "7 min read",
+      "category": "Technical"
+    },
+    {
       "id": "resilience-following-institutional-harm",
       "title": "Resilience Following Institutional Harm",
       "date": "2025-11-07",
