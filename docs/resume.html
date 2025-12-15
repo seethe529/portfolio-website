@@ -202,23 +202,40 @@
         }
 
         @media print {
+            @page {
+                size: letter;
+                margin: 0.5in;
+            }
+            
             body {
                 font-size: 10pt;
+                width: 100%;
+                margin: 0;
+                padding: 0;
             }
             
             .resume-container {
-                padding: 0.5in;
+                max-width: 100%;
+                width: 100%;
+                padding: 0;
+                margin: 0;
                 box-shadow: none;
             }
             
             .section {
+                page-break-inside: avoid;
                 break-inside: avoid;
                 margin-bottom: 20px;
             }
             
             .job {
+                page-break-inside: avoid;
                 break-inside: avoid;
                 margin-bottom: 15px;
+            }
+            
+            .header {
+                page-break-after: avoid;
             }
         }
 
