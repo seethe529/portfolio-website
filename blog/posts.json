@@ -1,6 +1,15 @@
 {
   "posts": [
     {
+      "id": "plausibly-deniable-book-announcement",
+      "title": "Plausibly Deniable: A Documented Account of Government Retaliation",
+      "date": "2026-04-08",
+      "excerpt": "After three years of documentation, the full record is now public. Every federal agency, congressional office, and newsroom that received evidence and returned silence — all named and dated.",
+      "tags": ["Accountability", "Whistleblower", "Transparency", "Documentation"],
+      "readTime": "4 min read",
+      "category": "Announcement"
+    },
+    {
       "id": "building-anchor-space-systems-thinking-mental-health",
       "title": "Building Anchor: Applying Space Systems Thinking to Mental Health",
       "date": "2025-11-14",

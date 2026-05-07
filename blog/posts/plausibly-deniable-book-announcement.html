@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plausibly Deniable - Ryan Lingo</title>
+    <meta name="description" content="After three years of documentation, the full record is now public. Every federal agency, congressional office, and newsroom that received evidence and returned silence — all named and dated.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    
+    <style>
+        .post-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .nav-breadcrumb {
+            margin-bottom: 40px;
+            font-size: 0.9rem;
+            color: #999;
+        }
+        
+        .nav-breadcrumb a {
+            color: #ff6b35;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-breadcrumb a:hover {
+            color: #ff8c00;
+        }
+        
+        .post-header {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            padding: 50px;
+            border-radius: 28px;
+            border: 1px solid rgba(255, 107, 53, 0.4);
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .post-title {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .post-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #999;
+            flex-wrap: wrap;
+        }
+        
+        .post-date {
+            color: #ff6b35;
+            font-weight: 500;
+        }
+        
+        .post-category {
+            background: rgba(255, 107, 53, 0.2);
+            color: #ff6b35;
+            padding: 6px 16px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .post-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .post-tag {
+            background: rgba(255, 107, 53, 0.15);
+            color: #ff8c00;
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+        }
+        
+        .post-content {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            padding: 50px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            margin-bottom: 50px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .post-content h2 {
+            color: #ff6b35;
+            font-size: 1.8rem;
+            margin: 40px 0 20px 0;
+            font-weight: 600;
+        }
+        
+        .post-content h3 {
+            color: #ff8c00;
+            font-size: 1.4rem;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+        }
+        
+        .post-content p {
+            color: #cccccc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .section-divider {
+            text-align: center;
+            color: #ff6b35;
+            font-size: 1.5rem;
+            margin: 40px 0;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-in-out forwards;
+        }
+        
+        .section-divider:nth-of-type(1) { animation-delay: 0.2s; }
+        .section-divider:nth-of-type(2) { animation-delay: 0.4s; }
+        .section-divider:nth-of-type(3) { animation-delay: 0.6s; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .book-description {
+            background: rgba(255, 107, 53, 0.05);
+            border-left: 4px solid #ff6b35;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        
+        .book-description p {
+            color: #e8e8e8;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+        
+        .book-links {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .book-links h3 {
+            color: #ff6b35;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .book-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .book-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b35 0%, #d84315 100%);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+            font-size: 1rem;
+        }
+        
+        .book-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.5);
+            background: linear-gradient(135deg, #d84315 0%, #bf360c 100%);
+        }
+        
+        .blog-footer {
+            background: rgba(255, 107, 53, 0.05);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .blog-footer p {
+            color: #e8e8e8;
+            font-style: italic;
+            margin: 0;
+            font-size: 1rem;
+        }
+        
+        .social-share {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            flex-wrap: wrap;
+        }
+        
+        .social-share span {
+            color: #ff6b35;
+            font-weight: 500;
+        }
+        
+        .share-btn {
+            padding: 8px 16px;
+            background: rgba(255, 107, 53, 0.2);
+            color: #ff6b35;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+        }
+        
+        .share-btn:hover {
+            background: rgba(255, 107, 53, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        .back-to-blog {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b35 0%, #d84315 100%);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.5);
+            background: linear-gradient(135deg, #d84315 0%, #bf360c 100%);
+        }
+        
+        @media (max-width: 768px) {
+            .post-header, .post-content {
+                padding: 30px 25px;
+            }
+            
+            .post-title {
+                font-size: 2rem;
+            }
+            
+            .post-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .book-description {
+                padding: 20px;
+            }
+            
+            .book-links {
+                padding: 20px;
+            }
+            
+            .book-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .social-share {
+                padding: 15px;
+                gap: 10px;
+            }
+            
+            .share-btn {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container" style="margin-top: 80px;">
+        <div class="post-container">
+            <div class="nav-breadcrumb">
+                <a href="../../index.html">Home</a> / <a href="../index.html">Blog</a> / Plausibly Deniable
+            </div>
+            
+            <article>
+                <header class="post-header">
+                    <h1 class="post-title">Plausibly Deniable</h1>
+                    <div class="post-meta">
+                        <span class="post-date">April 8, 2026</span>
+                        <span class="post-category">Announcement</span>
+                        <span>4 min read</span>
+                    </div>
+                    <div class="post-tags">
+                        <span class="post-tag">Accountability</span>
+                        <span class="post-tag">Whistleblower</span>
+                        <span class="post-tag">Transparency</span>
+                        <span class="post-tag">Documentation</span>
+                    </div>
+                </header>
+                
+                <div class="post-content">
+                    <p>For three years, I documented everything. Every federal agency that received evidence. Every congressional office that acknowledged receipt and then went silent. Every whistleblower attorney who declined representation. Every newsroom that chose not to publish.</p>
+                    
+                    <p>The record is now public.</p>
+                    
+                    <div class="section-divider">⸻</div>
+                    
+                    <div class="book-description">
+                        <p><strong>Ryan Charles Lingo</strong> had spent months building a UAP monitoring prototype inside the Federal Aviation Administration — work that reached the Office of the Director of National Intelligence. His research was accepted at the largest GIS conference in the world. He never got to present it.</p>
+                        
+                        <p>On March 2nd, 2023, a federal contractor with a SECRET security clearance was handed a false identity, directed to erase his own name from government systems, and guided — through methods designed to leave no fingerprints — toward a covert operation he had never been briefed on.</p>
+                        
+                        <p>Two days later he filed a federal complaint. Five days after that he was hospitalized.</p>
+                        
+                        <p>What followed was a three-year campaign that dismantled his career, his credibility, and his life. He documented all of it. Every federal agency, congressional office, whistleblower attorney, and newsroom that received his evidence and returned the silence. It is all in this book, named and dated.</p>
+                        
+                        <p>And buried inside three years of records, he found something that couldn't be explained away.</p>
+                        
+                        <p><strong>Every event in this book is documented. Every document is named.</strong></p>
+                    </div>
+                    
+                    <div class="section-divider">⸻</div>
+                    
+                    <h2>Why This Matters</h2>
+                    
+                    <p>This book exists because accountability requires a record. Not speculation. Not hearsay. A documented timeline with names, dates, and evidence that can be verified.</p>
+                    
+                    <p>I wrote this for anyone who has ever been told their experience didn't happen. For anyone who filed a complaint and watched it disappear into bureaucratic silence. For anyone who believed that transparency and accountability still matter — even when the system is designed to make them impossible.</p>
+                    
+                    <p>The institutions I contacted — the FAA, Leidos, the U.S. Air Force, the Department of Transportation Office of Inspector General, congressional offices, and others — had the opportunity to respond. Most chose silence. That silence is also documented.</p>
+                    
+                    <div class="section-divider">⸻</div>
+                    
+                    <h2>What Comes Next</h2>
+                    
+                    <p>Publishing this book doesn't end the work. It formalizes the record so that others can build on it, reference it, or use it to hold power accountable in ways I could not.</p>
+                    
+                    <p>If you believe transparency matters — if you believe that documented evidence should mean something — then share this. Contact your representatives. Demand that whistleblower protections function as intended, not as legal theater.</p>
+                    
+                    <p>The record is real. It is now public.</p>
+                    
+                    <div class="book-links">
+                        <h3>Available Now</h3>
+                        <div class="book-buttons">
+                            <a href="https://www.amazon.com/dp/B0GZ1C59XL?ref_=cm_sw_r_ffobk_cp_ud_dp_687485M9WWQ07RCS3MVC&bestFormat=true" class="book-btn" target="_blank" rel="noopener">Paperback on Amazon</a>
+                            <a href="https://www.amazon.com/Plausibly-Deniable-Account-Government-Retaliation-ebook/dp/B0GYTYHQRF/ref=tmm_kin_swatch_0" class="book-btn" target="_blank" rel="noopener">Kindle on Amazon</a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-footer">
+                        <p>Every claim in this book is supported by documentation. The record stands on its own.</p>
+                    </div>
+                    
+                    <div class="social-share">
+                        <span>Share:</span>
+                        <a href="#" class="share-btn" data-platform="twitter">X</a>
+                        <a href="#" class="share-btn" data-platform="linkedin">LinkedIn</a>
+                        <a href="#" class="share-btn" data-platform="facebook">Facebook</a>
+                    </div>
+                </div>
+            </article>
+            
+            <div class="back-to-blog">
+                <a href="../index.html" class="back-btn">← Back to Blog</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Ryan Lingo. All rights reserved.</p>
+                <p class="tech-showcase">Built with AWS Amplify, Lambda, and DynamoDB — a showcase of modern cloud development.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.querySelectorAll('.share-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const platform = btn.dataset.platform;
+                const url = encodeURIComponent(window.location.href);
+                const title = encodeURIComponent(document.title);
+                
+                const shareUrls = {
+                    twitter: `https://twitter.com/intent/tweet?url=${url}&text=${title}`,
+                    linkedin: `https://linkedin.com/sharing/share-offsite/?url=${url}`,
+                    facebook: `https://facebook.com/sharer/sharer.php?u=${url}`
+                };
+                
+                window.open(shareUrls[platform], '_blank', 'width=600,height=400');
+            });
+        });
+    </script>
+</body>
+</html>
