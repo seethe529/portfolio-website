@@ -125,6 +125,25 @@
             font-size: 1.1rem;
         }
         
+        .book-cover-container {
+            text-align: center;
+            margin: 30px 0 40px 0;
+        }
+        
+        .book-cover {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 107, 53, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .book-cover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 107, 53, 0.3);
+        }
+        
         .section-divider {
             text-align: center;
             color: #ff6b35;
@@ -287,6 +306,10 @@
                 gap: 10px;
             }
             
+            .book-cover {
+                max-width: 300px;
+            }
+            
             .book-description {
                 padding: 20px;
             }
@@ -336,6 +359,10 @@
                 </header>
                 
                 <div class="post-content">
+                    <div class="book-cover-container">
+                        <img src="../../assets/images/plausibly-deniable-cover.jpg" alt="Plausibly Deniable book cover" class="book-cover">
+                    </div>
+                    
                     <p>For three years, I documented everything. Every federal agency that received evidence. Every congressional office that acknowledged receipt and then went silent. Every whistleblower attorney who declined representation. Every newsroom that chose not to publish.</p>
                     
                     <p>The record is now public.</p>
