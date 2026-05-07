@@ -58,12 +58,14 @@ body {
         linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
     min-height: 100vh;
     position: relative;
-    scroll-padding-top: 100px;
 }
 
 /* Add scroll margin to all sections for fixed nav */
-section {
-    scroll-margin-top: 100px;
+#about,
+#experience,
+#orbital-viz,
+#contact {
+    scroll-margin-top: 80px;
 }
 
 /* Subtle star field effect */
