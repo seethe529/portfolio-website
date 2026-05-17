@@ -7,4 +7,4 @@ Disallow: /.git/
 Disallow: /.aws/
 Disallow: /amplify/
 
-Sitemap: https://ryan-lingo.com/sitemap.xml
+Sitemap: https://www.ryan-lingo.com/sitemap.xml
