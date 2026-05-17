@@ -3,3 +3,6 @@ node_modules
 .amplify
 amplify_outputs*
 amplifyconfiguration*
+
+# Draft manuscript - do not commit
+assets/documents/Chapter_02_DRAFT.md
