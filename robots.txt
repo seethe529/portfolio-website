@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /assets/documents/
 Disallow: /cesium/
 Disallow: /node_modules/
 Disallow: /.git/
