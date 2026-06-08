@@ -1,6 +1,15 @@
 {
   "posts": [
     {
+      "id": "ozf-proper-elements-architecture",
+      "title": "The Orbital Zoning Framework: From RAAN to Proper Elements",
+      "date": "2026-06-08",
+      "excerpt": "The OZF has undergone a complete architectural rebuild. The original used RAAN as a classification axis — a parameter that precesses constantly. The new system uses proper orbital elements, AI-assisted development, and processes 31,000+ satellites.",
+      "tags": ["Orbital Zoning Framework", "Proper Elements", "AI-Assisted Development", "Space Traffic Management"],
+      "readTime": "8 min read",
+      "category": "Technical"
+    },
+    {
       "id": "plausibly-deniable-book-announcement",
       "title": "Plausibly Deniable: A Documented Account of Government Retaliation",
       "date": "2026-04-08",
