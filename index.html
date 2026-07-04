@@ -219,7 +219,7 @@
                 </div>
                 <div class="accomplishment-card">
                     <h3>Orbital Zoning Framework</h3>
-                    <p>A patent-pending spatial system that organizes near-Earth space into discrete, mappable orbital tracts for satellite coordination, space traffic management, and regulatory planning. Visualized with 33,168 validated entities.</p>
+                    <p>A patent-pending classification system that organizes near-Earth space into 13,932 discrete zones using proper orbital elements — stable parameters that remain constant for decades. Currently tracking 31,360 satellites with a 97.9% zone assignment rate.</p>
                     <a href="#orbital-viz" style="color: #ff6b35; text-decoration: none; font-weight: 500;">View Visualization →</a>
                 </div>
                 <div class="accomplishment-card">
@@ -301,7 +301,8 @@
         <section id="orbital-viz" class="orbital-section">
             <div class="orbital-header">
                 <h2>Orbital Shell Visualization</h2>
-                <p>Interactive 3D visualization demonstrating orbital tract concepts for LEO, MEO, and GEO zones using advanced geospatial modeling.</p>
+                <p>Interactive 3D visualization demonstrating orbital zone concepts for LEO and MEO regions. The underlying framework now uses proper orbital elements (altitude, inclination, eccentricity) for stable, permanent zone assignments.</p>
+                <p style="font-size: 0.9rem; color: #999; margin-top: 10px;"><em>Note: This visualization reflects the original RAAN-based shell architecture. The current OZF system uses proper orbital elements as described above. See the <a href="blog/posts/ozf-proper-elements-architecture.html" style="color: #ff6b35;">architecture blog post</a> for details on the rebuild.</em></p>
             </div>
             
             <div class="orbital-viewer-container">
@@ -317,30 +318,28 @@
             <div class="orbital-details">
                 <div class="orbital-overview">
                     <h3>Orbital Zoning Framework (OZF)</h3>
-                    <p>This framework presents a conceptual space geography system that organizes near-Earth space into segmented orbital tracts — discrete, mappable volumes defined by altitude, inclination, and right ascension.
-Each tract represents a spatial unit within a larger three-dimensional zoning architecture designed for satellite mission planning, space traffic management, and regulatory coordination.
-The model illustrates how orbital environments can be indexed, visualized, and analyzed through geospatial segmentation, forming the basis of a policy-ready orbital mapping framework.</p>
+                    <p>A scientific classification system for Earth orbit that assigns every tracked satellite to a stable, physically meaningful zone using proper orbital elements. The framework organizes near-Earth space into 13,932 discrete zones defined by three stable axes: proper semi-major axis (altitude), proper inclination, and proper eccentricity — quantities that remain constant for decades rather than shifting daily. Each zone represents a permanent orbital address for satellite coordination, space traffic management, and regulatory planning.</p>
                     
                     <div class="orbit-examples">
                         <div class="orbit-card">
-                            <h4>🛰️ LEO (Low Earth Orbit) - 160-2000km</h4>
-                            <p><code>LEO-A550-I53-RAAN0_30</code></p>
-                            <p><strong>Example:</strong> A Starlink satellite at 550km altitude passes through this tract every 95 minutes, providing internet coverage to rural areas below.</p>
-                            <p><strong>System Importance:</strong> LEO tracts enable precise tracking of 4,000+ active satellites, preventing collisions in the most congested orbital zone. Critical for managing mega-constellations and ensuring sustainable space operations.</p>
+                            <h4>🛰️ LEO (Low Earth Orbit) - 200–2,000km</h4>
+                            <p><code>LEO-A550_600-I50_55-E0</code></p>
+                            <p><strong>Example:</strong> A Starlink satellite at 550km altitude, 53° inclination, near-circular orbit (E0: eccentricity &lt; 0.0005). This zone assignment remains valid for the satellite's entire operational life.</p>
+                            <p><strong>System Importance:</strong> LEO contains 11,664 zones tracking 31,000+ objects. Proper elements enable stable zone assignments that don't shift with RAAN precession, making them viable for long-term space traffic management and mega-constellation coordination.</p>
                         </div>
                         
                         <div class="orbit-card">
-                            <h4>🛰️ MEO (Medium Earth Orbit) - 2000-35,786km</h4>
-                            <p><code>MEO-A20200-I56-RAAN180_185</code></p>
-                            <p><strong>Example:</strong> GPS Block III satellite in this tract completes one orbit every 12 hours, maintaining precise timing signals for global positioning within 3 meters accuracy.</p>
-                            <p><strong>System Importance:</strong> MEO tract management ensures continuous GPS coverage for $1.4 trillion in economic benefits annually. Prevents signal interference and maintains the precision timing critical for financial markets, transportation, and emergency services.</p>
+                            <h4>🛰️ MEO (Medium Earth Orbit) - 2,000–36,000km</h4>
+                            <p><code>MEO-A20150_20250-I55_60-E3</code></p>
+                            <p><strong>Example:</strong> GPS Block III satellite at ~20,200km, 55° inclination, low eccentricity (E3: 0.002–0.005). Completes one orbit every 12 hours, maintaining precise timing signals for global positioning.</p>
+                            <p><strong>System Importance:</strong> MEO's 2,268 zones ensure GPS coverage supporting $1.4 trillion in annual economic benefits. Stable zone definitions prevent signal interference and maintain precision timing critical for financial markets, transportation, and emergency services.</p>
                         </div>
                         
                         <div class="orbit-card">
-                            <h4>🛰️ GEO (Geostationary Orbit) - 35,786km</h4>
-                            <p><code>GEO-TOROIDAL-RAAN0_30-T1-P1</code></p>
-                            <p><strong>Example:</strong> GOES-18 weather satellite remains fixed above the Pacific, continuously monitoring hurricanes and providing 24/7 weather data to NOAA for disaster preparedness.</p>
-                            <p><strong>System Importance:</strong> GEO tract allocation is internationally regulated by the ITU. Each orbital slot is worth billions in telecommunications revenue. This system prevents interference between nations' satellites and ensures equitable access to this finite resource for global communications infrastructure.</p>
+                            <h4>🛰️ Eccentricity Classification — 9 Bins</h4>
+                            <p><code>E0 (near-circular) → E8 (highly elliptical)</code></p>
+                            <p><strong>Examples:</strong> E0 (&lt;0.0005): Starlink, OneWeb · E1 (0.0005–0.001): ISS · E3 (0.002–0.005): GLONASS · E7 (0.05–0.25): GTO fragments · E8 (0.25–1.0): Molniya orbits</p>
+                            <p><strong>System Importance:</strong> Non-uniform bins provide fine resolution where satellites cluster (near-circular) and wider bins where populations are sparse. This third axis replaced the unstable RAAN parameter, which precesses 1–7° per day in LEO — making previous zone assignments obsolete within days.</p>
                         </div>
                     </div>
                 </div>
@@ -350,11 +349,11 @@ The model illustrates how orbital environments can be indexed, visualized, and a
                         <h4>Technical Implementation</h4>
                         <ul>
                             <li><strong>CesiumJS 1.109</strong> - WebGL-based 3D geospatial rendering engine</li>
-                            <li><strong>CZML Data Format</strong> - 33,168 validated orbital tract entities</li>
+                            <li><strong>Brouwer J2 Theory</strong> - Proper element computation via analytical secular theory</li>
+                            <li><strong>13,932 Zones</strong> - LEO (11,664) and MEO (2,268) with 9 eccentricity classes</li>
+                            <li><strong>PostgreSQL</strong> - 31,360 satellite records with zone assignments</li>
                             <li><strong>AWS Amplify</strong> - Serverless deployment and CI/CD pipeline</li>
-                            <li><strong>Local Asset Optimization</strong> - Self-hosted Cesium build for performance</li>
-                            <li><strong>Mobile-Responsive Design</strong> - Adaptive loading based on device capabilities</li>
-                            <li><strong>Security Hardening</strong> - Input validation, XSS prevention, CSP compliance</li>
+                            <li><strong>Space-Track.org</strong> - US Space Force TLE catalog as data source</li>
                         </ul>
                     </div>
                     
