@@ -1,6 +1,15 @@
 {
   "posts": [
     {
+      "id": "uap-files-podcast-first-interview",
+      "title": "Someone Finally Listened",
+      "date": "2026-07-12",
+      "excerpt": "After three years of documenting what happened at the FAA, I sat down with Jimmy on the UAP Files Podcast and told my story publicly for the first time. A reflection on being heard.",
+      "tags": ["Accountability", "Transparency", "UAP", "Interview"],
+      "readTime": "5 min read",
+      "category": "Reflection"
+    },
+    {
       "id": "ozf-proper-elements-architecture",
       "title": "The Orbital Zoning Framework: From RAAN to Proper Elements",
       "date": "2026-06-08",
